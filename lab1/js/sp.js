@@ -55,7 +55,8 @@ function sp(){
                     .range([2, 10]); // min, max radius of dots
 
 
-
+        xAxis.scale(x);
+        yAxis.scale(y);
 
 
         draw();
