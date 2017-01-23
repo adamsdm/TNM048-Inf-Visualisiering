@@ -6,7 +6,8 @@ function sp(){
 
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = spDiv.width() - margin.right - margin.left,
-        height = spDiv.height() - margin.top - margin.bottom;
+        height = spDiv.height() - margin.top - margin.bottom,
+        xScale, yScale, rScale;
 
     //initialize color scale
     //...
@@ -40,7 +41,19 @@ function sp(){
         console.log(self.data);
 
         //define the domain of the scatter plot axes
-        //...
+        yScale = d3.scale.linear()
+                     .domain([0, d3.max(self.data, function(d) { return d['Household income']; })])
+                     .range([height, 0]);
+        xScale = d3.scale.linear()
+                     .domain([0, d3.max(self.data, function(d) { return d['Life satisfaction']; })])
+                     .range([0, width]);
+        xScale = d3.scale.linear()
+                    .domain([0, d3.max(self.data, function(d) { return d['Life satisfaction']; })])
+                    .range([0, width]);
+
+
+
+
 
         draw();
 
@@ -76,12 +89,14 @@ function sp(){
             .attr("class", "dot")
             //Define the x and y coordinate data values for the dots
             .attr("cx", function(d, i) {
-              return i* (width / self.data.length);
+              return xScale(d['Life satisfaction']);
             })
             .attr("cy", function(d, i) {
-              return height - Math.random()*height;
+              return yScale(d['Household income']);
             })
-            .attr("r", 8)
+            .attr("r", function(d, i) {
+              return 2+Math.random()*10;
+            })
 
 
             //tooltip
@@ -92,7 +107,8 @@ function sp(){
                 //...
             })
             .on("click",  function(d) {
-              //...
+              console.log('x: ' + d['Life satisfaction']);
+              console.log('y: ' + d['Household income']);
             });
 
     }
