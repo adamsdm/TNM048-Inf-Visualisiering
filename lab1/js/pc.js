@@ -35,13 +35,25 @@ function pc(){
 
         self.data = data;
 
+
         // Extract the list of dimensions and create a scale for each.
-        //...
+        var pcScale = [
+            d3.extent(self.data, function(d){return d["Household income"]}), 
+            d3.extent(self.data, function(d){return d["Employment rate"]}), 
+            d3.extent(self.data, function(d){return d["Life satisfaction"]}), 
+            d3.extent(self.data, function(d){return d["Self-reported health"]}), 
+            d3.extent(self.data, function(d){return d["Unemployment rate"]})
+        ];
+
+
         x.domain(dimensions = d3.keys([0,1,2,3,4]).filter(function(d) {
             return [(y[d] = d3.scale.linear()
-                .domain(d3.extent([0,1]))
+                .domain(d3.extent(pcScale[d])) //returns min and max of array
                 .range([height, 0]))];
+
         }));
+
+        console.log(y[4](6));
 
         draw();
     });
