@@ -60,14 +60,9 @@ function sp(){
                     .domain( d3.extent(self.data, function(d) { return d['Employment rate']; }) )
                     .range([2, 10]); // min, max radius of dots
 
-        var xAxis = d3.svg.axis()
-            .scale(x)
-            .orient("bottom");
 
-        var yAxis = d3.svg.axis()
-            .scale(y)
-            .orient("left");
-
+        xAxis.scale(x);
+        yAxis.scale(y);
 
 
         draw();
