@@ -13,7 +13,13 @@ function sp(){
     //...
 
     //initialize tooltip
-    //...
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .text("tool");
+
 
     var x = d3.scale.linear()
         .range([0, width]);
@@ -114,10 +120,10 @@ function sp(){
 
             //tooltip
             .on("mousemove", function(d) {
-                //...
+                return tooltip.style("visibility", "visible").style("top", (d3.event.pageY-15)+"px").style("left",(d3.event.pageX+7)+"px").text(d["Country"]);
             })
             .on("mouseout", function(d) {
-                //...
+                return tooltip.style("visibility", "hidden");
             })
             .on("click",  function(d) {
               sp1.selectDot(d.Country);

@@ -17,7 +17,12 @@ function map(){
     //...
 
     //initialize tooltip
-    //...
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .text("tool");
 
     var projection = d3.geo.mercator()
         .center([50, 60 ])
@@ -75,10 +80,10 @@ function map(){
 
             //tooltip
             .on("mousemove", function(d) {
-                //...
+                return tooltip.style("visibility", "visible").style("top", (d3.event.pageY-15)+"px").style("left",(d3.event.pageX+7)+"px").text(d.properties.name);
             })
             .on("mouseout",  function(d) {
-                //...
+                return tooltip.style("visibility", "hidden");
             })
             //selection
             .on("click",  function(d) {
