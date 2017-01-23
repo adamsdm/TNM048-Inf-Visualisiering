@@ -7,7 +7,7 @@ function sp(){
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = spDiv.width() - margin.right - margin.left,
         height = spDiv.height() - margin.top - margin.bottom,
-        xScale, yScale, rScale;
+        rScale;
 
     //initialize color scale
     //...
@@ -42,11 +42,11 @@ function sp(){
         var padding = 10;
 
         //define the domain of the scatter plot axes
-        yScale = d3.scale.linear()
+        y = d3.scale.linear()
                      .domain( d3.extent(self.data, function(d) { return d['Household income']; }) )
                      .range([height, 0]);
 
-        xScale = d3.scale.linear()
+        x = d3.scale.linear()
                      .domain( d3.extent(self.data, function(d) { return d['Life satisfaction']; }) )
                      .range([0, width]);
 
@@ -98,10 +98,10 @@ function sp(){
             .attr("class", "dot")
             //Define the x and y coordinate data values for the dots
             .attr("cx", function(d, i) {
-                return xScale(d['Life satisfaction']);
+                return x(d['Life satisfaction']);
             })
             .attr("cy", function(d, i) {
-                return yScale(d['Household income']);
+                return y(d['Household income']);
             })
             .attr("r", function(d, i) {
                 return rScale(d['Employment rate']);
