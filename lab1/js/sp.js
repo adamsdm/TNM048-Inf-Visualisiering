@@ -38,7 +38,6 @@ function sp(){
     //Load data
     d3.csv("data/OECD-better-life-index-hi.csv", function(error, data) {
         self.data = data;
-        console.log(self.data);
 
         //define the domain of the scatter plot axes
         yScale = d3.scale.linear()

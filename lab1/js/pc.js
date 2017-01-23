@@ -8,16 +8,16 @@ function pc(){
         width = pcDiv.width() - margin[1] - margin[3],
         height = pcDiv.height() - margin[0] - margin[2];
 
-    
+
     //initialize color scale
     //...
-    
+
     //initialize tooltip
     //...
 
     var x = d3.scale.ordinal().rangePoints([0, width], 1),
         y = {};
-        
+
 
     var line = d3.svg.line(),
         axis = d3.svg.axis().orient("left"),
@@ -35,36 +35,34 @@ function pc(){
 
         self.data = data;
 
-
         // Extract the list of dimensions and create a scale for each.
-        var pcScale = [
-            d3.extent(self.data, function(d){return d["Household income"]}), 
-            d3.extent(self.data, function(d){return d["Employment rate"]}), 
-            d3.extent(self.data, function(d){return d["Life satisfaction"]}), 
-            d3.extent(self.data, function(d){return d["Self-reported health"]}), 
-            d3.extent(self.data, function(d){return d["Unemployment rate"]})
-        ];
 
-
-        x.domain(dimensions = d3.keys([0,1,2,3,4]).filter(function(d) {
+        x.domain(dimensions = d3.keys(data[0]).filter( function(d) {
+            if(d != "Country") // Ignore "Country"
             return [(y[d] = d3.scale.linear()
-                .domain(d3.extent(pcScale[d])) //returns min and max of array
+                .domain(d3.extent(data, function(p){ return +p[d] }))
                 .range([height, 0]))];
-
-        }));
-
-        console.log(y[4](6));
+            })
+        );
 
         draw();
     });
 
+
     function draw(){
+
         // Add grey background lines for context.
         background = svg.append("svg:g")
             .attr("class", "background")
             .selectAll("path")
-            //add the data and append the path 
-            //...
+            //add the data and append the path
+            .data(self.data)
+            .enter().append("path")
+            .attr("d", function(d){
+                return path(d);
+            })
+
+
             .on("mousemove", function(d){})
             .on("mouseout", function(){});
 
@@ -72,8 +70,12 @@ function pc(){
         foreground = svg.append("svg:g")
             .attr("class", "foreground")
             .selectAll("path")
-            //add the data and append the path 
-            //...
+            //add the data and append the path
+            .data(self.data)
+            .enter().append("path")
+            .attr("d", function(d){
+                return path(d);
+            })
             .on("mousemove", function(){})
             .on("mouseout", function(){});
 
@@ -83,7 +85,7 @@ function pc(){
             .enter().append("svg:g")
             .attr("class", "dimension")
             .attr("transform", function(d) { return "translate(" + x(d) + ")"; });
-            
+
         // Add an axis and title.
         g.append("svg:g")
             .attr("class", "axis")
@@ -104,6 +106,7 @@ function pc(){
 
     // Returns the path for a given data point.
     function path(d) {
+
         return line(dimensions.map(function(p) { return [x(p), y[p](d[p])]; }));
     }
 
@@ -118,11 +121,11 @@ function pc(){
         });
     }
 
-    //method for selecting the pololyne from other components	
+    //method for selecting the pololyne from other components
     this.selectLine = function(value){
         //...
     };
-    
+
     //method for selecting features of other components
     function selFeature(value){
         //...
