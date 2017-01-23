@@ -63,7 +63,12 @@ function pc(){
 
 
             .on("mousemove", function(d){})
-            .on("mouseout", function(){});
+            .on("mouseout", function(){})
+            .on("click", function(d){
+                pc1.selectLine(d);
+                selFeature(d);
+            });
+
 
         // Add blue foreground lines for focus.
         foreground = svg.append("svg:g")
@@ -76,7 +81,11 @@ function pc(){
                 return path(d);
             })
             .on("mousemove", function(){})
-            .on("mouseout", function(){});
+            .on("mouseout", function(){})
+            .on("click", function(d){
+                pc1.selectLine(d);
+                selFeature(d);
+            });
 
         // Add a group element for each dimension.
         var g = svg.selectAll(".dimension")
@@ -89,7 +98,7 @@ function pc(){
         g.append("svg:g")
             .attr("class", "axis")
             //add scale
-            .each(function(d) { 
+            .each(function(d) {
                 d3.select(this).call(axis.scale(y[d]))
             })
             .append("svg:text")
@@ -114,6 +123,7 @@ function pc(){
 
     // Handles a brush event, toggling the display of foreground lines.
     function brush() {
+        console.log("Brushing...");
         var actives = dimensions.filter(function(p) { return !y[p].brush.empty(); }),
             extents = actives.map(function(p) { return y[p].brush.extent(); });
         foreground.style("display", function(d) {
@@ -125,12 +135,17 @@ function pc(){
 
     //method for selecting the pololyne from other components
     this.selectLine = function(value){
-        //...
+        foreground.style("display", (d) => {
+            if(d.Country !== value){
+                return "none";
+            }
+        });
     };
 
     //method for selecting features of other components
     function selFeature(value){
-        //...
+        sp1.selectDot(value);
+
     };
 
 }

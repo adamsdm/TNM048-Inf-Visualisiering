@@ -120,20 +120,32 @@ function sp(){
                 //...
             })
             .on("click",  function(d) {
-              console.log('x: ' + d['Life satisfaction']);
-              console.log('y: ' + d['Household income']);
+              sp1.selectDot(d.Country);
+              selFeature(d.Country);
             });
 
     }
 
+
     //method for selecting the dot from other components
     this.selectDot = function(value){
-        //...
+        console.log(value);
+        console.log('Scatterplot: Selected '+ value);
+        d3.select("#sp")
+        .selectAll('.dot')
+        .attr("opacity", function(d) {
+            if(value === d['Country'])
+                return 1.0;
+            return 0.2;
+        })
+
+
     };
 
     //method for selecting features of other components
     function selFeature(value){
-        //...
+        pc1.selectLine(value);
+        console.log(map.countryArray);
     }
 
 }
