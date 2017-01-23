@@ -13,7 +13,13 @@ function sp(){
     //...
 
     //initialize tooltip
-    //...
+    var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .text("tool");
+
 
     var x = d3.scale.linear()
         .range([0, width]);
@@ -54,7 +60,13 @@ function sp(){
                     .domain( d3.extent(self.data, function(d) { return d['Employment rate']; }) )
                     .range([2, 10]); // min, max radius of dots
 
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
 
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
 
 
 
@@ -113,10 +125,10 @@ function sp(){
 
             //tooltip
             .on("mousemove", function(d) {
-                //...
+                return tooltip.style("visibility", "visible").style("top", (d3.event.pageY-15)+"px").style("left",(d3.event.pageX+7)+"px").text(d["Country"]);
             })
             .on("mouseout", function(d) {
-                //...
+                return tooltip.style("visibility", "hidden");
             })
             .on("click",  function(d) {
               console.log('x: ' + d['Life satisfaction']);
