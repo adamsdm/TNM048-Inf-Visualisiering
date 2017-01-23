@@ -1,5 +1,8 @@
 function map(){
 
+    var self = this;
+    self.countryArray = [];
+
     var zoom = d3.behavior.zoom()
         .scaleExtent([1, 8])
         .on("zoom", move);
@@ -47,7 +50,7 @@ function map(){
         var country = g.selectAll(".country").data(countries);
 
         //initialize a color country object
-        var countryArray = [];
+
         var cc = {};
 
         for(var i = 0; i< countries.length; i++){
@@ -55,18 +58,12 @@ function map(){
             cc.country = countries[i].properties.name;
             cc.color   = countries[i].properties.color;
 
-            countryArray.push(cc);
+            self.countryArray.push(cc);
         }
 
-        console.log(countryArray);
-        console.log(countries);
+        //console.log(countryArray);
+        //console.log(countries);
 
-
-        //...
-        var rCh = String(Math.floor(Math.random()*255));
-        var gCh = Math.random()*255;
-        var bCh = Math.random()*255;
-        console.log(rCh);
 
         country.enter().insert("path")
             .attr("class", "country")

@@ -37,6 +37,7 @@ function sp(){
     //Load data
     d3.csv("data/OECD-better-life-index-hi.csv", function(error, data) {
         self.data = data;
+        console.log(self.data);
 
         //define the domain of the scatter plot axes
         //...
@@ -74,7 +75,15 @@ function sp(){
             .enter().append("circle")
             .attr("class", "dot")
             //Define the x and y coordinate data values for the dots
-            //...
+            .attr("cx", function(d, i) {
+              return i* (width / self.data.length);
+            })
+            .attr("cy", function(d, i) {
+              return height - Math.random()*height;
+            })
+            .attr("r", 8)
+
+
             //tooltip
             .on("mousemove", function(d) {
                 //...
