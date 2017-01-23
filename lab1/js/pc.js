@@ -39,12 +39,11 @@ function pc(){
 
         x.domain(dimensions = d3.keys(data[0]).filter( function(d) {
             if(d != "Country") // Ignore "Country"
-            return [(y[d] = d3.scale.linear()
-                .domain(d3.extent(data, function(p){ return +p[d] }))
-                .range([height, 0]))];
+                return [(y[d] = d3.scale.linear()
+                    .domain(d3.extent(data, function(p){ return +p[d] }))
+                    .range([height, 0]))];
             })
         );
-
         draw();
     });
 
@@ -90,6 +89,9 @@ function pc(){
         g.append("svg:g")
             .attr("class", "axis")
             //add scale
+            .each(function(d) { 
+                d3.select(this).call(axis.scale(y[d]))
+            })
             .append("svg:text")
             .attr("text-anchor", "middle")
             .attr("y", -9)

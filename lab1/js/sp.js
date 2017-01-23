@@ -39,18 +39,19 @@ function sp(){
     d3.csv("data/OECD-better-life-index-hi.csv", function(error, data) {
         self.data = data;
 
+        var padding = 10;
+
         //define the domain of the scatter plot axes
         yScale = d3.scale.linear()
-                     .domain([0, d3.max(self.data, function(d) { return d['Household income']; })])
+                     .domain( d3.extent(self.data, function(d) { return d['Household income']; }) )
                      .range([height, 0]);
+
         xScale = d3.scale.linear()
-                     .domain([0, d3.max(self.data, function(d) { return d['Life satisfaction']; })])
+                     .domain( d3.extent(self.data, function(d) { return d['Life satisfaction']; }) )
                      .range([0, width]);
+
         rScale = d3.scale.linear()
-                    .domain([
-                        d3.min(self.data, function(d) { return d['Employment rate']; }),
-                        d3.max(self.data, function(d) { return d['Employment rate']; })
-                    ])
+                    .domain( d3.extent(self.data, function(d) { return d['Employment rate']; }) )
                     .range([2, 10]); // min, max radius of dots
 
 
@@ -75,6 +76,7 @@ function sp(){
             .attr("y", -6)
             .attr("text-anchor", "end")
             .text("Life satisfaction");
+
 
         // Add y axis and title.
         svg.append("g")
