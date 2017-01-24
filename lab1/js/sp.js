@@ -114,7 +114,7 @@ function sp(){
                 return rScale(d['Employment rate']);
             })
             .attr("fill", function(d) {
-                return "rgb(0, 0, " + 255 + ")";
+                return map.countryArray[d.Country] || "#FF0000";
             })
 
 
@@ -135,8 +135,7 @@ function sp(){
 
     //method for selecting the dot from other components
     this.selectDot = function(value){
-        console.log(value);
-        console.log('Scatterplot: Selected '+ value);
+
         d3.select("#sp")
         .selectAll('.dot')
         .attr("opacity", function(d) {
@@ -151,7 +150,7 @@ function sp(){
     //method for selecting features of other components
     function selFeature(value){
         pc1.selectLine(value);
-        console.log(map.countryArray);
+
     }
 
 }

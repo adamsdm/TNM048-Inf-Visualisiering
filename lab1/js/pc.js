@@ -83,6 +83,10 @@ function pc(){
             .attr("d", function(d){
                 return path(d);
             })
+            .style("stroke", function(d){
+
+                return map.countryArray[d.Country] || "#FF0000";
+            })
             .on("mousemove", function(d){
                 return tooltip
                 .style("visibility", "visible")

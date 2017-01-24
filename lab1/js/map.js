@@ -1,7 +1,8 @@
 function map(){
 
     var self = this;
-    self.countryArray = [];
+    self.countryArray = {};
+    self.cc = {};
 
     var zoom = d3.behavior.zoom()
         .scaleExtent([1, 8])
@@ -56,14 +57,14 @@ function map(){
 
         //initialize a color country object
 
-        var cc = {};
+
 
         for(var i = 0; i< countries.length; i++){
 
-            cc.country = countries[i].properties.name;
-            cc.color   = countries[i].properties.color;
+            self.cc.country = countries[i].properties.name;
+            self.cc.color   = countries[i].properties.color;
 
-            self.countryArray.push(cc);
+            self.countryArray[countries[i].properties.name] = countries[i].properties.color;
         }
 
         //console.log(countryArray);
