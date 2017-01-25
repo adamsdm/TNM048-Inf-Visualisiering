@@ -10,7 +10,7 @@ function sp(){
         rScale;
 
     //initialize color scale
-    //...
+    var color = d3.scale.category20();
 
     //initialize tooltip
     var tooltip = d3.select("body")
@@ -70,7 +70,13 @@ function sp(){
     });
 
     function draw()
-    {
+    {	
+		
+		var cc = {};
+        //initialize a color country object
+		self.data.forEach(function(d){
+			cc[d["Country"]] = color(d["Country"]);
+		});
 
         // Add x axis and title.
         svg.append("g")
@@ -113,9 +119,9 @@ function sp(){
             .attr("r", function(d, i) {
                 return rScale(d['Employment rate']);
             })
-            .attr("fill", function(d) {
-                return map.countryArray[d.Country] || "#FF0000";
-            })
+            .style("fill", function(d) { 
+				return cc[d["Country"]]; 
+			})
             .attr("opacity", "0.8")
 
 
@@ -148,8 +154,13 @@ function sp(){
                 return 1.0;
             return 0.2;
         })
-
-
+    };
+	
+	this.deselectDot = function(){
+		console.log("deselecting...");
+        d3.select("#sp")
+        .selectAll('.dot')
+        .attr("opacity", "0.8");
     };
 
     //method for selecting features of other components

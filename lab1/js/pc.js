@@ -10,7 +10,7 @@ function pc(){
 
 
     //initialize color scale
-    //...
+    var color = d3.scale.category20();
 
     //initialize tooltip
     var tooltip = d3.select("body")
@@ -54,6 +54,12 @@ function pc(){
 
 
     function draw(){
+		
+		var cc = {};
+        //initialize a color country object
+		self.data.forEach(function(d){
+			cc[d["Country"]] = color(d["Country"]);
+		});
 
         // Add grey background lines for context.
         background = svg.append("svg:g")
@@ -92,8 +98,7 @@ function pc(){
                 return path(d);
             })
             .style("stroke", function(d){
-
-                return map.countryArray[d.Country] || "#FF0000";
+                return cc[d["Country"]]; 
             })
             .on("mousemove", function(d){
                 return tooltip
