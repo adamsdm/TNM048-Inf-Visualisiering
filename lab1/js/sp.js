@@ -116,11 +116,16 @@ function sp(){
             .attr("fill", function(d) {
                 return map.countryArray[d.Country] || "#FF0000";
             })
+            .attr("opacity", "0.8")
 
 
             //tooltip
             .on("mousemove", function(d) {
-                return tooltip.style("visibility", "visible").style("top", (d3.event.pageY-15)+"px").style("left",(d3.event.pageX+7)+"px").text(d["Country"]);
+                return tooltip
+                .style("visibility", "visible")
+                .style("top", (d3.event.pageY-15)+"px")
+                .style("left",(d3.event.pageX+7)+"px")
+                .text(d["Country"]);
             })
             .on("mouseout", function(d) {
                 return tooltip.style("visibility", "hidden");

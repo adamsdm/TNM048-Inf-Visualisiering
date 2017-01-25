@@ -81,7 +81,11 @@ function map(){
 
             //tooltip
             .on("mousemove", function(d) {
-                return tooltip.style("visibility", "visible").style("top", (d3.event.pageY-15)+"px").style("left",(d3.event.pageX+7)+"px").text(d.properties.name);
+                return tooltip
+                .style("visibility", "visible")
+                .style("top", (d3.event.pageY-15)+"px")
+                .style("left",(d3.event.pageX+7)+"px")
+                .text(d.properties.name || "Asdf");
             })
             .on("mouseout",  function(d) {
                 return tooltip.style("visibility", "hidden");
