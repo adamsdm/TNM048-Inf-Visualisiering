@@ -146,10 +146,10 @@ function pc(){
 
         d3.select("#sp").selectAll(".dot")
             .data(self.data)
-            .style("display", function(d) {
+            .style("opacity", function(d) {
                 return actives.every(function(p, i) {
                     return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-                }) ? null : "none";
+                }) ? "0.8": "0.2";
             });
 
         foreground.style("display", function(d) {
