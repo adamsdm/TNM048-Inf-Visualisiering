@@ -2,7 +2,7 @@ function map(){
 
     var self = this;
     self.countryArray = {};
-    self.cc = {};
+    
 
     var zoom = d3.behavior.zoom()
         .scaleExtent([1, 8])
@@ -15,15 +15,13 @@ function map(){
         height = mapDiv.height() - margin.top - margin.bottom;
 
     //initialize color scale
-    //...
+    var color = d3.scale.category20();
 
     //initialize tooltip
     var tooltip = d3.select("body")
         .append("div")
-        .style("position", "absolute")
-        .style("z-index", "10")
-        .style("visibility", "hidden")
-        .text("tool");
+		.attr("class", "tooltip")
+        .style("opacity", 0);
 
     var projection = d3.geo.mercator()
         .center([50, 60 ])
@@ -45,30 +43,23 @@ function map(){
         var countries = topojson.feature(world, world.objects.countries).features;
 
         //load summary data
-        //...
+            d3.csv("data/OECD-better-life-index-hi.csv", function(error, data) {
+				draw(countries, data);
+			});
 
-        draw(countries);
+        
 
     });
 
     function draw(countries,data)
     {
         var country = g.selectAll(".country").data(countries);
-
+		var cc = {};
         //initialize a color country object
-
-
-
-        for(var i = 0; i< countries.length; i++){
-
-            self.cc.country = countries[i].properties.name;
-            self.cc.color   = countries[i].properties.color;
-
-            self.countryArray[countries[i].properties.name] = countries[i].properties.color;
-        }
-
-        //console.log(countryArray);
-        //console.log(countries);
+		data.forEach(function(d){
+			cc[d["Country"]] = color(d["Country"]);
+		});
+	
 
 
         country.enter().insert("path")
@@ -77,18 +68,19 @@ function map(){
             .attr("id", function(d) { return d.id; })
             .attr("title", function(d) { return d.properties.name; })
             //country color
-            .style("fill", function(d) { return d.properties.color; })
+            .style("fill", function(d) { return cc[d.properties.name]; })
 
             //tooltip
             .on("mousemove", function(d) {
-                return tooltip
-                .style("visibility", "visible")
+                return tooltip.html(d.properties.name)
+                .style("opacity", .9)
                 .style("top", (d3.event.pageY-15)+"px")
-                .style("left",(d3.event.pageX+7)+"px")
-                .text(d.properties.name || "Asdf");
+                .style("left",(d3.event.pageX+7)+"px");
             })
             .on("mouseout",  function(d) {
-                return tooltip.style("visibility", "hidden");
+                return tooltip
+				.transition().duration(400)
+				.style("opacity", 0);
             })
             //selection
             .on("click",  function(d) {

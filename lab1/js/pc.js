@@ -10,7 +10,7 @@ function pc(){
 
 
     //initialize color scale
-    //...
+    var color = d3.scale.category20();
 
     //initialize tooltip
     var tooltip = d3.select("body")
@@ -18,8 +18,8 @@ function pc(){
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden")
-        .text("tool");
-
+        .text("tool")
+ 
     var x = d3.scale.ordinal().rangePoints([0, width], 1),
         y = {};
 
@@ -54,6 +54,12 @@ function pc(){
 
 
     function draw(){
+		
+		var cc = {};
+        //initialize a color country object
+		self.data.forEach(function(d){
+			cc[d["Country"]] = color(d["Country"]);
+		});
 
         // Add grey background lines for context.
         background = svg.append("svg:g")
@@ -65,8 +71,16 @@ function pc(){
             .attr("d", function(d){
                 return path(d);
             })
-            .on("mousemove", function(d){})
-            .on("mouseout", function(){})
+            .on("mousemove", function(d){
+                return tooltip
+                .style("visibility", "visible")
+                .style("top", (d3.event.pageY-15)+"px")
+                .style("left",(d3.event.pageX+7)+"px")
+                .text(d["Country"]);
+            })
+            .on("mouseout", function(){
+                return tooltip.style("visibility", "hidden");
+            })
             .on("click", function(d){
                 pc1.selectLine(d);
                 selFeature(d);
@@ -84,8 +98,7 @@ function pc(){
                 return path(d);
             })
             .style("stroke", function(d){
-
-                return map.countryArray[d.Country] || "#FF0000";
+                return cc[d["Country"]]; 
             })
             .on("mousemove", function(d){
                 return tooltip
@@ -95,7 +108,7 @@ function pc(){
                 .text(d["Country"]);
             })
             .on("mouseout", function(){
-                return tooltip.style("visibility", "hidden")
+                return tooltip.style("visibility", "hidden");
             })
             .on("click", function(d){
                 pc1.selectLine(d);
@@ -146,10 +159,10 @@ function pc(){
 
         d3.select("#sp").selectAll(".dot")
             .data(self.data)
-            .style("display", function(d) {
+            .style("opacity", function(d) {
                 return actives.every(function(p, i) {
                     return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-                }) ? null : "none";
+                }) ? "0.8": "0.2";
             });
 
         foreground.style("display", function(d) {

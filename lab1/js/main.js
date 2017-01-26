@@ -1,6 +1,4 @@
-var sp1, pc1;
-
-var map = new map();
+var sp1, pc1, map = new map();
 
 setTimeout(function(){
     sp1 = new sp();
