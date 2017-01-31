@@ -67,8 +67,21 @@ function pc(){
             .attr("d", path)
             //.style("stroke", function(d) { return "hsl(" + Math.random() * 360 + ",100%,50%)"; });
             //Assign the cluster colors
-            .style("stroke", function(d) { return self.color(d.cluster); });
+            .style("stroke", function(d) {
+                return self.color(d.cluster);
+            });
 
+        clusters = svg.append("svg:g")
+            .attr("class", "clusters")
+            .selectAll("path")
+            .data(kmeansRes)
+            .enter().append("svg:path")
+            .attr("d", path)
+            //.style("stroke", function(d) { return "hsl(" + Math.random() * 360 + ",100%,50%)"; });
+            //Assign the cluster colors
+            .style("stroke", function(d, i) {
+                return self.color(i);
+            });
 
 
         // Add a group element for each dimension.

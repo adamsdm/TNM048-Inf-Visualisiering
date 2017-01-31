@@ -2,6 +2,17 @@ svg {
     font: 10px sans-serif;
 }
 
+.clusters path {
+    fill: none;
+    stroke: steelblue;
+    stroke-opacity: 1.0;
+    stroke-width: 6px !important;
+}
+
+.clusters path:hover{
+    stroke-width: 10px !important;
+}
+
 .background path {
     fill: none;
     stroke: #ccc;
