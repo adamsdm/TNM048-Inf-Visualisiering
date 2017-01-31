@@ -7,10 +7,13 @@
 
     function kmeans(data, k) {
         var clusters = [], newData = [];
-        var letters = ["A", "B", "C", "D", "E", "F", "G"];
-
+        var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+        var it=0;
         const DIMS = d3.keys(data[0]).length;
+        var oldDimSum = [];
 
+
+        //Assign random cluster positions
         for(var i = 0; i<k; i++){
             var cluster = {
                 centroid: {},
@@ -25,9 +28,10 @@
 
 
 
-        // while error < Threshold
-        // if max iterations => early termination
-            // Nearest neigbours
+        // Main iterations loop
+        console.log("Calculating clusters...");
+        do{
+            diff = 0;
             data.forEach(function(d, i){
                 var distArr = [];
                 clusters.forEach(function(c){
@@ -35,18 +39,21 @@
                 });
 
                 d["distArr"] = distArr; //TEMP
+                if(! d["cluster"] == _.indexOf(distArr, _.min(distArr)) ){
+                    diff += 1;
+                }
                 d["cluster"] = _.indexOf(distArr, _.min(distArr));
+
                 clusters[_.indexOf(distArr, _.min(distArr))].indices.push(i);
-                //console.log(distArr.indexOf(Math.min(...distArr)) );
             });
             // Update cluster centroids
             for(var n = 0; n<k; n++){
                 updateClusterCentroid(data, clusters[n]);
             }
 
-        // endWhile
-
-
+            console.log("Reasignments: " + diff);
+        } while ( diff > 0 )// endWhile
+        console.log("...done!");
         //return data
         return clusters;
 
@@ -57,12 +64,10 @@
 
 
 
-
-
         // HELP FUNCTIONS
         function updateClusterCentroid(data, theCluster){
-            if(theCluster.indices.length == 0 ) return;
 
+            if(theCluster.indices.length == 0 ) return; //Error check
             var dimSum = Array.apply(null, Array(DIMS)).map(Number.prototype.valueOf,0);
             var newCentroid = {};
 
@@ -74,13 +79,28 @@
                 }
             }
 
+
             dimSum = _.map(dimSum, function(num){ return num / theCluster.indices.length; });
 
+            var error = calculateError(dimSum, oldDimSum);
+
+
+            oldDimSum = dimSum;
 
             for(var dim=0; dim<DIMS; dim++){
                 dimInd = Object.keys(theData)[dim];
                 theCluster.centroid[dimInd] = dimSum[dim];
             }
+        }
+
+        function calculateError(newSum, oldSum, oldError){
+            var error = 0;
+            var l = Math.min(newSum.length, oldSum.length);
+            for(var i=0; i<l; i++){
+                error += eDistance(newSum, oldSum);
+            }
+
+            return error;
         }
 
         function eDistance(c, l) {
