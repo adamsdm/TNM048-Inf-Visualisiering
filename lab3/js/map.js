@@ -105,14 +105,18 @@ function map(data) {
                         return projection(d.geometry.coordinates)[1];
                     })
             		.attr("r", "5px")
-            		.attr("fill", (d) =>{
-                        return colors[d.cluster];
-                    })
+            		.attr("fill", "orange");
+
     };
 
     //Filters data points according to the specified magnitude
     function filterMag(value) {
-        //Complete the code
+        g.selectAll("circle").attr("opacity", (d) => {
+			var dMag = d.properties.mag;
+			if(dMag>value)
+				return 1.0;
+			return 0.0;
+		});
     }
 
 
@@ -132,11 +136,17 @@ function map(data) {
     };
 
     //Calls k-means function and changes the color of the points
-    this.cluster = function (k) {
-        kmeans(geoData.features, k);
-    };
+    this.cluster = function () {
+        k = document.getElementById("k").value;
+        //console.log($('#k').val());
+        console.log(k);
 
-    this.cluster(5);
+        kmeans(geoData.features, k);
+        g.selectAll("circle")
+                    .attr("fill", (d) =>{
+                        return colors[d.cluster];
+                    })
+    };
 
     //Zoom and panning method
     function move() {

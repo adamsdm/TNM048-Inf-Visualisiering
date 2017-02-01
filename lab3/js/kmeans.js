@@ -57,8 +57,6 @@ function kmeans(data, k) {
     } while ( diff > 0 )// endWhile
     console.log("...done after "+it+" iterations");
 
-    console.log(data);
-
     //return data
     return clusters;
 
