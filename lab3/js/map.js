@@ -36,7 +36,7 @@ function map(data) {
             .center([8.25, 56.8])
             .scale(700);
 
-    //Creates a new geographic path generator and assing the projection        
+    //Creates a new geographic path generator and assing the projection
     var path = d3.geo.path().projection(projection);
 
     //Formats the data in a feature collection trougth geoFormat()
@@ -48,7 +48,7 @@ function map(data) {
         draw(countries);
     });
 
-    //Calls the filtering function 
+    //Calls the filtering function
     d3.select("#slider").on("input", function () {
         filterMag(this.value, data);
     });
@@ -57,8 +57,26 @@ function map(data) {
     function geoFormat(array) {
         var data = [];
         array.map(function (d, i) {
-            //Complete the code
+            // fill data with GeoJSON features according to:
+            // http://geojson.org/geojson-spec.html#examples
+            var feat = {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [d.lat, d.lon]
+                },
+                "properties": {
+                    "depth": d.depth,
+                    "id": d.id,
+                    "mag": d.mag,
+                    "place": d.place,
+                    "time": d.time
+                }
+            } //endFeat
+
+            data.push(feat);
         });
+        console.log(data[0]);
         return data;
     }
 
@@ -74,7 +92,7 @@ function map(data) {
                 .style("fill", "lightgray")
                 .style("stroke", "white");
 
-        //draw point        
+        //draw point
         var point //Complete the code
     };
 
@@ -82,13 +100,13 @@ function map(data) {
     function filterMag(value) {
         //Complete the code
     }
-    
+
     //Filters data points according to the specified time window
     this.filterTime = function (value) {
         //Complete the code
     };
 
-    //Calls k-means function and changes the color of the points  
+    //Calls k-means function and changes the color of the points
     this.cluster = function () {
         //Complete the code
     };
