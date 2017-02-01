@@ -79,7 +79,7 @@ function map(data) {
 
         return data;
     }
-	
+
     //Draws the map and the points
     function draw(countries)
     {
@@ -105,22 +105,24 @@ function map(data) {
                         return projection(d.geometry.coordinates)[1];
                     })
             		.attr("r", "5px")
-            		.attr("fill", "red")
+            		.attr("fill", (d) =>{
+                        return colors[d.cluster];
+                    })
     };
 
     //Filters data points according to the specified magnitude
     function filterMag(value) {
         //Complete the code
     }
-	
-	
-	
+
+
+
     //Filters data points according to the specified time window
     this.filterTime = function (value) {
 		var start = value[0];
 		var end = value[1];
-		
-		
+
+
 		g.selectAll("circle").attr("opacity", (d) => {
 			var dTime = format.parse(d.properties.time);
 			if(dTime<end && dTime > start)
@@ -130,9 +132,11 @@ function map(data) {
     };
 
     //Calls k-means function and changes the color of the points
-    this.cluster = function () {
-        //Complete the code
+    this.cluster = function (k) {
+        kmeans(geoData.features, k);
     };
+
+    this.cluster(5);
 
     //Zoom and panning method
     function move() {
