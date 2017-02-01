@@ -22,7 +22,7 @@ function area(data) {
 
         //Initializes the axis domains for the big chart
         x.domain(d3.extent(data, function(d){return format.parse(d.time)}));//Complete the code
-        y.domain([4, 10]);//Complete the code
+        y.domain(d3.extent(data, function(d){return d.mag}));//Complete the code
         //Initializes the axis domains for the small chart
         x2.domain(x.domain());
         y2.domain(y.domain());
@@ -41,22 +41,22 @@ function area(data) {
     var area = d3.svg.area()
             .interpolate("step")
             .x(function (d) {
-                return x(format.parse(d.time));//Complete the code
+                return x(format.parse(d.time));
             })
             .y0(height)
             .y1(function (d) {
-                return 100;//Complete the code
+                return y(d.mag);
             });
 
     //Creates the small chart
         var area2 = d3.svg.area()
             .interpolate("step")
             .x(function (d) {
-                return 10;//Complete the code
+                return x2(format.parse(d.time));
             })
             .y0(height2)
             .y1(function (d) {
-                return 10;//Complete the code
+                return y2(d.mag);
             });
 
     //Assings the svg canvas to the area div
