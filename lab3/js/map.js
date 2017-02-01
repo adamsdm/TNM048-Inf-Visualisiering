@@ -76,7 +76,7 @@ function map(data) {
 
             data.push(feat);
         });
-        console.log(data[0]);
+
         return data;
     }
 
@@ -93,7 +93,19 @@ function map(data) {
                 .style("stroke", "white");
 
         //draw point
-        var point //Complete the code
+        // http://bl.ocks.org/phil-pedruco/7745589
+        var point = g.selectAll("circle")
+            		.data(geoData.features).enter()
+            		.append("circle")
+                    .attr("class", "point")
+            		.attr("cx", function (d) {
+                        return projection(d.geometry.coordinates)[0];
+                    })
+            		.attr("cy", function (d) {
+                        return projection(d.geometry.coordinates)[1];
+                    })
+            		.attr("r", "5px")
+            		.attr("fill", "red")
     };
 
     //Filters data points according to the specified magnitude
