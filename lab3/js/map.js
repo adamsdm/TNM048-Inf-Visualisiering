@@ -138,8 +138,7 @@ function map(data) {
     //Calls k-means function and changes the color of the points
     this.cluster = function () {
         k = document.getElementById("k").value;
-        //console.log($('#k').val());
-        console.log(k);
+        if(k>10) k=10; // Only allow for 10 
 
         kmeans(geoData.features, k);
         g.selectAll("circle")
