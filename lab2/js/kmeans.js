@@ -20,9 +20,9 @@
                 indices: [],
             };
 
-            for(var dim = 0; dim<DIMS; dim++){
-                cluster.centroid[letters[dim]] = String(Math.random());
-            }
+           
+            cluster.centroid = _.clone(data[Math.floor(Math.random()*data.length)]);
+            
             clusters[i] = cluster;
         }
 
@@ -50,7 +50,8 @@
             for(var n = 0; n<k; n++){
                 updateClusterCentroid(data, clusters[n]);
             }
-
+			it++;
+			if(it>2) break;
             console.log("Reasignments: " + diff);
         } while ( diff > 0 )// endWhile
         console.log("...done!");
@@ -82,26 +83,12 @@
 
             dimSum = _.map(dimSum, function(num){ return num / theCluster.indices.length; });
 
-            var error = calculateError(dimSum, oldDimSum);
-
-
-            oldDimSum = dimSum;
-
             for(var dim=0; dim<DIMS; dim++){
                 dimInd = Object.keys(theData)[dim];
                 theCluster.centroid[dimInd] = dimSum[dim];
             }
         }
 
-        function calculateError(newSum, oldSum, oldError){
-            var error = 0;
-            var l = Math.min(newSum.length, oldSum.length);
-            for(var i=0; i<l; i++){
-                error += eDistance(newSum, oldSum);
-            }
-
-            return error;
-        }
 
         function eDistance(c, l) {
 

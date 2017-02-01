@@ -39,11 +39,11 @@ function pc(){
 
         self.data = data;
 
-        var k = 6;
+        var k = 4;
         var kmeansRes = kmeans(data,k);
 
         //initialize the cluster colors
-        self.color = d3.scale.category20().domain(0,k); // Initialize colorscale with k categories
+        self.color = d3.scale.category10().domain(0,k); // Initialize colorscale with k categories
         draw(kmeansRes);
 
     });

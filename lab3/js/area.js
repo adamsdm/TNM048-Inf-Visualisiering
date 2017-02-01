@@ -126,5 +126,6 @@ function area(data) {
         focus.select(".x.axis").call(xAxis);
         //Complete the code
         console.log("Brushing...");
+		map1.filterTime(brush.extent());
     }
 }

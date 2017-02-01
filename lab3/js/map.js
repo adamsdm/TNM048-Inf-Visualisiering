@@ -63,7 +63,7 @@ function map(data) {
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [d.lat, d.lon]
+                    "coordinates": [d.lon, d.lat]
                 },
                 "properties": {
                     "depth": d.depth,
@@ -79,7 +79,7 @@ function map(data) {
 
         return data;
     }
-
+	
     //Draws the map and the points
     function draw(countries)
     {
@@ -112,10 +112,21 @@ function map(data) {
     function filterMag(value) {
         //Complete the code
     }
-
+	
+	
+	
     //Filters data points according to the specified time window
     this.filterTime = function (value) {
-        //Complete the code
+		var start = value[0];
+		var end = value[1];
+		
+		
+		g.selectAll("circle").attr("opacity", (d) => {
+			var dTime = format.parse(d.properties.time);
+			if(dTime<end && dTime > start)
+				return 1.0;
+			return 0.0;
+		});
     };
 
     //Calls k-means function and changes the color of the points
