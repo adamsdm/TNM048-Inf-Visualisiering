@@ -1,14 +1,13 @@
 function map(data) {
 
     var zoom = d3.behavior.zoom()
-            .scaleExtent([0.5, 8])
+            .scaleExtent([0.3, 12])
             .on("zoom", move);
 
     var mapDiv = $("#map");
 
-    var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = mapDiv.width() - margin.right - margin.left,
-            height = mapDiv.height() - margin.top - margin.bottom;
+    var width = mapDiv.width();
+    var height = mapDiv.height();
 
     var curr_mag = 4;
 
@@ -92,20 +91,6 @@ function map(data) {
                 .style("fill", "lightgray")
                 .style("stroke", "white");
 
-        //draw point
-        // http://bl.ocks.org/phil-pedruco/7745589
-        var point = g.selectAll("circle")
-            		.data(geoData.features).enter()
-            		.append("circle")
-                    .attr("class", "point")
-            		.attr("cx", function (d) {
-                        return projection(d.geometry.coordinates)[0];
-                    })
-            		.attr("cy", function (d) {
-                        return projection(d.geometry.coordinates)[1];
-                    })
-            		.attr("r", "5px")
-            		.attr("fill", "orange");
 
     };
 
