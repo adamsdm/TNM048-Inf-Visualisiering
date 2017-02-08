@@ -1,0 +1,12 @@
+.map{background-color: black;}
+
+.country{ fill: rgb(0, 75, 151); }
+
+.point {
+    /*fill: orange;*/
+    /*stroke: #FFF;*/
+}
+
+.hidden {
+    display: none;
+}
