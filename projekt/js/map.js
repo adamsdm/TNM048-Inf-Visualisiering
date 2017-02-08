@@ -1,20 +1,21 @@
 function map(data) {
 
-    var zoom = d3.behavior.zoom()
-            .scaleExtent([0.3, 12])
-            .on("zoom", move);
-
     var mapDiv = $("#map");
 
     var width = mapDiv.width();
     var height = mapDiv.height();
 
+        var zoom = d3.behavior.zoom()
+            .scaleExtent([0.5, 5])
+            .on("zoom", move);
+
+
     var curr_mag = 4;
 
     var format = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ");
 
-    var timeExt = d3.extent(data.map(function (d) {
-        return format.parse(d.time);
+    var timeExt = d3.extent(data.detonations.map(function (d) {
+        //return format.parse(d.time);
     }));
 
     var filterdData = data;
@@ -22,11 +23,17 @@ function map(data) {
     //Sets the colormap
     var colors = colorbrewer.Set3[10];
 
+    var scale = 0.3;
+    var zoomWidth = (width-scale*width)/2 + 120;
+    var zoomHeight = (height-scale*height)/2;
+
     //Assings the svg canvas to the map div
     var svg = d3.select("#map").append("svg")
             .attr("width", width)
             .attr("height", height)
-            .call(zoom);
+            .attr("transform", "translate("+zoomWidth+","+zoomHeight+") scale("+scale+")")   // Center map when map is loaded
+            .call(zoom)
+            .append("svg:g")
 
     var g = svg.append("g");
 
@@ -39,7 +46,7 @@ function map(data) {
     var path = d3.geo.path().projection(projection);
 
     //Formats the data in a feature collection trougth geoFormat()
-    var geoData = {type: "FeatureCollection", features: geoFormat(data)};
+    var geoData = {type: "FeatureCollection", features: geoFormat(data.detonations)};
 
     //Loads geo data
     d3.json("data/world-topo.json", function (error, world) {
