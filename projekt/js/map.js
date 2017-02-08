@@ -47,6 +47,7 @@ function map(data) {
 
     //Formats the data in a feature collection trougth geoFormat()
     var geoData = {type: "FeatureCollection", features: geoFormat(data.detonations)};
+    // test
 
     //Loads geo data
     d3.json("data/world-topo.json", function (error, world) {
