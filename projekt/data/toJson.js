@@ -2,7 +2,7 @@ var fs = require('fs'); //fileSync, read file module
 
 var jsonData = {
     detonations: []
-}; 
+};
 var output = 'detonations.json';
 var input  = 'data.txt';
 
@@ -37,13 +37,17 @@ fs.readFile(input, 'utf8', function (err,contents) {
         // FORMAT COORDS according to
         // 33.675N = 33.675, 33.675S = -33.675
         // 106.475E = 106.475, 106.475W = -106.475
-        obj.coords.lat      = line.substring(42, 49).replace(/ /g,'');
-        obj.coords.lon      = line.substring(50, 58).replace(/ /g,'');
+        var lat             = line.substring(42, 49).replace(/ /g,'');
+        var lon             = line.substring(50, 58).replace(/ /g,'');
+
+        var coord = formatCoord(lat, lon);
+        obj.coords.lat      = coord[0];
+        obj.coords.lon      = coord[1];
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
         obj.deviceType      = line.substring(61, 63).replace(/ /g,'');
         obj.name            = line.substring(68, 76).replace(/ /g,'');
-        
+
         jsonData.detonations.push(obj);
     }
 
@@ -59,7 +63,53 @@ fs.readFile(input, 'utf8', function (err,contents) {
     console.log("Done!");
 });
 
+function formatCoord(lat, lon){
 
+    var newLat = lat.toUpperCase();
+    var newLon = lon.toUpperCase();
+
+    // If data for both lat and lon exists
+    if(lat.length > 0 && lon.length >0 ){
+        var sInd = newLat.indexOf("S");
+        var nInd = newLat.indexOf("N");
+        var wInd = newLon.indexOf("W");
+        var eInd = newLon.indexOf("E");
+
+        // If 'S' or 'W' is found in string
+        // Remove and replace with '-'
+        if(sInd != -1 ){
+
+            newLat = lat.slice(0, lat.length-1); // Remove 'S'
+            newLat = "-" + newLat;  // Add '-'
+
+        }
+        if(wInd != -1){
+            newLon = lon.slice(0, lon.length-1); // Remove 'S'
+            newLon = "-" + newLon;  // Add '-'
+
+        }
+
+        // Remove 'E'and 'N'
+        if(nInd != -1 ) newLat = lat.slice(0, lat.length-1); // Remove 'N'
+        if(eInd != -1 ) newLon = lon.slice(0, lon.length-1); // Remove 'E'
+
+
+        var coord = [newLat, newLon];
+        return coord;
+    }
+
+
+    // "lat": "",
+    // "lon": "255NTS0"
+    else if (lat.length==0 && lon.length >0){
+        var coord = [lat, lon];
+        console.log(coord);
+        return [lat, lon];
+    }
+
+    // Else return empty string array
+    return ["",""];
+}
 
 
 
@@ -104,7 +154,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //               elevation above land surface (ending in L) or above sea level
 //               ending in S).
 
-// COLUMNS 55-80 Free format comments. 
+// COLUMNS 55-80 Free format comments.
 
 
 
@@ -112,7 +162,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
 
 // COLUMNS 1-6:
 // DATE=date (UTC time) yymmdd, yy=year-1900, mm=month, dd=day of month
- 
+
 // COLUMNS 8-15: Time of blast in GMT until 1971 DEC31, in UTC starting 1972 JAN
 // 01. GMT was Greenwich Mean Time (which is not correct to use after 1971 JAN01).
 // UTC is Universal Time Coordinated. The times are listed as hhmmss.d, where
@@ -169,7 +219,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //        Plowshare tests) were fired underground at many locations. Latitude
 //        and Longitude for most of these are given in the tables. These tests,
 //        US plowshare tests, and the one Indian test, were announced by the
-//        testing parties to be PNEs (Peaceful Nuclear Explosions). 
+//        testing parties to be PNEs (Peaceful Nuclear Explosions).
 
 // COLUMN 22: Test subsite
 //            NTS: P= Pahute Mesa
@@ -182,7 +232,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //            NZ:  N= (NTS) Northern Island
 //                 S= Southern Island
 
-  
+
 // COLUMNS 24-27:
 // TYPE: AIRD=airdrop
 //       ART =artillery shell
@@ -197,15 +247,15 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //       SS2 =simultaneous shot in shaft 2
 //       SSn =simultaneous shot in shaft n
 //            (If several simultaneous tests were in the same shaft [usually at
-//             different depths] they will all be listed SS1. If three were shot 
-//             simultaneously in three separate shafts they will be SS1, SS2, 
+//             different depths] they will all be listed SS1. If three were shot
+//             simultaneously in three separate shafts they will be SS1, SS2,
 //             and SS3).
 //       SURF=surface (unknown but probably not airdropped, near surface, includes
 //                     tower and barge)
 //       TOWR=tower
 //       TUNN=tunnel
 //       UNDW=underwater
- 
+
 // COLUMNS 29-31: Seismic body (P) wave magnitude, mb. Sources in this order of
 //                preference. ISC mb, if ISC mb not available NEIS mb, if no
 //                mb available an ML from PAS or BRK may be used. If the test
@@ -218,11 +268,11 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //                lined up vertically. This could be a problem in any machine
 //                processing as could <, >, LOW, HIGH, -, SLIGHT, FIZZ.
 //                Unless there is a single number
-//                without a <, >, or - , assume the yield is unknown and very 
+//                without a <, >, or - , assume the yield is unknown and very
 //                approximate.
 //                FIZZ=fizzle or failure with extremely low yield. F followed by
 //                a number, eg F300, is a test which had a smaller yield than
-//                expected. Apparently some fizzles were two-stage devices in    
+//                expected. Apparently some fizzles were two-stage devices in
 //                which the fusion stage produced little or no yield.
 
 // COLUMNS 43-49: Latitude in degrees and decimals of a degree. Although it can't
@@ -237,7 +287,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //             PS=Plowshare (US PNE engineering shots)
 //             VU=US Vela Uniform-directed toward seismic detection of
 //                underground shots
- 
+
 // COLUMNS 62-63:
 // DT=Device Type: U=fission only with primarialy U235, or boosted or two
 //                   stage with primarialy U235 primary (trigger, pit)
@@ -249,12 +299,12 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //                    the fission yield.
 //                 2=two stage, fusion second stage, possibly many or most of
 //                   these will have a U238 fission "third" stage.
-   
+
 
 // Zero yield omitted: USDOE "Announced Nuclear Tests" with zero yield are not
 //  included in this nuclear EXPLOSION catalog. Some of these are described
 //  as being safety or storage-transportation tests.
- 
+
 // COLUMNS 64-67: For underground tests: Rock type at device emplacement point.
 //                GR= granite
 //                QP= quartz porphyrite
@@ -303,7 +353,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
 //         S= Seismic Service of the Russian Federation Ministry of Defense
 //         U= United Kingdom Atomic Weapons Research Establishment
 //         F= Ronald Walters and Kenneth S. Zinn, The September 22, 1979 Mystery
-//            Flash: Did South Africa Detonate a Nuclear Bomb? Report of the 
+//            Flash: Did South Africa Detonate a Nuclear Bomb? Report of the
 //            Washington Office on Africa Educational Fund, May 21,1985.
 //         n= ARPA/NMRO/NORwegianSeismicARray (NORSAR)
 //         G= GSETT3-Group of Scientific Experts Technical Test 3
