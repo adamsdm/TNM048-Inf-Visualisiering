@@ -18,6 +18,12 @@ function map(data) {
         //return format.parse(d.time);
     }));
 
+    //initialize tooltip
+    var tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
     var filterdData = data;
 
     //Sets the colormap
@@ -36,6 +42,7 @@ function map(data) {
             .append("svg:g")
 
     var g = svg.append("g");
+    var d = svg.append("d");
 
     //Sets the map projection
     var projection = d3.geo.mercator()
@@ -94,6 +101,48 @@ function map(data) {
         country.enter().insert("path")
                 .attr("class", "country")
                 .attr("d", path);
+
+        //draw detonations
+        // http://bl.ocks.org/phil-pedruco/7745589
+        var point = g.selectAll("circle")
+                    .data(data).enter()
+                    .append("circle")
+                    .attr("class", "point")
+                    .attr("cx", function (d) {
+                        return projection(d.coords)[0];
+                    })
+                    .attr("cy", function (d) {
+                        return projection(d.coords)[1];
+                    })
+                    .attr("r", "20px")
+                    .attr("fill", (d) =>{
+                        switch(d.testingParty) {
+                            case 'US': // USA
+                                return 'blue';
+                                break;
+                            case 'CP': //USSR
+                                return 'red';
+                                break;
+                            default:
+                                return 'orange';
+                        } 
+                        return d.testingParty;
+                    })
+                    .on("mousemove", function(d) {
+                        return tooltip.html(
+                            "Name:" + d.name + "<br />" +
+                            "Date:" + d.date + "<br />" +
+                            "Testing party:" + d.testingParty
+                            )
+                        .style("opacity", .9)
+                        .style("top", (d3.event.pageY-15)+"px")
+                        .style("left",(d3.event.pageX+7)+"px");
+                    })
+                    .on("mouseout",  function(d) {
+                        return tooltip
+                        .transition().duration(400)
+                        .style("opacity", 0);
+                    });
     };
 
     //Filters data points according to the specified magnitude
