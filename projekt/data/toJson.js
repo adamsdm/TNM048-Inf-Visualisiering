@@ -20,6 +20,8 @@ fs.readFile(input, 'utf8', function (err,contents) {
             coords: {}
         };
 
+
+
         var line            = lines[i];
         obj.date            = "19"+line.substring(0, 6).replace(/ /g,'');
         obj.time            = line.substring(7, 15).replace(/ /g,'');
@@ -31,14 +33,17 @@ fs.readFile(input, 'utf8', function (err,contents) {
         obj.surfMagnitude   = line.substring(32, 35).replace(/ /g,'');
         obj.yieldKilotons   = line.substring(36, 41).replace(/ /g,'');
 
+        /** TODO ***/
+        // FORMAT COORDS according to
+        // 33.675N = 33.675, 33.675S = -33.675
+        // 106.475E = 106.475, 106.475W = -106.475
         obj.coords.lat      = line.substring(42, 49).replace(/ /g,'');
         obj.coords.lon      = line.substring(50, 58).replace(/ /g,'');
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
         obj.deviceType      = line.substring(61, 63).replace(/ /g,'');
         obj.name            = line.substring(68, 76).replace(/ /g,'');
-
-        //console.log("-"+obj.deviceType+"-");
+        
         jsonData.detonations.push(obj);
     }
 

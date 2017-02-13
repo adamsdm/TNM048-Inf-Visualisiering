@@ -14,7 +14,7 @@ function map(data) {
 
     var format = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ");
 
-    var timeExt = d3.extent(data.detonations.map(function (d) {
+    var timeExt = d3.extent(data.map(function (d) {
         //return format.parse(d.time);
     }));
 
@@ -22,7 +22,7 @@ function map(data) {
 
     //Sets the colormap
     var colors = colorbrewer.Set3[10];
-
+    
     var scale = 0.3;
     var zoomWidth = (width-scale*width)/2 + 120;
     var zoomHeight = (height-scale*height)/2;
@@ -46,7 +46,7 @@ function map(data) {
     var path = d3.geo.path().projection(projection);
 
     //Formats the data in a feature collection trougth geoFormat()
-    var geoData = {type: "FeatureCollection", features: geoFormat(data.detonations)};
+    var geoData = {type: "FeatureCollection", features: geoFormat(data)};
 
     //Loads geo data
     d3.json("data/world-topo.json", function (error, world) {
@@ -93,12 +93,7 @@ function map(data) {
         var country = g.selectAll(".country").data(countries);
         country.enter().insert("path")
                 .attr("class", "country")
-                .attr("d", path)
-                .style('stroke-width', 1)
-                .style("fill", "lightgray")
-                .style("stroke", "white");
-
-
+                .attr("d", path);
     };
 
     //Filters data points according to the specified magnitude
@@ -146,7 +141,7 @@ function map(data) {
         var s = d3.event.scale;
 
         zoom.translate(t);
-        g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+        g.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ") scale(" + s + ")");
     }
 
     //Prints features attributes

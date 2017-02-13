@@ -4,10 +4,14 @@
 }
 
 svg{
-    background-color: darkgray;
+    background-color: dimgray;
+    transition: 0.3s linear;
 }
 
-.country{ fill: rgb(0, 75, 151); }
+.country{ 
+    fill: SlateGray; 
+    /*stroke: black;*/
+}
 
 .point {
     /*fill: orange;*/
