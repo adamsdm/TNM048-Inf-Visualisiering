@@ -17,7 +17,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
     console.log("Treating data...");
     for(var i = 3;i < 1000/*lines.length*/; i++){
         var obj = {
-            coords: {}
+            coords: []
         };
 
 
@@ -41,8 +41,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var lon             = line.substring(50, 58).replace(/ /g,'');
 
         var coord = formatCoord(lat, lon);
-        obj.coords.lat      = coord[0];
-        obj.coords.lon      = coord[1];
+        obj.coords          = coord;
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
         obj.deviceType      = line.substring(61, 63).replace(/ /g,'');
@@ -94,7 +93,7 @@ function formatCoord(lat, lon){
         if(eInd != -1 ) newLon = lon.slice(0, lon.length-1); // Remove 'E'
 
 
-        var coord = [newLat, newLon];
+        var coord = [newLon, newLat];
         return coord;
     }
 
@@ -102,13 +101,13 @@ function formatCoord(lat, lon){
     // "lat": "",
     // "lon": "255NTS0"
     else if (lat.length==0 && lon.length >0){
-        var coord = [lat, lon];
+        var coord = [lon, lat];
         console.log(coord);
         return coord;
     }
 
     // Else return empty string array
-    return [lat,lon];
+    return [lon,lat];
 }
 
 
