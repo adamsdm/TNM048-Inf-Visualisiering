@@ -104,11 +104,11 @@ function formatCoord(lat, lon){
     else if (lat.length==0 && lon.length >0){
         var coord = [lat, lon];
         console.log(coord);
-        return [lat, lon];
+        return coord;
     }
 
     // Else return empty string array
-    return ["",""];
+    return [lat,lon];
 }
 
 
