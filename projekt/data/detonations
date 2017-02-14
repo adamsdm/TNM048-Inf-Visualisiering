@@ -1636,7 +1636,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 740925          USNTS SHFT            <20                  WR       PRATT   E
 740926          USNTS SHFT            <20                  WR       TRUMBULLE
 740926 150500.2 USNTS SHFT  5.6    20-200 37.1N   116.1W   WR       STANYAN E
-741002 005956   KRISTALL                          98
 741002 005956   CPYAK UNDG  4.6       1.7 66.1N   112.61E  PNE      KRISTALLISC
 741016 063257.5 CPKTS UNDG  5.4        17 49.979N 078.898E                  N
 741017          USNTS SHFT            <20                  WR       ESTACA  E
@@ -1675,7 +1674,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 750626 123000.2 USNTS SHFT  5.0  200-1000 37.27N  116.37W  WR       CAMEMBERE
 750630 032657.5 CPKTS UNDG  4.6       2.4 50.004N 078.957E                  N
 750807 035657.6 CPKTS UNDG  5.1       8.2 49.812N 078.161E                  N
-750812 150000   GORIZONT-4                        496
 750812 150000   CPYAK UNDG  5.1       7.6 70.76N  127.12E  PNE      GORIZONTIS
 750823 085957.9 CPNZ  UNDG  6.4       477 73.340N 054.500E                  N
 750830 211159.5 USNTSPSH?   3.0           37.28N  116.21W           **      N
@@ -1731,7 +1729,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 761020 075957.8 CPNZ  UNDG  5.1        13 73.400N 054.470E                  N
 761030 045702.5 CPKTS UNDG  4.9       4.5 49.821N 078.029E                  N
 761030 230000   FR                    0-5                           ULYSSEA Z
-761105 035956.8 OKA                               1522                      N
 761105 035956.8 CPYAK UNDG  5.3       11  61.52N  112.73E  PNE      OKA     ISC
 761110          USNTS SHFT            <20                  WR       SPRIT   E
 761117 060017.6 PCLNR ATMO           4000                                   N
@@ -1827,10 +1824,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 780719 180000.0 FRMUR SHFT  4.4         2 22S     139W     WR               N
 780726 230000.0 FRMUR SHFT  4.7         4 22S     139W     WR               N
 780728 024657.4 CPKTS UNDG  5.6        27 49.756N 078.140E                  N
-780809 175958.1 KRATON-4                           567
 780809 175958.1 CPYAK UNDG  5.6        22 63.65N  125.34E  PNE      KRATON-4ISC
 780810 075957.7 CPNZ  UNDG  5.9        89 73.310N 054.700E                  N
-780824 180003.8 KRATON-3                          577
 780824 180003.8 CPYAK UNDG  5.1        19 65.87N  112.56E  PNE      KRATON-3ISC
 780829 023657.5 CPKTS UNDG  5.2       9.2 49.812N 078.142E                  N
 780829 023706.2 CPKTS UNDG  5.9        56 50.000N 078.978E                  N
@@ -1847,7 +1842,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 780927 153000.0 USNTSYSS1             <20                  WR       CREMINO-E
 780927 170000.0 USNTS SHFT  5.0    20-150 37.08N  116.05W  WR       DRAUGHTSE
 780927 172000.0 USNTS SHFT  5.7    20-150 37.07N  116.02W  WR       RUMMY   E
-781007 235957.0 VYATKA                            1530                      N
 781007 235957.0 CPYAK UNDG  5.2        16 61.53N  112.87E  PNE      VYATKA  ISC
 781014 010002.7 PCLNR SHFT  4.9       <20 41.450N 088.633E                  N
 781015 053657.7 CPKTS UNDG  5.1        69 49.753N 078.165E                  N
@@ -1898,7 +1892,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 790803          USNTS SHFT         20-150                  WR       BURZET  E
 790804 035657.1 CPKTS UNDG  6.1       113 49.894N 078.904E                  N
 790808          USNTS SHFT         20-150                  WR       OFFSHOREE
-790812 175957.4 KIMBERLIT-4                       982                       N
 790812 175957.4 CPYAK UNDG  4.9       6.5 61.86N  122.22E  PNE      KIMBERLIISC
 790818 025157.1 CPKTS UNDG  6.1       119 49.943N 078.938E                  N
 790829          GBNTS SHFT         20-150                           NESSEL  E
@@ -1914,7 +1907,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 790926          USNTS SHFT         20-150                  WR       SHEEPSHEE
 790927 041257.6 CPKTS UNDG  4.4       1.4 49.767N 078.120E                  N
 791004 155958.0 CP    UNDG  5.4        27 60.660N 071.440E                  N
-791007 205957.1 SHEKSNA                           1545
 791007 205957.1 CPYAK UNDG  5.0        15 61.85N  113.12E  PNE      SHEKSNA ISC
 791018 041657.7 CPKTS UNDG  5.1       9.0 49.837N 078.148E                  N
 791018 070958.5 CPNZ  UNDG  5.8        70 73.340N 054.730E                  N
@@ -2073,7 +2065,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 820929          USNTS SHFT           <150                  WR       BORREGO E
 821001 131000.0 CP    UNDG  4.0      0.13 47.000N 048.000E                  N
 821005          PCLNR UNDG                                                  N
-821010 045956.8 NEVA-1                            1502                      N
 821010 045956.8 CPYAK UNDG  5.3        16 61.53N  112.86E  PNE      NEVA-1  ISC
 821011 071458.3 CPNZ  UNDG  5.6        44 73.370N 054.340E                  N
 821016 055957.3 CP    UNDG  5.2       8.6 46.770N 048.220E                  N
@@ -2292,15 +2283,12 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 870620 005304.8 CPKTS UNDG  6.1        81 49.901N 078.726E                  N
 870621 175458.4 FR    SHFT  5.2        15 21.984S 138.844W WR               N
 870630          USNTS SHFT            <20                  WR       PANCHUELE
-870706 235956.9 NEVA-2                            1526.6
 870706 235956.9 CPYAK UNDG  5.1        13 61.50N  112.83E  PNE      NEVA-2  ISC
 870716          GBNTS SHFT         20-150                           MIDLAND E
 870717 011707.0 CPKTS UNDG  5.8        38 49.779N 078.128E                  N
-870724 015956.9 NEVA-3                            1515.2                    N
 870724 015956.9 CPYAK UNDG  5.1        13 61.46N  112.78E  PNE      NEVA-3  ISC
 870802 005806.7 CPKTS UNDG  5.9        48 49.828N 078.898E                  N
 870802 015959.5 CPNZ  UNDG  5.8        70 73.289N 054.713E                  N
-870812 012957.1 NEVA-4                            815.3                     N
 870812 012957.1 CPYAK UNDG  5.0       3.2 61.46N  112.79E  PNE      NEVA-4  ISC
 870813          USNTS SHFT         20-150                  WR       TAHOKA  E
 870916 073001.0 CPKTS UNDG  5.0         6 49.000N 078.000E                  N

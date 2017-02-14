@@ -15,7 +15,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
     // For each line
     // Skip first lines containing labels
     console.log("Treating data...");
-    for(var i = 3;i < 1000/*lines.length*/; i++){
+    for(var i = 3;i < lines.length; i++){
         var obj = {
             coords: []
         };
@@ -38,7 +38,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
         // 33.675N = 33.675, 33.675S = -33.675
         // 106.475E = 106.475, 106.475W = -106.475
         var lat             = line.substring(42, 49).replace(/ /g,'');
-        var lon             = line.substring(50, 58).replace(/ /g,'');
+        var lon             = line.substring(50, 59).replace(/ /g,'');
 
         var coord = formatCoord(lat, lon);
         obj.coords          = coord;
@@ -77,15 +77,12 @@ function formatCoord(lat, lon){
         // If 'S' or 'W' is found in string
         // Remove and replace with '-'
         if(sInd != -1 ){
-
             newLat = lat.slice(0, lat.length-1); // Remove 'S'
             newLat = "-" + newLat;  // Add '-'
-
         }
         if(wInd != -1){
             newLon = lon.slice(0, lon.length-1); // Remove 'S'
             newLon = "-" + newLon;  // Add '-'
-
         }
 
         // Remove 'E'and 'N'
@@ -97,15 +94,53 @@ function formatCoord(lat, lon){
         return coord;
     }
 
-
     // "lat": "",
     // "lon": "255NTS0"
     else if (lat.length==0 && lon.length >0){
-        var coord = [lon, lat];
-        console.log(coord);
-        return coord;
+        // if NTS format
+        if (lon.indexOf("NTS") != -1)
+        {
+            var ntsArea = parseFloat(lon.substring(lon.indexOf("NTS")+3)); //number code of the nts area
+            var coord = [];
+            switch(ntsArea){
+                case 1:
+                    coord = [37.008, -116.059];
+                    break;
+                case 2:
+                    coord = [37.138, -116.073];
+                    break;
+                case 3:
+                    coord = [37.044, -116.024];
+                    break;
+                case 4:
+                    coord = [37.080, -116.086];
+                    break;
+                case 6:
+                    coord = [36.898, -116, 048];
+                    break;
+                case 12:
+                    coord = [37.193, -116.199];
+                    break;
+                case 30:
+                    coord = [37.007, -116.371];
+                    break;
+                default:
+                    coord = [37, -116];
+            }
+            //console.log(lon);
+            return coord;
+        }
+        else if (lon.indexOf("RIFLE") != -1)
+        {
+            var coord = [39.5, -108.2]; //rifle site coordinates
+            return coord;
+        }        
     }
+    // else check if a site tag exists then use those coords
+    else if(lat.length == 0 && lon.length == 0)
+        console.log("hej");
 
+    //
     // Else return empty string array
     return [lon,lat];
 }

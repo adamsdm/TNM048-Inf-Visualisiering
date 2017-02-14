@@ -235,7 +235,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 581008          USNTS TUNN             72                  WR       TAMALPA E
 581010          USNTS TOWR             79                  WR       QUAY    E
 581010 075100.0 CPNZ  ATMO           HIGH 73.000N 055.000E                  N
-581012 075300.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N   
+581012 075300.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 581013          USNTS BALN            1.4                  WR       LEA     E
 581014          USNTS TUNN          0.115                  SF       NEPTUNE E
 581015          USNTS TOWR            1.2                  WR       HAMILTONE
@@ -289,7 +289,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 610922 080100.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 611002 103100.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 611004 073054.8 CPNZ  ATMO          >1000 73.700N 053.800E                  N
-611006 070000.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N 
+611006 070000.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 611006          CPKPY ATMO           ~200                                   N
 611008          CPNZ  ATMO            LOW 73.000N 055.000E                  N
 611001          USNTS SHFT            LOW                  WR       BOOMER  E
@@ -392,7 +392,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 620820 090214.1 CPNZ  ATMO          >1000 74.300N 051.500E                  N
 620822 090000.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 620824          USNTS SHFT            LOW                  WR       YORK    E
-620824          USNTS SHFT            LOW                  WR       BOBAC   E 
+620824          USNTS SHFT            LOW                  WR       BOBAC   E
 620825 054000.0 CPKTS ATMO            LOW 50.000N 078.000E                  N
 620825 090000.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 620827 090000.0 CPNZ  ATMO          1000+ 73.000N 055.000E                  N
@@ -485,7 +485,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 630815          USNTS SHFT            LOW                  WR       SATSOP  E
 630823 1320    #NATCHES                           059 NTS09 LLNL
 630823 1320     USNTSYSS1             LOW                  WR       NATCHES E
-630823 1320    #KOHOCTON*                         255 NTS09 LLNL             
+630823 1320    #KOHOCTON*                         255 NTS09 LLNL
 630823 1320     USNTSYSS2             LOW                  WR       KOHOCTONE
 630913          USNTS SHFT            LOW                  WR       AHTANUM E
 630913          USNTS SHFT            249                  WR       BILBY   E
@@ -515,7 +515,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 640218          USNTS SHFT            <20                  WR       BONEFISHE
 640218          USNTS SHFT            <20                  WR       MACKERELE
 640220 153000.1 USNTS SHFT  5.1        24 37.20N  111.00W           KLICKITAEN
-640312          USNTS SHFT            <20                  WR       HANDICAPE 
+640312          USNTS SHFT            <20                  WR       HANDICAPE
 640313 160200.1 USNTS SHFT            <20 36.901N 116.201W WR       PIKE    E
 640315 075958.2 CPKTSDUNDG  5.6    20-150 49.815N 078.075E                  A
 640414 144000.1 USNTS SHFT            <20 37.150N 115.980W WR       HOOK    E
@@ -545,7 +545,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 640904 181501.8 USNTS SHFT            <20 36.970N 116.050W WR       GUANAY  E
 640911          USNTS SHFT            <20                  WR       SPOON   E
 640918 075957.2 CPNZ  UNDG  4.3           73.200N 054.400E                  N
-640925          USNTS SHFT            <20            JOINT US-UK    COURSER E
 641002 200300.6 USNTS SHFT  4.0       <20 37.070N 116.010W WR       AUK     E
 641009 140002.6 USNTS SHFT  4.8        38 37.070N 116.130W PS       PAR     E
 641016 155930.5 TURNSTONE                         126 NTS03 LANL
@@ -589,7 +588,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 650414 131402.6 USNTS CRAT            4.3 37.26N  116.54W  PS       PALANQUIE
 650421 220003.4 USNTS TUNN  5.0       <20 36.97N  116.23W  WE       GUM DROPE
 650422          USNTS SHFT            <20                  WR       CHENILLEE
-650423 214400.0 USNTS SHFT  3.7       <20 37.017N 115.995  WR       MUSCOVY E 
+650423 214400.0 USNTS SHFT  3.7       <20 37.017N 115.995  WR       MUSCOVY E
 650507 154711.3 USNTS SHFT            <20 37.14N  116.10W  WE       TEE     E
 650511 063957.3 CPKTSDUNDG  4.9       <20 49.770N 077.994E     GR           A
 650512 18150.04 USNTS SHFT            <20 37.2N   116.5W   WR       BUTEO   E
@@ -615,7 +614,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 650901 200759.4#SCREAMER*                         302 NTS03 LANL
 650901 200759.4 USNTSYSS2   4.2       <20 36.99N  115.95W  WE       SCREAMERE
 650910 171202.1 GBNTS SHFT  5.1    20-200 36.98N  115.99W           CHARCOALE
-650917 040000.1 CPKTSDUNDG  5.2       <20 49.811N 078.146E     QP           A 
+650917 040000.1 CPKTSDUNDG  5.2       <20 49.811N 078.146E     QP           A
 650917 150823.1 USNTS SHFT            <20 37.06N  116.02W  WR       ELKHART E
 651001 100000.0 FRECK TUNN            <20 24.065N 005.034E WR       CORINDN N
 651008 060000.4 CPKTSDUNDG  5.4       <20 49.825N 078.111E     QP           A
@@ -659,7 +658,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 660504 133219.0 USNTS SHFT            <20 37.17N  115.96W  WR       TRAVELR E
 660505 140003.1 USNTS SHFT  4.4        12 37.03N  116.02W  WR       CYCLAMENE
 660506 150003.1 USNTS SHFT  5.4        73 37.20N  116.19W  WR       CHARTREUE
-660507 035758.0 CPKTSDUNDG  4.8       3.6 49.774N 078.149E     QP           A 
+660507 035758.0 CPKTSDUNDG  4.8       3.6 49.774N 078.149E     QP           A
 660702 153400   FR    ATMO                20S     140W                      Z
 660719 150500   FR    ATMO                20S     140W                      Z
 660509 080000.0 PCLNR AIRD            200                                   N
@@ -780,13 +779,13 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 680221 153000.0 USNTS SHFT  5.8    20-200 37.117N 116.054W WR       KNOX    E
 680229 170830.0 USNTS TUNN  5.0       <20 37.018N 116.021W WE       DORSLFINE
 680305          USNTS SHFT            <20                  WR       RUSSET  E
-680312 170400.1 BUGGY-A                           50 NTS30 LLNL              
+680312 170400.1 BUGGY-A                           50 NTS30 LLNL
 680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-A E
 680312 170400.1 BUGGY-B                           50 NTS30 LLNL
-680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-B E 
-680312 170400.1 BUGGY-C                           50 NTS30 LLNL               
-680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-C E  
-680312 170400.1 BUGGY-D                           50 NTS30 LLNL              
+680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-B E
+680312 170400.1 BUGGY-C                           50 NTS30 LLNL
+680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-C E
+680312 170400.1 BUGGY-D                           50 NTS30 LLNL
 680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-D E
 680312 170400.1 BUGGY-E                           50 NTS30 LLNL
 680312 170400.1 USNTSBCRAT         1.08   37.008N 116.037W PS       BUGGY-E E
@@ -809,14 +808,14 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 680528          USNTS SHFT            <20                  WR       ADZE    E
 680605          USNTS SHFT            <20                  WR       WEMBLEY E
 680606 213000.0 TUB-A                             189 NTS10 LLNL
-680606 213000.0 USNTSYSS1             <20 37.167N 116.045W WR       TUB-A   E 
-680606 213000.0 TUB-B                             189 NTS10 LLNL                
+680606 213000.0 USNTSYSS1             <20 37.167N 116.045W WR       TUB-A   E
+680606 213000.0 TUB-B                             189 NTS10 LLNL
 680606 213000.0 USNTSYSS2             <20 37.167N 116.045W WR       TUB-B   E
-680606 213000.0 TUB-C                             189 NTS10 LLNL                
+680606 213000.0 TUB-C                             189 NTS10 LLNL
 680606 213000.0 USNTSYSS3             <20 37.167N 116.045W WR       TUB-C   E
-680606 213000.0 TUB-F                             189 NTS10 LLNL                
+680606 213000.0 TUB-F                             189 NTS10 LLNL
 680606 213000.0 USNTSYSS4             <20 37.167N 116.045W WR       TUB-F   E
-680606 213000.0 TUB-D                             273 NTS10 LLNL                
+680606 213000.0 TUB-D                             273 NTS10 LLNL
 680606 213000.0 USNTSYSS5             <20 37.167N 116.045W WR       TUB-D   E
 680611 030557.7 CPKTSDUNDG  5.2       9.2 49.800N 078.130E     QP           A
 680615 140000.0 USNTS SHFT  5.9    20-200 37.265N 116.315W WR       RICKEY  E
@@ -850,14 +849,14 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 681029          USNTS SHFT            <20                  WR       HULA    E
 681031          USNTS SHFT            <20                  WR       FILE    E
 681031          USNTS SHFT            <20                  WR       BIT     E
-681031 1830     BIT-B                             118 NTS03 LANL             
-681031 1830     USNTSYSS1             <20                  WR       BIT-B   E 
+681031 1830     BIT-B                             118 NTS03 LANL
+681031 1830     USNTSYSS1             <20                  WR       BIT-B   E
 681031 1830     BIT-A                             148 NTS03 LANL
 681031 1830     USNTSYSS1             <20                  WR       BIT-A   E
 681104 151500.1 USNTS SHFT  5.0    20-200 37.131N 116.086W WR       CREW    E
 681104 1516     CREW-2ND                          360 NTS02 LLNL
 681104 1516     USNTSYSS1             <20                  WR       CREW2ND E
-681104 1516     CREW3RD                           360 NTS02 LLNL 
+681104 1516     CREW3RD                           360 NTS02 LLNL
 681104 1516     USNTSYSS1             <20                  WR       CREW3RD E
 681107 100205.4 CPNZ  UNDG  6.0       119 73.390N 054.580E                  N
 681109 025357.7 CPKTSDUNDG  4.9       4.5 49.760N 078.060E     QP           A
@@ -898,7 +897,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 690321 143000.0 USNTS SHFT  4.9      <100 37.080N 116.087W WR       COFFER  E
 690424          USNTS SHFT            <20                  WR       GOURD   E
 690424 130400.2 GOURD-AMBER                       181 NTS02 LLNL
-690424 130400.2 USNTSYSS1   3.8       <20 37.002N 116.000W WR       GOURD-AME 
+690424 130400.2 USNTSYSS1   3.8       <20 37.002N 116.000W WR       GOURD-AME
 690424 130400.2 GOURD-BROWN                       227 NTS02 LLNL
 690424 130400.2 USNTSYSS2             <20 37.002N 116.000W WR       GOURD-BRE
 690430 170000.0 USNTS SHFT         20-200 36.081N 116.013W WR       THISTLE E
@@ -908,15 +907,15 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 690516 040257.3 CPKTSDUNDG  5.2       9.2 49.780N 078.160E     GR           A
 690527          USNTS SHFT            <20                  WR       IPECAC  E
 690527 1300     IPECAC-A                          124 NTS03 LANL
-690527 1300     USNTSYSS1             <20                  WR       IPECAC-AE 
-690527 1300     IPECAC-B                          124 NTS03 LANL  
+690527 1300     USNTSYSS1             <20                  WR       IPECAC-AE
+690527 1300     IPECAC-B                          124 NTS03 LANL
 690527 1300     USNTSYSS2             <20                  WR       IPECAC-BE
 690527 141500.0 USNTS SHFT  5.0    20-200 37.076N 115.995W WR       TORRIDO E
 690531 050156.8 CPKTSMUNDG  5.3        11 49.967N 077.728E     AL           A
 690612 140000.0 USNTS SHFT  4.5       <20 37.053N 116.030W WR       TAPPER  E
 690626          USNTS SHFT            <20                  WR       BOWL    E
-690626 1500     BOWL-1      4.0                   198 NTS02 LLNL             
-690626 1500     USNTSYSS1             <20                  WR       BOWL-1  E 
+690626 1500     BOWL-1      4.0                   198 NTS02 LLNL
+690626 1500     USNTSYSS1             <20                  WR       BOWL-1  E
 690626 1500     BOWL-2                            198 NTS02 LLNL
 690626 1500     USNTSYSS2             <20                  WR       BOWL-2  E
 690704 024657.3 CPKTSDUNDG  5.2       9.2 49.760N 078.200E     QP           A
@@ -924,7 +923,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 690716 145500.0 USNTS SHFT  5.5    20-200 37.139N 116.088W WR       HUTCH   E
 690723 024657.6 CPKTSDUNDG  5.4        14 49.817N 078.170E     QP           A
 680814 1330     SPIDER-A                          207 NTS02 LLNL
-690814 1330     USNTSYSS1             <20                  WR       SPIDER-AE 
+690814 1330     USNTSYSS1             <20                  WR       SPIDER-AE
 690814 1330     SPIDER-B                          229 NTS02 LLNL
 690814 1330     USNTSYSS2             <20                  WR       SPIDER-BE
 690827 134500.0 USNTS SHFT            <20 37.021N 116.038W WR       PLIERS  E
@@ -940,7 +939,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 690920 1330     USNTSYSS1             <20                  WR       KYACK-A E
 690920 1330     KYACK-B                           192 NTS02 LLNL
 690920 1330     USNTSYSS2             <20                  WR       KYACK-B E
-690922 161458.8 PCLNR TUNN  5.1        25 41.383N 088.300E                  
+690922 161458.8 PCLNR TUNN  5.1        25 41.383N 088.300E
 690926 070000.0 CP    UNDG  5.0       5.7 46.000N 042.400E                  N
 690929 084026.0 PCLNR AIRD           3000                                   N
 691001 040257.7 CPKTSDUNDG  5.2       9.2 49.810N 078.180E     GR           A
@@ -952,14 +951,14 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 691001 1330     USNTSYSS2             <20                  WR       SEAWEED-E
 691001 1330     SEAWEED-E                         125 NTS03 LANL
 691001 1330     USNTSYSS3             <20                  WR       SEAWEED-E
-691002          USAMC SHFT           1000                  WR 2     MILROW  EN 
+691002          USAMC SHFT           1000                  WR 2     MILROW  EN
 691008 143000.1 USNTS SHFT  5.6  200-1000 37.257N 116.441W WR       PIPKIN  E
 691014 070006.4 CPNZ  UNDG  6.0       140 73.390N 054.500E                  N
 691020 090902.0 CP    UNDG  3.7       .09 48.100N 047.800E                  N
 691028 143458.1 USNTSPSH?   2.9           37.003N 116.004W          **      N
 691029 193000.0 USNTS SHFT             11 37.121N 116.128W WR       CRUET   E
 691029 200000.0 POD-B                             171 NTS02 LLNL
-691029 200000.0 USNTSYSS1             <20 37.141N 116.142W WR       POD-B   E  
+691029 200000.0 USNTSYSS1             <20 37.141N 116.142W WR       POD-B   E
 691029 200000.0 POD-A                             248 NTS02 LLNL
 691029 200000.0 USNTSYSS2             <20 37.141N 116.142W WR       POD-A   E
 691029 200000.0 POD-D                             267 NTS02 LLNL
@@ -979,27 +978,27 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 691210 150000.0 CULANTRO-B                        149 NTS03 LANL
 691210 150000.0 USNTSYSS2             <20                  WR       CULANTROE
 691210          USNTS SHFT            <20                  WR       TUN     E
-691210 153003.7 TUN-B                             194 NTS10 LLNL             
-691210 153003.7 USNTSYSS1             <20                  WR       TUN-B   E 
+691210 153003.7 TUN-B                             194 NTS10 LLNL
+691210 153003.7 USNTSYSS1             <20                  WR       TUN-B   E
 691210 153003.7 TUN-C                             194 NTS10 LLNL
 691210 153003.7 USNTSYSS2             <20                  WR       TUN-C   E
-691210 153003.7 TUN-A                             200 NTS10 LLNL 
-691210 153003.7 USNTSYSS3             <20                  WR       TUN-A   E 
-691210 153003.7 TUN-D                             256 NTS10 LLNL  
-691210 153003.7 USNTSYSS4             <20                  WR       TUN-D   E 
+691210 153003.7 TUN-A                             200 NTS10 LLNL
+691210 153003.7 USNTSYSS3             <20                  WR       TUN-A   E
+691210 153003.7 TUN-D                             256 NTS10 LLNL
+691210 153003.7 USNTSYSS4             <20                  WR       TUN-D   E
 691217 150000.0 USNTS SHFT  5.4    20-200 37.084N 116.002W WR       GRAPE A E
 691217          USNTS SHFT            <20                  WR       LOVAGE  E
-691218 190000.0 TERRINE-YELLOW                    419 NTS09 LLNL 
-691218 190000.0 USNTSYSS1   5.2    20-200 37.121N 116.035W WR       TERRINE-E 
-691218 190000.0 TERRINE-WHITE                     462 NTS09 LLNL           
-691218 190000.0 USNTSYSS2   5.2    20-200 37.121N 116.035W WR       TERRINE-E 
+691218 190000.0 TERRINE-YELLOW                    419 NTS09 LLNL
+691218 190000.0 USNTSYSS1   5.2    20-200 37.121N 116.035W WR       TERRINE-E
+691218 190000.0 TERRINE-WHITE                     462 NTS09 LLNL
+691218 190000.0 USNTSYSS2   5.2    20-200 37.121N 116.035W WR       TERRINE-E
 691228 034657.6 CPKTSMUNDG  5.7        30 49.954N 077.748E     AL           A
 691229 040158.1 CPKTSDUNDG  5.5       7.3 49.790N 078.000E     QP           A
 701223 163000.2 FOB-BLUE                          101 NTS09 LLNL
-700123 163000.2 USNTSYSS1             <20 37.137N 116.037W WR       FOB-BLUEE 
-700123 163000.2 FOB-RED                           245 NTS09 LLNL 
+700123 163000.2 USNTSYSS1             <20 37.137N 116.037W WR       FOB-BLUEE
+700123 163000.2 FOB-RED                           245 NTS09 LLNL
 700123 163000.2 USNTSYSS2             <20 37.137N 116.037W WR       FOB-RED E
-700123 163000.2 FOB-GREEN                         267 NTS09 LLNL    
+700123 163000.2 FOB-GREEN                         267 NTS09 LLNL
 700123 163000.2 USNTSYSS3             <20 37.137N 116.037W WR       FOB-GREEE
 700129 070257.5 CPKTSDUNDG  5.5        18 49.813N 078.185E     PO           A
 700130          USNTS SHFT            <20                  WR       AJO     E
@@ -1008,18 +1007,18 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 700205 150000.4 USNTS SHFT  4.6        25 37.164N 116.039W WR       LABIS   E
 700211 191500.4 USNTS TUNN  4.7       <20 37.201N 116.205W WE       DIANA m E
 700225 142838.4 USNTS SHFT  5.2    20-200 37.037N 116.000W WR       CUMARIN E
-700226 153000.4 YANNIGAN-BLUE                     351 NTS02 LLNL 
+700226 153000.4 YANNIGAN-BLUE                     351 NTS02 LLNL
 700226 153000.4 USNTSYSS1   5.3    20-200 37.116N 116.061W WR       YANNIGANE
-700226 153000.4 YANNIGAN-WHITE                    381 NTS02 LLNL 
-700226 153000.4 USNTSYSS2   5.3    20-200 37.116N 116.061W WR       YANNIGANE 
-700226 153000.4 YANNIGAN-RED                      389 NTS02 LLNL 
+700226 153000.4 YANNIGAN-WHITE                    381 NTS02 LLNL
+700226 153000.4 USNTSYSS2   5.3    20-200 37.116N 116.061W WR       YANNIGANE
+700226 153000.4 YANNIGAN-RED                      389 NTS02 LLNL
 700226 153000.4 USNTSYSS3          20-200 37.116N 116.061W WR       YANNIGANE
 700306 142400.3 USNTS SHFT  4.3       8.7 37.023N 116.092W WR       CYATHUS E
-700306 150000.2 ARABIS-BLUE                       101 NTS09 LLNL 
-700306 150000.2 USNTSYSS1             <20 37.140N 116.037W WR       ARABIS-BE 
+700306 150000.2 ARABIS-BLUE                       101 NTS09 LLNL
+700306 150000.2 USNTSYSS1             <20 37.140N 116.037W WR       ARABIS-BE
 700306 150000.2 ARABIS-RED                        250 NTS09 LLNL
 700306 150000.2 USNTSYSS2             <20 37.140N 116.037W WR       ARABIS-RE
-700306 150000.2 ARABIS-GREEN                      250 NTS09 LLNL 
+700306 150000.2 ARABIS-GREEN                      250 NTS09 LLNL
 700306 150000.2 USNTSYSS3             <20 37.140N 116.037W WR       ARABIS-GE
 700319 140330.4 USNTS SHFT            <20 37.001N 116.023W WR       JAL     E
 700323 230500.4 USNTS SHFT  5.5    20-200 37.086N 116.021W WR       SHAPER  E
@@ -1027,18 +1026,18 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 700327 050257.0 CPKTSDUNDG  5.0       5.7 49.770N 078.110E     GR           A
 700421 143000.4 USNTS SHFT  4.4       <20 37.055N 115.988W WE       SNUBBER E
 700421 150000.4 CAN-GREEN                         274 NTS02 LLNL
-700421 150000.4 USNTSYSS1   4.6       <20 37.099N 116.080W WR       CAN-GREEE 
+700421 150000.4 USNTSYSS1   4.6       <20 37.099N 116.080W WR       CAN-GREEE
 700421 150000.4 CAN-RED                           399 NTS02 LLNL
 700421 150000.4 USNTSY      4.6    20-200 37.099N 116.080W WR       CAN-RED E
 700501 134000.2 HOD-B(RED)                        241 NTS09 LLNL
 700501 141300.4 USNTS SHFT            <20 37.059N 116.028W WR       BEEBALM E
 700501 144000.2 USNTSYSS1   4.3       <20 37.133N 116.034W WR       HOD-B(REE
 700501 144000.2 HOD-A(GREEN)                      265 NTS09 LLNL
-700501 144000.2 USNTSYSS2   4.3       <20 37.133N 116.034W WR       HOD-A(GRE 
+700501 144000.2 USNTSYSS2   4.3       <20 37.133N 116.034W WR       HOD-A(GRE
 700505 153000.2 USNTS TUNN  5.0       <20 37.211N 116.184W WE       MINTLEAFE
 700512 140000.4 USNTS TUNN            <20 37.010N 116.202W VU       d DUST  E
 700515 133000.2 CORNICE-YELLOW                    390 NTS10 LLNL
-700515 133000.2 USNTSYSS1   5.1    20-200 37.162N 116.039W WR       CORNICE-E 
+700515 133000.2 USNTSYSS1   5.1    20-200 37.162N 116.039W WR       CORNICE-E
 700515 133000.2 CORNICE-GREEN                     444 NTS10 LLNL
 700515 133000.2 USNTSYSS2   5.1    20-200 37.162N 116.039W WR       CORNICE-E
 700515 180000.0 FRMUR BALN         20-200 20S     140W     WR       ANDROME N
@@ -1068,8 +1067,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 700624 183000.0 FRMUR BALN            LOW 20S    140W      WR       ERIDAN  N
 700625 045952.4 CP    UNDG  4.9       8.4 52.200N 055.700E                  N
 700626 120000.0 ARNICA-VIOLET                     264 NTS02 LLNL
-700626 120000.0 USNTSYSS1             <20                  WR       ARNICA-VE 
-700626 120000.0 ARNICA-YELLOW                     309 NTS02 LLNL 
+700626 120000.0 USNTSYSS1             <20                  WR       ARNICA-VE
+700626 120000.0 ARNICA-YELLOW                     309 NTS02 LLNL
 700626 120000.0 USNTSYSS2             <20                  WR       ARNICA-YE
 700626 130000.4 USNTS SHFT         20-200 37.114N 116.086W WR       ARNICA  E
 700628 015757.7 CPKTSDUNDG  5.7        30 49.830N 078.220E     GR           A
@@ -1093,8 +1092,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 701014 143000.4 USNTS SHFT  5.5    20-200 37.071N 116.005W WR       TIJERAS E
 701028          USNTS SHFT            <20                  WR       TRUCHAS E
 701028 143000.0 TRUCHAS-CHAMISAL                  118 NTS03 LANL
-701028 143000.0 USNTSYSS1             <20                  WR       TRUCHAS-E 
-701028 143000.0 TRUCHAS-CHACON                    119 NTS03 LANL 
+701028 143000.0 USNTSYSS1             <20                  WR       TRUCHAS-E
+701028 143000.0 TRUCHAS-CHACON                    119 NTS03 LANL
 701028 143000.0 USNTSYSS2             <20                  WR       TRUCHAS-E
 701028 143000.0 TRUCHAS-RODARTE                   266 NTS03 LANL
 701028 143000.0 USNTSYSS3             <20                  WR       TRUCHAS-E
@@ -1103,7 +1102,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 701119          USNTS SHFT            <20                  WR       PENASCO E
 701203 150700.0 CORAZON                           241 NTS03 LANL
 701203 150700.0 USNTSYSS1   3.1       <20                  WR       CORAZON E
-701203 150700.0 CARRIZOZO                         279 NTS03 LANL 
+701203 150700.0 CARRIZOZO                         279 NTS03 LANL
 701203 150700.0 USNTSYSS2   3.1       <20                  WR       CARRIZOZE
 701212 070057.4 CP    UNDG  6.0       113 43.870N 054.780E                  N
 701216          USNTS SHFT            <20                  WR       CANJILONE
@@ -1144,7 +1143,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 710721          USNTS SHFT            <20                  WR       APODACA E
 710804          USNTS SHFT            <20                  WR       BARRANCAE
 710805          USNTS SHFT            <20                  WR       NAMA    E
-710805 170700.0 NAMA-MEPHISTO                     244 NTS09 LLNL  
+710805 170700.0 NAMA-MEPHISTO                     244 NTS09 LLNL
 710805 170700.0 USNTSYSS1             <20                  WR       NAMA-MEPE
 710805 170700.0 NAMA-AMARYLIS                     273 NTS09 LLNL
 710805 170700.0 USNTSYSS2             <20                  WR       NAMA-AMAE
@@ -1243,7 +1242,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 721109          USNTS SHFT            <20                  WR       ARSENATEE
 721117          USNTS SHFT            <20                  WR       CANNA   E
 721117 180000.0 CANNA-UMBRINUS                    183 NTS09 LLNL
-721117 180000.0 USNTSYSS1             <20                  WR       CANNA-UME 
+721117 180000.0 USNTSYSS1             <20                  WR       CANNA-UME
 721117 180000.0 CANNA-LIMOGES                     213 NTS09 LLNL
 721117 180000.0 USNTSYSS1             <20                  WR       CANNA-LIE
 721124 090002.8 CP    UNDG  4.5       3.3 52.140N 051.830E                  N
@@ -1266,16 +1265,16 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 730425 222500.0 VELARDE                           277 NTS03 LANL
 730425 222500.0 USNTSYSS1   4.7       <20 37.00N  116.03W  WR       VELARDE E
 730425 222500.0 ANGUS                             453 NTS03 LANL
-730425 222500.0 USNTSYSS2   4.7       <20 37.00N  116.03W  WR       ANGUS   E 
+730425 222500.0 USNTSYSS2   4.7       <20 37.00N  116.03W  WR       ANGUS   E
 730426          USNTS SHFT            <20                  WR       COLMOR  E
 730426 171500.2 USNTS SHFT  5.6        90 37.12N  116.06W  WR       STARWORTE
 730509          USNTS SHFT            <20                  WR       MESITA  E
 730517 150000.0 RIO BLANCO-1                      543 RIFLE,CO LLNL
-730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE 
-730517 150000.0 RIO BLANCO-2                      579 RIFLE,CO LLNL 
-730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE 
+730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE
+730517 150000.0 RIO BLANCO-2                      579 RIFLE,CO LLNL
+730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE
 730517 150000.0 RIO BLANCO-3                      622 RIFLE,CO LLNL
-730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE 
+730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE
 730524          USNTS SHFT            <20                  WR       CABRESTOE
 730524          USNTS SHFT            <20                  WR       KASHAN  E
 730605 170000.2 USNTS TUNN  5.1       <20 37.18N  116.21W  WE       DIDOQUEEE
@@ -1360,8 +1359,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 740925          USNTS SHFT            <20                  WR       PRATT   E
 740926          USNTS SHFT            <20                  WR       TRUMBULLE
 740926 150500.2 USNTS SHFT  5.6    20-200 37.1N   116.1W   WR       STANYAN E
-741002 005956   KRISTALL                          98            
-741002 005956   CPYAK UNDG  4.6       1.7 66.1N   112.61E  PNE      KRISTALLISC 
+741002 005956   CPYAK UNDG  4.6       1.7 66.1N   112.61E  PNE      KRISTALLISC
 741016 063257.5 CPKTS UNDG  5.4        17 49.979N 078.898E                  N
 741017          USNTS SHFT            <20                  WR       ESTACA  E
 741028          USNTS TUNN            <20                  WE       HYBLAFAIE
@@ -1374,8 +1372,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 741216          USNTS SHFT            <20                  WR       KEEL    E
 741227 054656.8 CPKTS UNDG  5.5        18 49.943N 079.011E                  N
 750206 153000.0 PORTOLA                           198 NTS10 LLNL
-750206 153000.0 USNTSYSS1   3.5       <20 37.05N  116.00W  WR       PORTOLA E 
-750206 153000.0 PORTOLA-LARKIN                    274 NTS10 LLNL 
+750206 153000.0 USNTSYSS1   3.5       <20 37.05N  116.00W  WR       PORTOLA E
+750206 153000.0 PORTOLA-LARKIN                    274 NTS10 LLNL
 750206 153000.0 USNTSYSS1   3.5       <20 37.05N  116.00W  WR       PORTOLA-E
 750206          USNTS SHFT            <20                  WR       TELEME  E
 750219          USNTS SHFT            <20                  WR       BILGE   E
@@ -1399,7 +1397,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 750626 123000.2 USNTS SHFT  5.0  200-1000 37.27N  116.37W  WR       CAMEMBERE
 750630 032657.5 CPKTS UNDG  4.6       2.4 50.004N 078.957E                  N
 750807 035657.6 CPKTS UNDG  5.1       8.2 49.812N 078.161E                  N
-750812 150000   GORIZONT-4                        496    
 750812 150000   CPYAK UNDG  5.1       7.6 70.76N  127.12E  PNE      GORIZONTIS
 750823 085957.9 CPNZ  UNDG  6.4       477 73.340N 054.500E                  N
 750830 211159.5 USNTSPSH?   3.0           37.28N  116.21W           **      N
@@ -1410,7 +1407,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 751021 115957.7 CPNZ  UNDG  6.4       497 73.320N 054.930E                  N
 751024 171126.1 USNTS TUNN  4.7       <20 37.22N  116.18W  WE       HUSKYPUPE
 751026 005959.0 PCLNR UNDG            <20                                   N
-751027 010003.5 PCLNR       5.0       <10 41.400N 088.667E                  
+751027 010003.5 PCLNR       5.0       <10 41.400N 088.667E
 751028 143000.2 USNTS SHFT  6.2  200-1000 37.28N  116.41W  WR       KASSERI E
 751029 044657.3 CPKTS UNDG  5.6        24 49.946N 078.878E                  N
 751118          USNTS SHFT            <20                  WR       DECK    E
@@ -1455,7 +1452,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 761020 075957.8 CPNZ  UNDG  5.1        13 73.400N 054.470E                  N
 761030 045702.5 CPKTS UNDG  4.9       4.5 49.821N 078.029E                  N
 761030 230000   FR                    0-5                           ULYSSEA Z
-761105 035956.8 OKA                               1522                      N
 761105 035956.8 CPYAK UNDG  5.3       11  61.52N  112.73E  PNE      OKA     ISC
 761110          USNTS SHFT            <20                  WR       SPRIT   E
 761117 060017.6 PCLNR ATMO           4000                                   N
@@ -1467,7 +1463,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 761208          FRMUR SHFT                20S     140W     WR               N
 761221          USNTS SHFT            <20                  WR       SUTTER  E
 761221 150900.2 USNTS SHFT            <20 37.12N  116.07W  WR       ASIAGO  E
-761228 180000.1 USNTS SHFT  5.5    20-150 37.10N  116.04W  WR       RUDDER  E  
+761228 180000.1 USNTS SHFT  5.5    20-150 37.10N  116.04W  WR       RUDDER  E
 761230 035657.9 CPKTS UNDG  5.1       7.8 49.802N 078.069E                  N
 770216 175300.2 OARLOCK                           318 NTS03 LLNL
 770216 175300.0 USNTSYSS1             <20                  WR       OARLOCK E
@@ -1551,10 +1547,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 780719 180000.0 FRMUR SHFT  4.4         2 22S     139W     WR               N
 780726 230000.0 FRMUR SHFT  4.7         4 22S     139W     WR               N
 780728 024657.4 CPKTS UNDG  5.6        27 49.756N 078.140E                  N
-780809 175958.1 KRATON-4                           567                        
 780809 175958.1 CPYAK UNDG  5.6        22 63.65N  125.34E  PNE      KRATON-4ISC
 780810 075957.7 CPNZ  UNDG  5.9        89 73.310N 054.700E                  N
-780824 180003.8 KRATON-3                          577                        
 780824 180003.8 CPYAK UNDG  5.1        19 65.87N  112.56E  PNE      KRATON-3ISC
 780829 023657.5 CPKTS UNDG  5.2       9.2 49.812N 078.142E                  N
 780829 023706.2 CPKTS UNDG  5.9        56 50.000N 078.978E                  N
@@ -1567,11 +1561,10 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 780927 1430     USNTS SH?   3.4                                     **      N
 780927 153000.0 CREMINO                           210 NTS08 LLNL
 780927 153000.0 USNTSYSS1             <20                  WR       CREMINO E
-780927 153000.0 CREMINO-CAERPHILLY                420 NTS08 LLNL 
+780927 153000.0 CREMINO-CAERPHILLY                420 NTS08 LLNL
 780927 153000.0 USNTSYSS1             <20                  WR       CREMINO-E
 780927 170000.0 USNTS SHFT  5.0    20-150 37.08N  116.05W  WR       DRAUGHTSE
 780927 172000.0 USNTS SHFT  5.7    20-150 37.07N  116.02W  WR       RUMMY   E
-781007 235957.0 VYATKA                            1530                      N
 781007 235957.0 CPYAK UNDG  5.2        16 61.53N  112.87E  PNE      VYATKA  ISC
 781014 010002.7 PCLNR SHFT  4.9       <20 41.450N 088.633E                  N
 781015 053657.7 CPKTS UNDG  5.1        69 49.753N 078.165E                  N
@@ -1622,7 +1615,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 790803          USNTS SHFT         20-150                  WR       BURZET  E
 790804 035657.1 CPKTS UNDG  6.1       113 49.894N 078.904E                  N
 790808          USNTS SHFT         20-150                  WR       OFFSHOREE
-790812 175957.4 KIMBERLIT-4                       982                       N
 790812 175957.4 CPYAK UNDG  4.9       6.5 61.86N  122.22E  PNE      KIMBERLIISC
 790818 025157.1 CPKTS UNDG  6.1       119 49.943N 078.938E                  N
 790829          GBNTS SHFT         20-150                           NESSEL  E
@@ -1638,7 +1630,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 790926          USNTS SHFT         20-150                  WR       SHEEPSHEE
 790927 041257.6 CPKTS UNDG  4.4       1.4 49.767N 078.120E                  N
 791004 155958.0 CP    UNDG  5.4        27 60.660N 071.440E                  N
-791007 205957.1 SHEKSNA                           1545  
 791007 205957.1 CPYAK UNDG  5.0        15 61.85N  113.12E  PNE      SHEKSNA ISC
 791018 041657.7 CPKTS UNDG  5.1       9.0 49.837N 078.148E                  N
 791018 070958.5 CPNZ  UNDG  5.8        70 73.340N 054.730E                  N
@@ -1791,13 +1782,12 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 820915 043300.0 CPKTS UNDG  5.1      0.62 50.000N 078.000E                  N
 820921 025700.8 CPKTS UNDG  5.2       9.2 49.801N 078.151E                  N
 820923          USNTS TUNN            <20                  WE       HURONLANE
-820923          USNTS TUNN            <20                  WE       DIAMONDAE 
+820923          USNTS TUNN            <20                  WE       DIAMONDAE
 820923          USNTS SHFT         20-150                  WR       FRISCO  E
 820925 175957.3 CP    UNDG  5.2        17 64.330N 081.800E                  N
 820929          USNTS SHFT           <150                  WR       BORREGO E
 821001 131000.0 CP    UNDG  4.0      0.13 47.000N 048.000E                  N
 821005          PCLNR UNDG                                                  N
-821010 045956.8 NEVA-1                            1502                      N
 821010 045956.8 CPYAK UNDG  5.3        16 61.53N  112.86E  PNE      NEVA-1  ISC
 821011 071458.3 CPNZ  UNDG  5.6        44 73.370N 054.340E                  N
 821016 055957.3 CP    UNDG  5.2       8.6 46.770N 048.220E                  N
@@ -1902,7 +1892,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 840825 185958.6 CP    UNDG  5.4        27 61.876N 072.092E                  N
 840827 055957.0 CP    UNDG  4.5       3.2 66.770N 033.680E                  N
 840828 025955.5 CP    UNDG  4.4       2.6 60.826N 057.472E                  N
-840828 030459.0 CP    UNDG  4.5       3.3 61.000N 058.000E                  N  
+840828 030459.0 CP    UNDG  4.5       3.3 61.000N 058.000E                  N
 840830          USNTS SHFT            <20                  WR       WEXFORD E
 840830          USNTS SHFT            <20                  WR       DOLCETTOE
 840909 025906.4 CPKTS UNDG  5.0       5.7 49.870N 078.180E                  N
@@ -2016,15 +2006,12 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 870620 005304.8 CPKTS UNDG  6.1        81 49.901N 078.726E                  N
 870621 175458.4 FR    SHFT  5.2        15 21.984S 138.844W WR               N
 870630          USNTS SHFT            <20                  WR       PANCHUELE
-870706 235956.9 NEVA-2                            1526.6
 870706 235956.9 CPYAK UNDG  5.1        13 61.50N  112.83E  PNE      NEVA-2  ISC
 870716          GBNTS SHFT         20-150                           MIDLAND E
 870717 011707.0 CPKTS UNDG  5.8        38 49.779N 078.128E                  N
-870724 015956.9 NEVA-3                            1515.2                    N
 870724 015956.9 CPYAK UNDG  5.1        13 61.46N  112.78E  PNE      NEVA-3  ISC
 870802 005806.7 CPKTS UNDG  5.9        48 49.828N 078.898E                  N
 870802 015959.5 CPNZ  UNDG  5.8        70 73.289N 054.713E                  N
-870812 012957.1 NEVA-4                            815.3                     N
 870812 012957.1 CPYAK UNDG  5.0       3.2 61.46N  112.79E  PNE      NEVA-4  ISC
 870813          USNTS SHFT         20-150                  WR       TAHOKA  E
 870916 073001.0 CPKTS UNDG  5.0         6 49.000N 078.000E                  N
@@ -2100,7 +2087,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 890212 041506.9 CPKTS UNDG  5.8           49.900N 078.750E                  I
 890217 040106.8 CPKTS UNDG  5.1           49.770N 078.070E                  I
 890224 161500.0 KAWICH-RED                        370 NTS02 LLNL
-890224 161500.0 USNTSYSS1             <20                  WR       KAWICH-RE 
+890224 161500.0 USNTSYSS1             <20                  WR       KAWICH-RE
 890224 161500.0 KAWICH-BLACK                      431 NTS02 LLNL
 890224 161500.0 USNTSYSS1             <20                  WR       KAWICH-BE
 890309          USNTS SHFT         20-150                  WR       INGOT   E
@@ -2131,7 +2118,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 891208          GBNTS SHFT         20-150                           BARNWELLE
 891220 220000.0 WHITEFACE-B                       183 NTS03 LANL
 891220 220000.0 USNTSYSS1             <20                  WR       WHITEFACE
-891220 220000.0 WHITEFACE-A                       197 NTS03 LANL 
+891220 220000.0 WHITEFACE-A                       197 NTS03 LANL
 891220 220000.0 USNTSYSS1             <20                  WR       WHITEFACE
 900310          USNTS SHFT         20-150                  WR       METROPOLE
 900406          USNTS SHFT            <20                  WR       BOWIE   E
@@ -2142,7 +2129,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 900621          USNTS SHFT            <20                  WR       AUSTIN  E
 900626 175958.4 FRFAN SH?   5.5 4.3   100 22.200S 138.830W                  DI
 900704 175958.8 FRMUR SH?   4.9        18 21.800S 139.100W                  DI
-900725 170000.0 MINERAL QUARRY                    389 NTS12 LANL,DOD 
+900725 170000.0 MINERAL QUARRY                    389 NTS12 LANL,DOD
 900725 170000.0 USNTSRTUN1            <20                  WR       MINERALQE
 900725 170000.0 RANDSBURG                         389 NTS12 LANL,DOD
 900725 170000.0 USNTSRTUN1            <20                  WR       RANDSBURE
@@ -2181,7 +2168,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 920521 045957.4 PCLNR UNDG  6.6  700-1800 41.583N 088.880E                  N
 920619          USNTS SHFT            <20                  WR       VICTORIAE
 920623 140000.0 GALENA-YELLOW                     290 NTS04 LLNL
-920623 140000.0 USNTSYSS1             <20                  WR       GALENA-YE 
+920623 140000.0 USNTSYSS1             <20                  WR       GALENA-YE
 920623 140000.0 GALENA-ORANGE                     380 NTS09 LLNL
 920623 140000.0 USNTSYSS1             <20                  WR       GALENA-OE
 920623 140000.0 GALENA-GREEN                      400 NTS09 LLNL
@@ -2202,3 +2189,24 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 960127 212959.5 FRFAN UNDG  5.1           22.270S 138.780W                  G
 960608 025559.4 PCLNR UNDG  5.7  4.0      41.65N  88.76E                    G
 960729 014859.1 PCLNR UNDG  4.7           41.69N  88.35E                    G
+
+
+NOTE: 920521 PRC test coordinates were grossly in error- near south pole.
+They were corrected 931006.
+
+The only known nuclear explosion in 1993 was incorrectly dated 921005.
+Correction made 1994 APR02.
+
+710429 NTS Mine Throw may have been a chemical explosion.
+
+
+Threshold Test Ban Treaty Verification to date:
+
+USSR/Russian Federation tests verified by the US: None
+
+UK tests at the NTS verified by the Russian Federation: None
+
+US tests verified by the USSR: HOYA On-site inspection at NTS
+           JUNCTION hydrodynamic method at NTS
+           JUNCTION seismic method at TUL, RSSD, NEW
+.

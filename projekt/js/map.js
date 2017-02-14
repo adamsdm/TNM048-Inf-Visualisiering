@@ -132,7 +132,9 @@ function map(data) {
                         return tooltip.html(
                             "Name:" + d.name + "<br />" +
                             "Date:" + d.date + "<br />" +
-                            "Testing party:" + d.testingParty
+                            "Testing party:" + d.testingParty + "<br />" +
+                            "coords:" + d.coords + "<br />"
+
                             )
                         .style("opacity", .9)
                         .style("top", (d3.event.pageY-15)+"px")
