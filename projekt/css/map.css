@@ -1,9 +1,9 @@
 #map{
-    height: 99.5%;
+    height: 99.5vh;
     width: 99.5%;
 }
 
-svg{
+#map svg{
     background-color: dimgray;
     transition: 0.3s linear;
 }

@@ -1,0 +1,23 @@
+#slider{
+  position:fixed;
+  bottom: 10px;
+  left:0;
+  right:0;
+  margin: 10px;
+}
+
+#slider-date{
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#event-start{
+  padding-top: 10px;
+  text-align: left;
+}
+
+#event-end{
+  padding-top: 10px;
+  text-align: right;
+}
