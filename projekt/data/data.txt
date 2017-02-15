@@ -2189,24 +2189,3 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 960127 212959.5 FRFAN UNDG  5.1           22.270S 138.780W                  G
 960608 025559.4 PCLNR UNDG  5.7  4.0      41.65N  88.76E                    G
 960729 014859.1 PCLNR UNDG  4.7           41.69N  88.35E                    G
-
-
-NOTE: 920521 PRC test coordinates were grossly in error- near south pole.
-They were corrected 931006.
-
-The only known nuclear explosion in 1993 was incorrectly dated 921005.
-Correction made 1994 APR02.
-
-710429 NTS Mine Throw may have been a chemical explosion.
-
-
-Threshold Test Ban Treaty Verification to date:
-
-USSR/Russian Federation tests verified by the US: None
-
-UK tests at the NTS verified by the Russian Federation: None
-
-US tests verified by the USSR: HOYA On-site inspection at NTS
-           JUNCTION hydrodynamic method at NTS
-           JUNCTION seismic method at TUL, RSSD, NEW
-.

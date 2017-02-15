@@ -40,7 +40,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var lat             = line.substring(42, 49).replace(/ /g,'');
         var lon             = line.substring(50, 59).replace(/ /g,'');
 
-        var coord = formatCoord(lat, lon);
+        var coord = formatCoord(lat, lon, obj.site);
         obj.coords          = coord;
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
@@ -62,7 +62,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
     console.log("Done!");
 });
 
-function formatCoord(lat, lon){
+function formatCoord(lat, lon, site){
 
     var newLat = lat.toUpperCase();
     var newLon = lon.toUpperCase();
@@ -125,7 +125,7 @@ function formatCoord(lat, lon){
                     coord = [37.007, -116.371];
                     break;
                 default:
-                    coord = [37, -116];
+                    coord = [37, -116]; //default coordinates for sites that we couldn't find the location of
             }
             //console.log(lon);
             return coord;
@@ -137,8 +137,104 @@ function formatCoord(lat, lon){
         }        
     }
     // else check if a site tag exists then use those coords
-    else if(lat.length == 0 && lon.length == 0)
-        console.log("hej");
+    else {
+        var coord = [];
+        switch(site){
+            case 'ANM':
+                coord = [33.677, -106.475];
+                break;
+            case 'HRJ':
+                coord = ["34,385", "132.455"];
+                break;
+            case 'NGJ':
+                coord = [32.783, 129.866];
+                break;
+            case 'BKN':
+                coord = [11.59, -165.50];
+                break;
+            case 'ENW':
+                coord = [11.50, 162.333];
+                break;
+            case 'CNV': case 'NTS':
+                coord = [37.116, -116.05];
+                break;
+            case 'FMT':
+                coord = [36.678, -107.209];
+                break;
+            case 'MBI':
+                coord = [-20.407, 115.554];
+                break;
+            case 'EMU':
+                coord = [-28.667, 132.371];
+                break;
+            case 'MAR':
+                coord = [-29.881, 131.624];
+                break;
+            case 'CHR':
+                coord = [1.678, -157.233];
+                break;   
+            case 'NZ':
+                coord = [73.7, 54.0];
+                break;
+            case 'KTS':
+                coord = [50.07, 78.43];
+                break;
+            case 'REG':
+                coord = [26.311, -0.057];
+                break;
+            case 'ECK':
+                coord = [24.065, 5.056];
+                break;
+            case 'CLS':
+                coord = [32.262, -103.865];
+                break;
+            case 'JON':
+                coord = [16.733, -169.525];
+                break;
+            case 'FAL':
+                coord = [39.200, -118.381];
+                break;
+            case 'LNR':
+                coord = [40.166, 90.583];
+                break;
+            case 'AMC':
+                coord = [51.542, 178.992];
+                break;
+            case 'MUR':
+                coords = [-21.842, -138.842];
+                break;
+            case 'FAN':
+                coords = [-22.25, -138.75];
+                break;
+            case 'HTB':
+                coords = [31.141, -89.570];
+                break;
+            case 'GRV':
+                coords = [39.192, -108.725];
+                break;
+            case 'RAJ':
+                coords = [26.92, 71.92];
+                break;
+            case 'RFL':
+                coords = [39.5, -108.2];
+                break;
+            case 'SAT':
+                coords = [-49.5, -8.2];
+                break;
+            case 'MAL':
+                coords = [-4.016, -154.933];
+                break;
+            case 'KPY':
+                coords = [48.586, 45.72];
+                break;
+            case 'SYS':
+                coords = [46.383, 72.866];
+                break;
+            default:
+                coord = [lon, lat]; //no site no coords, return (0, 0)
+        }
+        return coord;
+    }
 
     //
     // Else return empty string array
