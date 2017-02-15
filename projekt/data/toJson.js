@@ -48,8 +48,9 @@ fs.readFile(input, 'utf8', function (err,contents) {
         obj.name            = line.substring(68, 76).replace(/ /g,'');
        
 
+
         // Only push if object has testing party or coordinate
-        if(obj.testingParty    || ( coord[0] && coord[1] ) )
+        if(obj.testingParty && ( coord[0] && coord[1] ) )
             jsonData.detonations.push(obj);
     }
 
