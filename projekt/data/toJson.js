@@ -92,9 +92,6 @@ function formatCoord(lat, lon, site){
         var wInd = newLon.indexOf("W");
         var eInd = newLon.indexOf("E");
 
-        newLat = newLat.replace(/[^\d.-]/g, '');
-        newLon = newLon.replace(/[^\d.-]/g, '');
-
         // If 'S' or 'W' is found in string
         // Remove and replace with '-'
         if(sInd != -1 ){
