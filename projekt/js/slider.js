@@ -29,7 +29,8 @@ function slider(data) {
             timestamp(startDate), // Handle 1
             timestamp(endDate)  // Handle 2
         ],
-        tooltips: true,
+        tooltips: [true, true],
+        
         
         format: {
           to: function ( value ) {
@@ -38,7 +39,9 @@ function slider(data) {
           from: function ( value ) {
             return value;
           }
+          
         },
+        
 
         
 
@@ -46,7 +49,8 @@ function slider(data) {
         step: 1 * 24 * 60 * 60 * 1000,
     });
 
-    /*
+
+    
     this.play = function(){
         var i=0;
         setInterval(function(){
@@ -57,7 +61,7 @@ function slider(data) {
             i++;
         }, 1000);
     }
-    */
+    
     
 
     dateSlider.noUiSlider.on('update', function( values, handle ) {
