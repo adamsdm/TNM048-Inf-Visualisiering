@@ -8,3 +8,9 @@ d3.json("data/detonations.json", function (error, data) {
     map1 = new map(data);
     slider = new slider(data);
 });
+
+/*
+function play(){
+    slider.play();
+}
+*/

@@ -1,11 +1,12 @@
 #map{
-    height: 99.5vh;
-    width: 99.5%;
+    height: 98vh;
+    width: 98%;
 }
 
 #map svg{
     background-color: dimgray;
     transition: 0.3s linear;
+    overflow: hidden;
 }
 
 .country{ 
