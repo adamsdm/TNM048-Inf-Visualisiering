@@ -117,11 +117,22 @@ function map(data) {
                     .attr("r", "20px")
                     .attr("opacity", 0.7)
                     .attr("fill", (d) =>{
+
+                            var countryColors = {
+                                "United States":                "blue",
+                                "UK":                           "orange",
+                                "USSR":                         "red",
+                                "France":                       "skyblue",
+                                "India":                        "India",
+                                "People's Republic of China":   "red",
+                                "Israel":                       "red"
+                            };
+
                         switch(d.testingParty) {
-                            case 'US': // USA
+                            case 'United States': // USA
                                 return 'blue';
                                 break;
-                            case 'CP': //USSR
+                            case 'USSR': //USSR
                                 return 'red';
                                 break;
                             default:
@@ -131,10 +142,11 @@ function map(data) {
                     })
                     .on("mousemove", function(d) {
                         return tooltip.html(
-                            "Name:" + d.name + "<br />" +
-                            "Date:" + d.date + "<br />" +
-                            "Testing party:" + d.testingParty + "<br />" +
-                            "coords:" + d.coords + "<br />"
+                            "Name: " + d.name + "<br />" +
+                            "Date: " + d.date + "<br />" +
+                            "Testing party:"  + d.testingParty + "<br />" +
+                            "Coords: " + d.coords + "<br />" +
+                            "Site: " + d.site + "<br />"
 
                             )
                         .style("opacity", .9)

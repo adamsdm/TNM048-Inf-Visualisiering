@@ -25,7 +25,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var line            = lines[i];
         obj.date            = "19"+line.substring(0, 6).replace(/ /g,'');
         obj.time            = line.substring(7, 15).replace(/ /g,'');
-        obj.testingParty    = line.substring(16, 18).replace(/ /g,'');
+        obj.testingParty    = getCountry(line.substring(16, 18).replace(/ /g,''));
         obj.site            = line.substring(18, 21).replace(/ /g,'');
         obj.subsite         = line.substring(21, 22).replace(/ /g,'');
         obj.type            = line.substring(23, 27).replace(/ /g,'');
@@ -61,6 +61,22 @@ fs.readFile(input, 'utf8', function (err,contents) {
     fs.writeFile('detonations.json', JSON.stringify(jsonData, null, 4));
     console.log("Done!");
 });
+
+function getCountry(party){
+    var countries = {
+        US: "United States",
+        GB: "UK",
+        CP: "USSR",
+        FR: "France",
+        IN: "India",
+        PC: "People's Republic of China",
+        IS: "Israel"
+    }
+
+    return countries[party];
+}
+
+
 
 function formatCoord(lat, lon, site){
 
@@ -104,28 +120,28 @@ function formatCoord(lat, lon, site){
             var coord = [];
             switch(ntsArea){
                 case 1:
-                    coord = [37.008, -116.059];
+                    coord = [-116.059, 37.008];
                     break;
                 case 2:
-                    coord = [37.138, -116.073];
+                    coord = [-116.073, 37.138];
                     break;
                 case 3:
-                    coord = [37.044, -116.024];
+                    coord = [-116.024, 37.044];
                     break;
                 case 4:
-                    coord = [37.080, -116.086];
+                    coord = [-116.086, 37.080];
                     break;
                 case 6:
-                    coord = [36.898, -116, 048];
+                    coord = [-116, 04, 36.8988];
                     break;
                 case 12:
-                    coord = [37.193, -116.199];
+                    coord = [-116.199, 37.193];
                     break;
                 case 30:
-                    coord = [37.007, -116.371];
+                    coord = [-116.371, 37.007];
                     break;
                 default:
-                    coord = [37, -116]; //default coordinates for sites that we couldn't find the location of
+                    coord = [-116, 37]; //default coordinates for sites that we couldn't find the location of
             }
             //console.log(lon);
             return coord;
@@ -141,98 +157,100 @@ function formatCoord(lat, lon, site){
         var coord = [];
         switch(site){
             case 'ANM':
-                coord = [33.677, -106.475];
+                coord = [-106.475, 33.677];
                 break;
             case 'HRJ':
-                coord = ["34,385", "132.455"];
+                coord = [132.455, 34.385 ];
                 break;
             case 'NGJ':
-                coord = [32.783, 129.866];
+                coord = [129.866, 32.783];
                 break;
             case 'BKN':
-                coord = [11.59, -165.50];
+                coord = [-165.50, 11.59, ];
                 break;
             case 'ENW':
-                coord = [11.50, 162.333];
+                coord = [162.333, 11.50];
                 break;
             case 'CNV': case 'NTS':
-                coord = [37.116, -116.05];
+                coord = [-116.05, 37.116];
                 break;
             case 'FMT':
-                coord = [36.678, -107.209];
+                coord = [-107.209, 36.678];
                 break;
             case 'MBI':
-                coord = [-20.407, 115.554];
+                coord = [115.554, -20.407];
                 break;
             case 'EMU':
-                coord = [-28.667, 132.371];
+                coord = [132.371, -28.667];
                 break;
             case 'MAR':
-                coord = [-29.881, 131.624];
+                coord = [131.624, -29.881,];
                 break;
             case 'CHR':
-                coord = [1.678, -157.233];
+                coord = [-157.233, 1.678];
                 break;   
             case 'NZ':
-                coord = [73.7, 54.0];
+                coord = [54.0, 73.7];
                 break;
             case 'KTS':
-                coord = [50.07, 78.43];
+                coord = [78.43, 50.07];
                 break;
             case 'REG':
-                coord = [26.311, -0.057];
+                coord = [-0.057, 26.311];
                 break;
             case 'ECK':
-                coord = [24.065, 5.056];
+                coord = [5.056, 24.065];
                 break;
             case 'CLS':
-                coord = [32.262, -103.865];
+                coord = [-103.865, 32.262];
                 break;
             case 'JON':
-                coord = [16.733, -169.525];
+                coord = [-169.525, 16.733];
                 break;
             case 'FAL':
-                coord = [39.200, -118.381];
+                coord = [-118.381, 39.200];
                 break;
             case 'LNR':
-                coord = [40.166, 90.583];
+                coord = [90.583, 40.166];
                 break;
             case 'AMC':
-                coord = [51.542, 178.992];
+                coord = [178.992, 51.542];
                 break;
             case 'MUR':
-                coords = [-21.842, -138.842];
+                coords = [-138.842, -21.842];
                 break;
             case 'FAN':
-                coords = [-22.25, -138.75];
+                coords = [-138.75, -22.25];
                 break;
             case 'HTB':
-                coords = [31.141, -89.570];
+                coords = [-89.570, 31.141];
                 break;
             case 'GRV':
-                coords = [39.192, -108.725];
+                coords = [-108.725, 39.192];
                 break;
             case 'RAJ':
-                coords = [26.92, 71.92];
+                coords = [71.92, 26.92];
                 break;
             case 'RFL':
-                coords = [39.5, -108.2];
+                coords = [-108.2, 39.5];
                 break;
             case 'SAT':
-                coords = [-49.5, -8.2];
+                coords = [-8.2, -49.5];
                 break;
             case 'MAL':
-                coords = [-4.016, -154.933];
+                coords = [-154.933, -4.016];
                 break;
             case 'KPY':
-                coords = [48.586, 45.72];
+                coords = [45.72, 48.586];
                 break;
             case 'SYS':
-                coords = [46.383, 72.866];
+                coords = [72.866, 46.383];
                 break;
             default:
                 coord = [lon, lat]; //no site no coords, return (0, 0)
+                break;
         }
+
         return coord;
     }
 

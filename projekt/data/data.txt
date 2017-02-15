@@ -1182,7 +1182,6 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 711222 065956.5 CP    UNDG  6.0        57 47.900N 048.070E                  N
 711230 062057.8 CPKTSDUNDG  5.7        36 49.772N 078.093E     GR           A
 720101 070000.0 PCLNR ATMO            <20                                   N
-(above may be 720107)
 720105          USNTS SHFT            <20                      WR   MESCALERE
 720203          USNTS SHFT            <20                      WR   COWLES  E
 720210 050257.5 CPKTSBUNDG  5.3        13 50.014N 078.878E     AL           A
