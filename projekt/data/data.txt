@@ -2176,7 +2176,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 940610 062600   PCLNR UNDG  5.7           41.64N  088.86E                   C
 941007 032558.2 PCLNR                     41.55N  089.07E                   R
 950515 040559.6 PCLNR UNDG  5.7           41.630N 088.870E                  G
-950817 005959.3 PCLNR UNDG  5.5           41.600N 088.860W                  G
+950817 005959.3 PCLNR UNDG  5.5           41.600N 088.860E                  G
 950905 213000.4 FRMUR UNDG  4.7           21.850S 138.940W                  G
 951001 232959.4 FRFAN UNDG  5.2 3.9       22.250S 138.760W                  G
 951027 220000.0 FRMUR UNDG  5.3       60  21.820S 139.050W                  G

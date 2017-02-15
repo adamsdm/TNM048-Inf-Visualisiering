@@ -5,12 +5,9 @@ function map(data) {
     var width = mapDiv.width();
     var height = mapDiv.height();
 
-        var zoom = d3.behavior.zoom()
-            .scaleExtent([0.5, 5])
-            .on("zoom", move);
-
-
-    var curr_mag = 4;
+    var zoom = d3.behavior.zoom()
+        .scaleExtent([0.5, 5])
+        .on("zoom", move);
 
     var format = d3.time.format.utc("%Y%m%d");
 
@@ -52,46 +49,11 @@ function map(data) {
     //Creates a new geographic path generator and assing the projection
     var path = d3.geo.path().projection(projection);
 
-    //Formats the data in a feature collection trougth geoFormat()
-    var geoData = {type: "FeatureCollection", features: geoFormat(data)};
-
     //Loads geo data
     d3.json("data/world-topo.json", function (error, world) {
         var countries = topojson.feature(world, world.objects.countries).features;
         draw(countries);
     });
-
-    //Calls the filtering function
-    d3.select("#slider").on("input", function () {
-        filterMag(this.value, data);
-    });
-
-    //Formats the data in a feature collection
-    function geoFormat(array) {
-        var data = [];
-        array.map(function (d, i) {
-            // fill data with GeoJSON features according to:
-            // http://geojson.org/geojson-spec.html#examples
-            var feat = {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [d.lon, d.lat]
-                },
-                "properties": {
-                    "depth": d.depth,
-                    "id": d.id,
-                    "mag": d.mag,
-                    "place": d.place,
-                    "time": d.time
-                }
-            } //endFeat
-
-            data.push(feat);
-        });
-
-        return data;
-    }
 
     //Draws the map and the points
     function draw(countries)
@@ -132,12 +94,12 @@ function map(data) {
                     })
                     .on("mousemove", function(d) {
                         return tooltip.html(
-                            "Name: " + d.name + "<br />" +
-                            "Date: " + d.date + "<br />" +
-                            "Testing party:"  + d.testingParty + "<br />" +
-                            "Coords: " + d.coords + "<br />" +
-                            "Site: " + d.site + "<br />"
-
+                                "Name: " + d.name + "<br />" +
+                                "Date: " + d.date + "<br />" +
+                                "Testing party: "  + d.testingParty + "<br />" +
+                                "Coords: " + d.coords + "<br />" +
+                                "Site: " + d.site + "<br />" +
+                                "Yield (Kt): " + d.yieldKilotons + "<br />"
                             )
                         .style("opacity", .9)
                         .style("top", (d3.event.pageY-15)+"px")

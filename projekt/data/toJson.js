@@ -41,6 +41,8 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var lon             = line.substring(50, 59).replace(/ /g,'');
 
         var coord           = formatCoord(lat, lon, obj.site);
+        
+
         obj.coords          = coord;
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
@@ -93,6 +95,9 @@ function formatCoord(lat, lon, site){
         var nInd = newLat.indexOf("N");
         var wInd = newLon.indexOf("W");
         var eInd = newLon.indexOf("E");
+
+        newLat = newLat.replace(/[^\d.-]/g, '');
+        newLon = newLon.replace(/[^\d.-]/g, '');
 
         // If 'S' or 'W' is found in string
         // Remove and replace with '-'
