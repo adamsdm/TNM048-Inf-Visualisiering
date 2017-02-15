@@ -33,10 +33,6 @@ fs.readFile(input, 'utf8', function (err,contents) {
         obj.surfMagnitude   = line.substring(32, 35).replace(/ /g,'');
         obj.yieldKilotons   = line.substring(36, 41).replace(/ /g,'');
 
-        /** TODO ***/
-        // FORMAT COORDS according to
-        // 33.675N = 33.675, 33.675S = -33.675
-        // 106.475E = 106.475, 106.475W = -106.475
         var lat             = line.substring(42, 49).replace(/ /g,'');
         var lon             = line.substring(50, 59).replace(/ /g,'');
 
@@ -102,18 +98,15 @@ function formatCoord(lat, lon, site){
         // If 'S' or 'W' is found in string
         // Remove and replace with '-'
         if(sInd != -1 ){
-            newLat = lat.slice(0, lat.length-1); // Remove 'S'
             newLat = "-" + newLat;  // Add '-'
         }
         if(wInd != -1){
-            newLon = lon.slice(0, lon.length-1); // Remove 'S'
             newLon = "-" + newLon;  // Add '-'
         }
 
-        // Remove 'E'and 'N'
-        if(nInd != -1 ) newLat = lat.slice(0, lat.length-1); // Remove 'N'
-        if(eInd != -1 ) newLon = lon.slice(0, lon.length-1); // Remove 'E'
 
+        newLat = newLat.replace(/[^\d.-]/g, '');
+        newLon = newLon.replace(/[^\d.-]/g, '');
 
         var coord = [newLon, newLat];
         return coord;
