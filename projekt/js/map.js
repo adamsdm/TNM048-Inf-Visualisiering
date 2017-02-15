@@ -115,6 +115,7 @@ function map(data) {
                         return projection(d.coords)[1];
                     })
                     .attr("r", "20px")
+                    .attr("opacity", 0.7)
                     .attr("fill", (d) =>{
                         switch(d.testingParty) {
                             case 'US': // USA
