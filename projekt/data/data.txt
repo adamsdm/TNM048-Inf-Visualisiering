@@ -1268,11 +1268,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 730426          USNTS SHFT            <20                  WR       COLMOR  E
 730426 171500.2 USNTS SHFT  5.6        90 37.12N  116.06W  WR       STARWORTE
 730509          USNTS SHFT            <20                  WR       MESITA  E
-730517 150000.0 RIO BLANCO-1                      543 RIFLE,CO LLNL
 730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE
-730517 150000.0 RIO BLANCO-2                      579 RIFLE,CO LLNL
 730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE
-730517 150000.0 RIO BLANCO-3                      622 RIFLE,CO LLNL
 730517 150000.0 USRFL SS1   5.4        33 39.79N  108.37W  PS       RIO BLANE
 730524          USNTS SHFT            <20                  WR       CABRESTOE
 730524          USNTS SHFT            <20                  WR       KASHAN  E

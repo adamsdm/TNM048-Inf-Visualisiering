@@ -120,25 +120,15 @@ function map(data) {
 
                             var countryColors = {
                                 "United States":                "blue",
-                                "UK":                           "orange",
+                                "UK":                           "dodgerblue",
                                 "USSR":                         "red",
                                 "France":                       "skyblue",
-                                "India":                        "India",
-                                "People's Republic of China":   "red",
+                                "India":                        "Orange",
+                                "People's Republic of China":   "Yellow",
                                 "Israel":                       "red"
                             };
 
-                        switch(d.testingParty) {
-                            case 'United States': // USA
-                                return 'blue';
-                                break;
-                            case 'USSR': //USSR
-                                return 'red';
-                                break;
-                            default:
-                                return 'orange';
-                        } 
-                        return d.testingParty;
+                        return countryColors[d.testingParty];
                     })
                     .on("mousemove", function(d) {
                         return tooltip.html(

@@ -40,14 +40,17 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var lat             = line.substring(42, 49).replace(/ /g,'');
         var lon             = line.substring(50, 59).replace(/ /g,'');
 
-        var coord = formatCoord(lat, lon, obj.site);
+        var coord           = formatCoord(lat, lon, obj.site);
         obj.coords          = coord;
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
         obj.deviceType      = line.substring(61, 63).replace(/ /g,'');
         obj.name            = line.substring(68, 76).replace(/ /g,'');
+       
 
-        jsonData.detonations.push(obj);
+        // Only push if object has testing party or coordinate
+        if(obj.testingParty    || ( coord[0] && coord[1] ) )
+            jsonData.detonations.push(obj);
     }
 
     // Sort data by date
@@ -132,7 +135,7 @@ function formatCoord(lat, lon, site){
                     coord = [-116.086, 37.080];
                     break;
                 case 6:
-                    coord = [-116, 04, 36.8988];
+                    coord = [-116.04, 36.8988];
                     break;
                 case 12:
                     coord = [-116.199, 37.193];
