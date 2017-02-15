@@ -13,36 +13,59 @@ function slider(data) {
             "November", "December"
         ];
 
+    var startDate = '1945-01-01';
+    var endDate = '1995-12-31';
+
     noUiSlider.create(dateSlider, {
     // Create two timestamps to define a range.
         connect: true,
         range: {
-            min: timestamp('1942'),
-            max: timestamp('1996')
+            min: timestamp(startDate),
+            max: timestamp(endDate)
+        },
+        behaviour: 'tap-drag', // Move handle on tap, bar is draggable
+    // Two more timestamps indicate the handle starting positions.
+        start: [ 
+            timestamp(startDate), // Handle 1
+            timestamp(endDate)  // Handle 2
+        ],
+        tooltips: true,
+        
+        format: {
+          to: function ( value ) {
+            return formatDate(new Date(value) )
+          },
+          from: function ( value ) {
+            return value;
+          }
         },
 
-    // Two more timestamps indicate the handle starting positions.
-        start: [ timestamp('1942'), timestamp('1996') ],
+        
 
     // Steps of one week
-        step: 7 * 24 * 60 * 60 * 1000,
-
-    
+        step: 1 * 24 * 60 * 60 * 1000,
     });
 
-    var dateValues = [
-        document.getElementById('event-start'),
-        document.getElementById('event-end')
-    ];
+    /*
+    this.play = function(){
+        var i=0;
+        setInterval(function(){
+            var slide1 = +dateSlider.noUiSlider.get()[0] + i*100000000000;
+            var slide2 = +slide1+100000000000;
+            console.log(slide1 + "   -   " + slide2);
+            dateSlider.noUiSlider.set([slide1, slide2]);
+            i++;
+        }, 1000);
+    }
+    */
+    
 
     dateSlider.noUiSlider.on('update', function( values, handle ) {
-        dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
-    });
 
-    dateSlider.noUiSlider.on('change', function( values, handle ) {
+        var date1 = new Date(Date.parse("2005-7-8"));
+        var date2 = values[1];
 
-        console.log(formatDate(new Date(+values[0])));
-        console.log(formatDate(new Date(+values[1])));
+        map1.filterTime([ values[0], values[1] ]);
     });
 
 
@@ -64,10 +87,15 @@ function slider(data) {
 
     // Create a string representation of the date.
     function formatDate ( date ) {
+        var year = date.getFullYear();
+        var month = date.getMonth()+1;
+        var day = date.getDate();
 
-        return weekdays[date.getDay()] + ", " +
-            date.getDate() + nth(date.getDate()) + " " +
-            months[date.getMonth()] + " " +
-            date.getFullYear();
+        // Convert day, month to two digit
+        day = ("0" + day).slice(-2);
+        month = ("0" + month).slice(-2);
+
+        return year + '-' + month + '-' + day;
+
     }
 }

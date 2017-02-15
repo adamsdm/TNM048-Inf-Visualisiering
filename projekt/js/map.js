@@ -12,7 +12,7 @@ function map(data) {
 
     var curr_mag = 4;
 
-    var format = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ");
+    var format = d3.time.format.utc("%Y%m%d");
 
     var timeExt = d3.extent(data.map(function (d) {
         //return format.parse(d.time);
@@ -160,16 +160,19 @@ function map(data) {
 
 
     //Filters data points according to the specified time window
+    // Inputs date in string format 1945-01-01
     this.filterTime = function (value) {
-		var start = value[0];
-		var end = value[1];
+        // Parse string to date
+		var start = new Date(Date.parse(value[0]));
+		var end = new Date(Date.parse(value[1]));
 
 
-		g.selectAll("circle").attr("opacity", (d) => {
-			var dTime = format.parse(d.properties.time);
+        // Alternatively change opacity -> popup shows on hoover even if point is filtered
+		g.selectAll("circle").attr("display", (d) => {
+			var dTime = format.parse(d.date);
 			if(dTime<end && dTime > start)
-				return 1.0;
-			return 0.0;
+                return "initial";
+			return "none";
 		});
     };
 
