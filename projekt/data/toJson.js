@@ -19,10 +19,8 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var obj = {
             coords: []
         };
-
-
-
         var line            = lines[i];
+
         obj.date            = "19"+line.substring(0, 6).replace(/ /g,'');
         obj.time            = line.substring(7, 15).replace(/ /g,'');
         obj.testingParty    = getCountry(line.substring(16, 18).replace(/ /g,''));
@@ -31,7 +29,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
         obj.type            = line.substring(23, 27).replace(/ /g,'');
         obj.bodyMagnitude   = line.substring(28, 31).replace(/ /g,'');
         obj.surfMagnitude   = line.substring(32, 35).replace(/ /g,'');
-        obj.yieldKilotons   = line.substring(36, 41).replace(/ /g,'');
+        obj.yieldKilotons   = formatYield(line.substring(36, 41).replace(/ /g,''));
 
         var lat             = line.substring(42, 49).replace(/ /g,'');
         var lon             = line.substring(50, 59).replace(/ /g,'');
@@ -53,7 +51,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
     }
 
     // Sort data by date
-    console.log("Sorting data by date...");
+    console.log("Sorting by date...");
     jsonData.detonations.sort(function(a, b) {
         return parseFloat(a.date) - parseFloat(b.date);
     });
@@ -78,6 +76,44 @@ function getCountry(party){
     return countries[party];
 }
 
+function formatYield(yield){
+    var newYield = yield;
+
+
+    // If yield is defined
+    if(newYield.length > 0){ 
+
+        // If yield is in correct format
+        if(parseFloat(newYield)){
+            newYield = newYield.replace(/-/g,'');   // remove '-' signs ('150-200' => '200')
+            
+            return newYield;
+        } 
+        else {
+            // Check for '<' or '>' sign
+            if( newYield.includes('>') || newYield.includes('<')){
+                newYield = newYield.replace(/[<, >]/g,''); // Remove '<' and '>' chars ('>20' => '20')
+                
+                return newYield;
+            } 
+            // If in format '10-20', return max number ( '10-20' => '20' )
+            else if( newYield.includes('-') ){
+                var v = newYield.split('-');
+
+                return v[1];
+            }
+
+            // Strings -> 'FIZZ', 'LOW', 'HIGH', 'F200, F300'
+            // 'F#00' = Smaller yield than expected
+            else{
+                return "";
+            }
+        }
+    };
+
+    return newYield;
+}
+
 
 
 function formatCoord(lat, lon, site){
@@ -93,7 +129,6 @@ function formatCoord(lat, lon, site){
         var eInd = newLon.indexOf("E");
 
         // If 'S' or 'W' is found in string
-        // Remove and replace with '-'
         if(sInd != -1 ){
             newLat = "-" + newLat;  // Add '-'
         }
@@ -101,7 +136,7 @@ function formatCoord(lat, lon, site){
             newLon = "-" + newLon;  // Add '-'
         }
 
-
+        // Remove 'N', 'S', 'E', 'W'
         newLat = newLat.replace(/[^\d.-]/g, '');
         newLon = newLon.replace(/[^\d.-]/g, '');
 

@@ -11,9 +11,7 @@ function map(data) {
 
     var format = d3.time.format.utc("%Y%m%d");
 
-    var timeExt = d3.extent(data.map(function (d) {
-        //return format.parse(d.time);
-    }));
+
 
     //initialize tooltip
     var tooltip = d3.select("body")
@@ -55,6 +53,11 @@ function map(data) {
         draw(countries);
     });
 
+    // Scale for defining radius
+    var rScale = d3.scale.linear()
+        .domain([0, 60000])
+        .range([10, 100]);
+
     //Draws the map and the points
     function draw(countries)
     {
@@ -65,7 +68,6 @@ function map(data) {
                 .attr("d", path);
 
         //draw detonations
-        // http://bl.ocks.org/phil-pedruco/7745589
         var point = g.selectAll("circle")
                     .data(data).enter()
                     .append("circle")
@@ -76,7 +78,18 @@ function map(data) {
                     .attr("cy", function (d) {
                         return projection(d.coords)[1];
                     })
-                    .attr("r", "20px")
+                    .attr("r", function(d){
+                        var k = d.yieldKilotons;
+
+                        // If yield is defined
+                        if(k){
+                            return rScale(k) + "px";
+                        }
+                        // If yield is undefined return min radius
+                        else{
+                            return rScale(0) + "px";;
+                        }
+                    })
                     .attr("opacity", 0.7)
                     .attr("fill", (d) =>{
 
@@ -109,6 +122,17 @@ function map(data) {
                         return tooltip
                         .transition().duration(400)
                         .style("opacity", 0);
+                    })
+                    .on("click",  function(d) {
+                        this.className += "selected";
+                        alert(
+                                "Name: " + d.name + "\n" +
+                                "Date: " + d.date + "\n" +
+                                "Testing party: "  + d.testingParty + "\n" +
+                                "Coords: " + d.coords + "\n" +
+                                "Site: " + d.site + "\n" +
+                                "Yield (Kt): " + d.yieldKilotons + "\n"
+                        );
                     });
     };
 

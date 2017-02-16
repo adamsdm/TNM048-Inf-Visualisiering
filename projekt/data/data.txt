@@ -290,7 +290,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 611002 103100.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 611004 073054.8 CPNZ  ATMO          >1000 73.700N 053.800E                  N
 611006 070000.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
-611006          CPKPY ATMO           ~200                                   N
+611006          CPKPY ATMO            200                                   N
 611008          CPNZ  ATMO            LOW 73.000N 055.000E                  N
 611001          USNTS SHFT            LOW                  WR       BOOMER  E
 611010          USNTS TUNN            LOW                  WR       CHENA   E
@@ -1007,18 +1007,12 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 700205 150000.4 USNTS SHFT  4.6        25 37.164N 116.039W WR       LABIS   E
 700211 191500.4 USNTS TUNN  4.7       <20 37.201N 116.205W WE       DIANA m E
 700225 142838.4 USNTS SHFT  5.2    20-200 37.037N 116.000W WR       CUMARIN E
-700226 153000.4 YANNIGAN-BLUE                     351 NTS02 LLNL
 700226 153000.4 USNTSYSS1   5.3    20-200 37.116N 116.061W WR       YANNIGANE
-700226 153000.4 YANNIGAN-WHITE                    381 NTS02 LLNL
 700226 153000.4 USNTSYSS2   5.3    20-200 37.116N 116.061W WR       YANNIGANE
-700226 153000.4 YANNIGAN-RED                      389 NTS02 LLNL
 700226 153000.4 USNTSYSS3          20-200 37.116N 116.061W WR       YANNIGANE
 700306 142400.3 USNTS SHFT  4.3       8.7 37.023N 116.092W WR       CYATHUS E
-700306 150000.2 ARABIS-BLUE                       101 NTS09 LLNL
 700306 150000.2 USNTSYSS1             <20 37.140N 116.037W WR       ARABIS-BE
-700306 150000.2 ARABIS-RED                        250 NTS09 LLNL
 700306 150000.2 USNTSYSS2             <20 37.140N 116.037W WR       ARABIS-RE
-700306 150000.2 ARABIS-GREEN                      250 NTS09 LLNL
 700306 150000.2 USNTSYSS3             <20 37.140N 116.037W WR       ARABIS-GE
 700319 140330.4 USNTS SHFT            <20 37.001N 116.023W WR       JAL     E
 700323 230500.4 USNTS SHFT  5.5    20-200 37.086N 116.021W WR       SHAPER  E
@@ -1974,11 +1968,8 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 861206 171000.0 FRMUR SHFT  5.0         9                  WR               N
 861210 171458.6 FR    SHFT  5.5        30 21.877S 138.986W WR               N
 861213          USNTS SHFT         20-150                  WR       BODIE   E
-870203 152000.0 HAZEBROOK-EMERALD(GREEN)          186 NTS10 LLNL
 870203 152000.0 USNTSYSS1             <20                  WR       HAZEBROOE
-870203 152000.0 HAZEBROOK-CHECKERBERRY(RED)       226 NTS10 LLNL
 870203 152000.0 USNTSYSS1             <20                  WR       HAZEBROOE
-870203 152000.0 HAZEBROOK-APRICOT(ORANGE)         262 NTS10 LLNL
 870203 152000.0 USNTSYSS1             <20                  WR       HAZEBROOE
 870211          USNTS SHFT            <20                  WR       TORNERO E
 870226 045824.0 CPKTS UNDG  5.4        14 49.840N 078.120E                  N
