@@ -48,20 +48,6 @@ function slider(data) {
     // Steps of one week
         step: 1 * 24 * 60 * 60 * 1000,
     });
-
-
-    
-    this.play = function(){
-        var i=0;
-        setInterval(function(){
-            var slide1 = +dateSlider.noUiSlider.get()[0] + i*100000000000;
-            var slide2 = +slide1+100000000000;
-            console.log(slide1 + "   -   " + slide2);
-            dateSlider.noUiSlider.set([slide1, slide2]);
-            i++;
-        }, 1000);
-    }
-    
     
 
     dateSlider.noUiSlider.on('update', function( values, handle ) {

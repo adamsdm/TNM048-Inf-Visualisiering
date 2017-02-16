@@ -20,6 +20,7 @@ function map(data) {
         .style("opacity", 0);
 
     var filterdData = data;
+    updateCounters();
 
     //Sets the colormap
     var colors = colorbrewer.Set3[10];
@@ -145,15 +146,34 @@ function map(data) {
         //Empty filteredData;
         filterdData=[];
 
-		g.selectAll("circle").attr("class", (d) => {
+		var circles = g.selectAll("circle").attr("class", (d) => {
 			var dTime = format.parse(d.date);
 			if( !(dTime<end && dTime > start) )
                 return "hidden";
             filterdData.push(d);
 		});
 
+        //Only update counters if circles have been drawn
+        if(circles[0].length>0){
+            updateCounters();
+        }
+    };
 
-        // Update counters
+    //Calls k-means function and changes the color of the points
+    d.cluster = function () {
+        k = document.getElementById("k").value;
+        if(k>10) k=10; // Only allow for 10 
+
+        kmeans(geoData.features, k);
+        g.selectAll("circle")
+            .attr("fill", (d) =>{
+                return colors[d.cluster];
+            })
+    };
+
+    // Updates the counters 
+    function updateCounters(){
+
         var cCount = {
             "United States": 0,
             "UK": 0,
@@ -168,26 +188,14 @@ function map(data) {
             cCount[filterdData[i].testingParty]++;
         }
 
-        document.getElementById("usa-count").innerHTML = cCount["United States"];
-        document.getElementById("ussr-count").innerHTML = cCount["USSR"];
-        document.getElementById("uk-count").innerHTML = cCount["UK"];
-        document.getElementById("fr-count").innerHTML = cCount["France"];
-        document.getElementById("ch-count").innerHTML = cCount["People's Republic of China"];
-        document.getElementById("ind-count").innerHTML = cCount["India"];
-        document.getElementById("isr-count").innerHTML = cCount["Israel"];
-    };
-
-    //Calls k-means function and changes the color of the points
-    d.cluster = function () {
-        k = document.getElementById("k").value;
-        if(k>10) k=10; // Only allow for 10 
-
-        kmeans(geoData.features, k);
-        g.selectAll("circle")
-            .attr("fill", (d) =>{
-                return colors[d.cluster];
-            })
-    };
+        document.getElementById("usa-count").innerHTML =    cCount["United States"];
+        document.getElementById("ussr-count").innerHTML =   cCount["USSR"];
+        document.getElementById("uk-count").innerHTML =     cCount["UK"];
+        document.getElementById("fr-count").innerHTML =     cCount["France"];
+        document.getElementById("ch-count").innerHTML =     cCount["People's Republic of China"];
+        document.getElementById("ind-count").innerHTML =    cCount["India"];
+        document.getElementById("isr-count").innerHTML =    cCount["Israel"];
+    }
 
     //Zoom and panning method
     function move() {

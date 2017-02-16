@@ -7,9 +7,13 @@ d3.json("data/detonations.json", function (error, data) {
     data = data.detonations;
     map1 = new map(data);
     slider = new slider(data);
+    setTimeout(function(){
+        $("#loading").fadeOut();
+    }, 1000);
 });
 
 
 function play(){
     slider.play();
 }
+
