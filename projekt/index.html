@@ -12,26 +12,44 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/nouislider.css">
+        <link rel="stylesheet" href="css/vendor//bootstrap.min.css">
+        <link rel="stylesheet" href="css/vendor/nouislider.css">
 
         <!--modules css-->
+        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/slider.css">
         <link rel="stylesheet" href="css/map.css">
-
+        <link rel="stylesheet" href="css/flags.css">
     </head>
     <body>
-       
+        
+        <div id="flags">
+            <table style="width: 100%; ">
+                <tr>
+                    <th><img class="flag" src="img/usa.png"></th>
+                    <th><img class="flag" src="img/ussr.jpg"></th>
+                    <th><img class="flag" src="img/uk.png"></th>
+                    <th><img class="flag" src="img/fr.png"></th>
+                    <th><img class="flag" src="img/ch.png"></th>
+                    <th><img class="flag" src="img/ind.png"></th>
+                    <th><img class="flag" src="img/isr.png"></th>
+
+                </tr>
+                <tr>
+                    <th><h1 id="usa-count"></h1></th>
+                    <th><h1 id="ussr-count"></h1></th>
+                    <th><h1 id="uk-count"></h1></th>
+                    <th><h1 id="fr-count"></h1></th>
+                    <th><h1 id="ch-count"></h1></th>
+                    <th><h1 id="ind-count"></h1></th>
+                    <th><h1 id="isr-count"></h1></th>
+                </tr>
+            </table>
+        </div> 
+
         <div id ="map"></div>
         <div id="slider">
-
-            <div class="row">
-                
-            </div>
-            <div class="row">
-                <div id ="slider-date"></div>
-            </div>
+            <div id ="slider-date"></div>
         </div>
         
         <script src="js/vendor/jquery.min.js"></script>

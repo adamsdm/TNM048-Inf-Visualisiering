@@ -1,0 +1,59 @@
+/*
+"United States":                "blue",
+"UK":                           "dodgerblue",
+"USSR":                         "red",
+"France":                       "skyblue",
+"India":                        "Orange",
+"People's Republic of China":   "Yellow",
+"Israel":                       "red"
+*/
+
+#flags{
+    position: fixed;
+    z-index: 1;
+    width: 600px;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@media (max-width: 600px) {
+  #flags {
+    display: none;
+  }
+}
+
+.flag{
+    width: 70px;
+    height: 70px;
+    border-radius: 999px;
+    border: 5px solid;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#usa-count{ color: blue; }
+#ussr-count{ color: red; }
+#uk-count{ color: dodgerblue; }
+#fr-count{ color: skyblue; }
+#ch-count{ color: yellow; }
+#ind-count{ color: orange; }
+#isr-count{ color: black; }
+
+table h1{
+    text-align: center;
+    margin:0px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+th{
+    max-width:84px;
+    min-width:84px;
+}
+
+
+
+

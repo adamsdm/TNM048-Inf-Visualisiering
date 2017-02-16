@@ -92,17 +92,15 @@ function map(data) {
                     })
                     .attr("opacity", 0.7)
                     .attr("fill", (d) =>{
-
-                            var countryColors = {
-                                "United States":                "blue",
-                                "UK":                           "dodgerblue",
-                                "USSR":                         "red",
-                                "France":                       "skyblue",
-                                "India":                        "Orange",
-                                "People's Republic of China":   "Yellow",
-                                "Israel":                       "red"
-                            };
-
+                        var countryColors = {
+                            "United States":                "blue",
+                            "UK":                           "dodgerblue",
+                            "USSR":                         "red",
+                            "France":                       "skyblue",
+                            "India":                        "Orange",
+                            "People's Republic of China":   "Yellow",
+                            "Israel":                       "black"
+                        };
                         return countryColors[d.testingParty];
                     })
                     .on("mousemove", function(d) {
@@ -135,18 +133,7 @@ function map(data) {
                         );
                     });
     };
-
-    //Filters data points according to the specified magnitude
-    function filterMag(value) {
-        g.selectAll("circle").attr("opacity", (d) => {
-			var dMag = d.properties.mag;
-			if(dMag>value)
-				return 1.0;
-			return 0.0;
-		});
-    }
-
-
+    
 
     //Filters data points according to the specified time window
     // Inputs date in string format 1945-01-01
@@ -155,26 +142,51 @@ function map(data) {
 		var start = new Date(Date.parse(value[0]));
 		var end = new Date(Date.parse(value[1]));
 
+        //Empty filteredData;
+        filterdData=[];
 
-        // Alternatively change opacity -> popup shows on hoover even if point is filtered
-		g.selectAll("circle").attr("display", (d) => {
+		g.selectAll("circle").attr("class", (d) => {
 			var dTime = format.parse(d.date);
-			if(dTime<end && dTime > start)
-                return "initial";
-			return "none";
+			if( !(dTime<end && dTime > start) )
+                return "hidden";
+            filterdData.push(d);
 		});
+
+
+        // Update counters
+        var cCount = {
+            "United States": 0,
+            "UK": 0,
+            "USSR": 0,
+            "France": 0,
+            "India": 0,
+            "People's Republic of China": 0,
+            "Israel": 0
+        };
+
+        for(var i=0; i<filterdData.length; i++){
+            cCount[filterdData[i].testingParty]++;
+        }
+
+        document.getElementById("usa-count").innerHTML = cCount["United States"];
+        document.getElementById("ussr-count").innerHTML = cCount["USSR"];
+        document.getElementById("uk-count").innerHTML = cCount["UK"];
+        document.getElementById("fr-count").innerHTML = cCount["France"];
+        document.getElementById("ch-count").innerHTML = cCount["People's Republic of China"];
+        document.getElementById("ind-count").innerHTML = cCount["India"];
+        document.getElementById("isr-count").innerHTML = cCount["Israel"];
     };
 
     //Calls k-means function and changes the color of the points
-    this.cluster = function () {
+    d.cluster = function () {
         k = document.getElementById("k").value;
         if(k>10) k=10; // Only allow for 10 
 
         kmeans(geoData.features, k);
         g.selectAll("circle")
-                    .attr("fill", (d) =>{
-                        return colors[d.cluster];
-                    })
+            .attr("fill", (d) =>{
+                return colors[d.cluster];
+            })
     };
 
     //Zoom and panning method
