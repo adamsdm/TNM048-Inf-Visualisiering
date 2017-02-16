@@ -1,5 +1,7 @@
 function slider(data) {
     var dateSlider = document.getElementById('slider-date');
+    var that = this;
+    this.isPlaying = false;
         // Create a list of day and monthnames.
     var weekdays = [
             "Sunday", "Monday", "Tuesday",
@@ -30,32 +32,57 @@ function slider(data) {
             timestamp(endDate)  // Handle 2
         ],
         tooltips: [true, true],
-        
-        
-        format: {
-          to: function ( value ) {
-            return formatDate(new Date(value) )
-          },
-          from: function ( value ) {
-            return value;
-          }
-          
-        },
-        
-
-        
 
     // Steps of one week
         step: 1 * 24 * 60 * 60 * 1000,
     });
+
+
+
+    this.play = function(){
+        var endDate = timestamp('1995-12-31');
+
+        var timer = setInterval(function(){
+            
+            if(!that.isPlaying || slide2 >= endDate) // = 1995-12-31
+                clearInterval(timer);
+
+            var slide1 = +dateSlider.noUiSlider.get()[0] + (30*24*60*60*1000);
+            var slide2 = +slide1+(4*365*24*60*60*1000);
+
+            dateSlider.noUiSlider.set([slide1, slide2]);
+        }, 50);
+    }
     
+    document.getElementById("play").onclick = function(){
+        if(that.isPlaying){
+            this.innerHTML = "PLAY";
+            that.isPlaying = false;
+        } else {
+            this.innerHTML = "PAUSE";
+            that.isPlaying = true
+        };
+
+        
+        that.play();
+    };
 
     dateSlider.noUiSlider.on('update', function( values, handle ) {
 
-        var date1 = new Date(Date.parse("2005-7-8"));
-        var date2 = values[1];
+        var date1 = new Date(+values[0]);
+        var date2 = new Date(+values[1]);
 
-        map1.filterTime([ values[0], values[1] ]);
+
+        var handles = document.getElementsByClassName("noUi-tooltip");
+        var handle1 = handles[0];
+        var handle2 = handles[1];
+        
+        handle1.innerHTML = formatDate(date1);
+        handle2.innerHTML = formatDate(date2);
+
+
+        //Date1/2 should be in format 1942-01-01
+        map1.filterTime([ date1, date2 ]);
     });
 
 
