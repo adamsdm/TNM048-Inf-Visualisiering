@@ -19,6 +19,14 @@
     /*stroke: #FFF;*/
 }
 
+
+.selected{
+    opacity: 1;
+    stroke: black;
+    z-index: 9999;
+    stroke-width: 5px;
+}
+
 .hidden {
     display: none;
 }

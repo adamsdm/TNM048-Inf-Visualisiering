@@ -123,7 +123,14 @@ function map(data) {
                         .style("opacity", 0);
                     })
                     .on("click",  function(d) {
-                        this.className += "selected";
+                        // Remove class 'selected' from previously not selected
+                        var selected = document.querySelectorAll(".selected");
+                        [].forEach.call(selected, function(el) {
+                            el.classList.remove("selected");
+                        });
+
+                        this.classList.add("selected");
+
                         alert(
                                 "Name: " + d.name + "\n" +
                                 "Date: " + d.date + "\n" +
@@ -199,7 +206,6 @@ function map(data) {
 
     //Zoom and panning method
     function move() {
-
         var t = d3.event.translate;
         var s = d3.event.scale;
 

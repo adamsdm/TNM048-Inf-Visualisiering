@@ -1,0 +1,18 @@
+#loadscreen{
+    width: 100vw; 
+    height:100vh; 
+    background-color: black; 
+    z-index: 9999; 
+    position: fixed;
+}
+
+
+#info{
+    text-align: center;
+    width:420px;
+    height:200px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-100px 0 0 -210px;
+}
