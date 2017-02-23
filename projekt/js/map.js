@@ -228,7 +228,7 @@ function map(data) {
 
     function displaySelected(){
         var selected = document.querySelectorAll(".selected");
-        console.log(selected);
+        $("#myModal").modal();
 
         [].forEach.call(selected, function(el) {
 
