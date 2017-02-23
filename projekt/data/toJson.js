@@ -35,14 +35,14 @@ fs.readFile(input, 'utf8', function (err,contents) {
         var lon             = line.substring(50, 59).replace(/ /g,'');
 
         var coord           = formatCoord(lat, lon, obj.site);
-        
+
 
         obj.coords          = coord;
 
         obj.purpose         = line.substring(59, 61).replace(/ /g,'');
         obj.deviceType      = line.substring(61, 63).replace(/ /g,'');
         obj.name            = line.substring(68, 76).replace(/ /g,'');
-       
+
 
 
         // Only push if object has testing party or coordinate
@@ -81,21 +81,21 @@ function formatYield(yield){
 
 
     // If yield is defined
-    if(newYield.length > 0){ 
+    if(newYield.length > 0){
 
         // If yield is in correct format
         if(parseFloat(newYield)){
-            newYield = newYield.replace(/-/g,'');   // remove '-' signs ('150-200' => '200')
-            
+            newYield = newYield.replace(/[-,+,?]/g,'');   // remove '-' signs ('150-200' => '200')
+
             return newYield;
-        } 
+        }
         else {
             // Check for '<' or '>' sign
             if( newYield.includes('>') || newYield.includes('<')){
                 newYield = newYield.replace(/[<, >]/g,''); // Remove '<' and '>' chars ('>20' => '20')
-                
+
                 return newYield;
-            } 
+            }
             // If in format '10-20', return max number ( '10-20' => '20' )
             else if( newYield.includes('-') ){
                 var v = newYield.split('-');
@@ -184,7 +184,7 @@ function formatCoord(lat, lon, site){
         {
             var coord = [39.5, -108.2]; //rifle site coordinates
             return coord;
-        }        
+        }
     }
     // else check if a site tag exists then use those coords
     else {
@@ -222,7 +222,7 @@ function formatCoord(lat, lon, site){
                 break;
             case 'CHR':
                 coord = [-157.233, 1.678];
-                break;   
+                break;
             case 'NZ':
                 coord = [54.0, 73.7];
                 break;

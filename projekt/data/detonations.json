@@ -3505,7 +3505,7 @@
             "type": "TMO",
             "bodyMagnitude": "",
             "surfMagnitude": "",
-            "yieldKilotons": "50+",
+            "yieldKilotons": "50",
             "purpose": "",
             "deviceType": "",
             "name": ""
@@ -3523,7 +3523,7 @@
             "type": "TMO",
             "bodyMagnitude": "",
             "surfMagnitude": "",
-            "yieldKilotons": "50+",
+            "yieldKilotons": "50",
             "purpose": "",
             "deviceType": "",
             "name": ""
@@ -6154,7 +6154,7 @@
             "yieldKilotons": "1000",
             "purpose": "WR",
             "deviceType": "",
-            "name": "SUNSET\r"
+            "name": "SUNSET"
         },
         {
             "coords": [
@@ -6439,7 +6439,7 @@
             "type": "TMO",
             "bodyMagnitude": "",
             "surfMagnitude": "",
-            "yieldKilotons": "1000+",
+            "yieldKilotons": "1000",
             "purpose": "",
             "deviceType": "",
             "name": ""
@@ -8188,7 +8188,7 @@
             "yieldKilotons": "",
             "purpose": "WR",
             "deviceType": "",
-            "name": "MULLET\r"
+            "name": "MULLET"
         },
         {
             "coords": [
@@ -11497,7 +11497,7 @@
             "type": "TMO",
             "bodyMagnitude": "",
             "surfMagnitude": "",
-            "yieldKilotons": "20+",
+            "yieldKilotons": "20",
             "purpose": "",
             "deviceType": "",
             "name": ""
@@ -11677,7 +11677,7 @@
             "type": "OWR",
             "bodyMagnitude": "",
             "surfMagnitude": "",
-            "yieldKilotons": "300+",
+            "yieldKilotons": "300",
             "purpose": "",
             "deviceType": "",
             "name": ""
@@ -26005,7 +26005,7 @@
             "type": "INE",
             "bodyMagnitude": "3.3",
             "surfMagnitude": "",
-            "yieldKilotons": "0.3?",
+            "yieldKilotons": "0.3",
             "purpose": "",
             "deviceType": "",
             "name": ""
