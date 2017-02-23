@@ -3,9 +3,7 @@ window.onload = function(){
 }
 
 function loadScreen(){
-    setTimeout(function(){
-        $("#hideLoading").fadeIn();
-    }, 2000);
+    $("#hideLoading").fadeIn();
 }
 
 document.getElementById("hideLoading").onclick = function(){

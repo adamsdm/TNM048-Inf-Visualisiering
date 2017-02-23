@@ -5,8 +5,13 @@ function map(data) {
     var width = mapDiv.width();
     var height = mapDiv.height();
 
+    var minScale = 0.1;
+    var maxScale = 5.0;
+
+    console.log(window.innerWidth);
+
     var zoom = d3.behavior.zoom()
-        .scaleExtent([0.5, 5])
+        .scaleExtent([minScale, maxScale])
         .on("zoom", move);
 
     var format = d3.time.format.utc("%Y%m%d");
@@ -24,7 +29,7 @@ function map(data) {
 
     //Sets the colormap
     var colors = colorbrewer.Set3[10];
-    
+
     var scale = 0.3;
     var zoomWidth = (width-scale*width)/2 + 120;
     var zoomHeight = (height-scale*height)/2;
@@ -34,8 +39,15 @@ function map(data) {
             .attr("width", width)
             .attr("height", height)
             .attr("transform", "translate("+zoomWidth+","+zoomHeight+") scale("+scale+")")   // Center map when map is loaded
-            .call(zoom)
-            .append("svg:g")
+            .call(zoom);
+
+    // Deselect all on click
+    svg.on("click", function() {
+        var selected = document.querySelectorAll(".selected");
+        [].forEach.call(selected, function(el) {
+            el.classList.remove("selected");
+        });
+    });
 
     var g = svg.append("g");
     var d = svg.append("d");
@@ -129,8 +141,16 @@ function map(data) {
                             el.classList.remove("selected");
                         });
 
-                        this.classList.add("selected");
+                        var allCircles = g.selectAll("circle")
 
+                        console.log("x: " + this.getAttribute("cx"));
+                        console.log("y: " + this.getAttribute("cy"));
+                        console.log(this.getAttribute("r"));
+                        //console.log(allCircles[0]);
+
+                        this.classList.add("selected");
+                        displaySelected();
+                        /*
                         alert(
                                 "Name: " + d.name + "\n" +
                                 "Date: " + d.date + "\n" +
@@ -139,9 +159,11 @@ function map(data) {
                                 "Site: " + d.site + "\n" +
                                 "Yield (Kt): " + d.yieldKilotons + "\n"
                         );
+                        */
+                        d3.event.stopPropagation();
                     });
     };
-    
+
 
     //Filters data points according to the specified time window
     // Inputs date in string format 1945-01-01
@@ -151,7 +173,7 @@ function map(data) {
 		var end = new Date(Date.parse(value[1]));
 
         //Empty filteredData;
-        filterdData=[];
+            filterdData=[];
 
 		var circles = g.selectAll("circle").attr("class", (d) => {
 			var dTime = format.parse(d.date);
@@ -169,7 +191,7 @@ function map(data) {
     //Calls k-means function and changes the color of the points
     d.cluster = function () {
         k = document.getElementById("k").value;
-        if(k>10) k=10; // Only allow for 10 
+        if(k>10) k=10; // Only allow for 10
 
         kmeans(geoData.features, k);
         g.selectAll("circle")
@@ -178,7 +200,7 @@ function map(data) {
             })
     };
 
-    // Updates the counters 
+    // Updates the counters
     function updateCounters(){
 
         var cCount = {
@@ -202,6 +224,15 @@ function map(data) {
         document.getElementById("ch-count").innerHTML =     cCount["People's Republic of China"];
         document.getElementById("ind-count").innerHTML =    cCount["India"];
         document.getElementById("isr-count").innerHTML =    cCount["Israel"];
+    }
+
+    function displaySelected(){
+        var selected = document.querySelectorAll(".selected");
+        console.log(selected);
+
+        [].forEach.call(selected, function(el) {
+
+        });
     }
 
     //Zoom and panning method

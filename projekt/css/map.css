@@ -9,8 +9,8 @@
     overflow: hidden;
 }
 
-.country{ 
-    fill: SlateGray; 
+.country{
+    fill: SlateGray;
     /*stroke: black;*/
 }
 
@@ -25,6 +25,7 @@
     stroke: black;
     z-index: 9999;
     stroke-width: 5px;
+    pointer-events: none;
 }
 
 .hidden {
