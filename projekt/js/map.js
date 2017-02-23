@@ -119,11 +119,7 @@ function map(data) {
                     .on("mousemove", function(d) {
                         return tooltip.html(
                                 "Name: " + d.name + "<br />" +
-                                "Date: " + d.date + "<br />" +
-                                "Testing party: "  + d.testingParty + "<br />" +
-                                "Coords: " + d.coords + "<br />" +
-                                "Site: " + d.site + "<br />" +
-                                "Yield (Kt): " + d.yieldKilotons + "<br />"
+                                "Date: " + d.date + "<br />"
                             )
                         .style("opacity", .9)
                         .style("top", (d3.event.pageY-15)+"px")
@@ -280,31 +276,46 @@ function map(data) {
             "PS": "Plowshare (US PNE engineering shots)",
             "VU": "US Vela Uniform-directed toward seismic detection of underground shots"
         }
+        var days = ["Monday", "Tuesday", "Wednesday","Thursday","Friday", "Saturday", "Sunday"];
+        var months = ["Jan", "Feb", "Mars","April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
         var mod = $("#infoModal");
         var modTitle = $("#infoModal .modal-title");
         var modBody = $("#infoModal .modal-body");
 
         var name=d.name, date = format.parse(d.date), tp = d.testingParty,
-            site=sites[d.site], yiel=d.yieldKilotons, type = types[d.type],
-            purpose = purposes[d.purpose];
+            site=sites[d.site] || "No data", yiel=d.yieldKilotons, type = types[d.type] || "No data",
+            purpose = purposes[d.purpose] || "No data";
 
         if(name.length==0) name = "No name";
 
-        console.log(d);
+        console.log(days[5]);
+
         modTitle.html("Test name: " + name);
         modBody.html("<p>" +
-                    "Date: " + date + '<br />' +
-                    "Testing party: "  + tp + '<br />' +
-                    "Site: " + site + '<br />' +
-                    "Yield: " + yiel +" Kt" + '<br />' +
-                    "Purpose: " + purpose + '<br />' +
-                    "Type: " + type + '<br />' +
+                    "<b>Date:</b> " + formatDate(date) + '<br />' +
+                    "<b>Testing party:</b> "  + tp + '<br />' +
+                    "<b>Site:</b> " + site + '<br />' +
+                    "<b>Yield:</b> " + yiel +" Kt" + '<br />' +
+                    "<b>Purpose:</b> " + purpose + '<br />' +
+                    "<b>Type:</b> " + type + '<br />' +
                     "</p>"
         )
         
         // Display modal
         mod.modal();
+
+        function formatDate ( date ) {
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            var day = date.getDate();
+
+            // Convert day, month to two digit
+            day = ("0" + day).slice(-2);
+            month = ("0" + month).slice(-2);
+
+            return year + '-' + month + '-' + day;
+        }
     }
 
     //Zoom and panning method

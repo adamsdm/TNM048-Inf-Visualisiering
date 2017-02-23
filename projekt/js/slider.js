@@ -119,6 +119,5 @@ function slider(data) {
         month = ("0" + month).slice(-2);
 
         return year + '-' + month + '-' + day;
-
     }
 }
