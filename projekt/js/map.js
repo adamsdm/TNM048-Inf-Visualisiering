@@ -5,15 +5,6 @@ function map(data) {
     var width = mapDiv.width();
     var height = mapDiv.height();
 
-    var minScale = 0.1;
-    var maxScale = 5.0;
-
-    console.log(window.innerWidth);
-
-    var zoom = d3.behavior.zoom()
-        .scaleExtent([minScale, maxScale])
-        .on("zoom", move);
-
     var format = d3.time.format.utc("%Y%m%d");
 
 
@@ -30,16 +21,27 @@ function map(data) {
     //Sets the colormap
     var colors = colorbrewer.Set3[10];
 
-    var scale = 0.3;
-    var zoomWidth = (width-scale*width)/2 + 120;
+    console.log(window.innerWidth);
+
+    var scale = window.innerWidth/6000;
+    var zoomWidth = (width-scale*width)/2;
     var zoomHeight = (height-scale*height)/2;
+
+    var zoom = d3.behavior.zoom()
+        .scaleExtent([0.1, 5])
+        .translate([zoomWidth,zoomHeight])
+        .scale(scale)
+        .on("zoom", move);
 
     //Assings the svg canvas to the map div
     var svg = d3.select("#map").append("svg")
             .attr("width", width)
             .attr("height", height)
-            .attr("transform", "translate("+zoomWidth+","+zoomHeight+") scale("+scale+")")   // Center map when map is loaded
             .call(zoom);
+
+    var g = svg.append("g")
+            .attr("transform", "translate("+zoomWidth+","+zoomHeight+") scale("+scale+")");
+    var d = svg.append("d");
 
     // Deselect all on click
     svg.on("click", function() {
@@ -49,8 +51,6 @@ function map(data) {
         });
     });
 
-    var g = svg.append("g");
-    var d = svg.append("d");
 
     //Sets the map projection
     var projection = d3.geo.mercator()
