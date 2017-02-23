@@ -149,17 +149,7 @@ function map(data) {
                         //console.log(allCircles[0]);
 
                         this.classList.add("selected");
-                        displaySelected();
-                        /*
-                        alert(
-                                "Name: " + d.name + "\n" +
-                                "Date: " + d.date + "\n" +
-                                "Testing party: "  + d.testingParty + "\n" +
-                                "Coords: " + d.coords + "\n" +
-                                "Site: " + d.site + "\n" +
-                                "Yield (Kt): " + d.yieldKilotons + "\n"
-                        );
-                        */
+                        displaySelected(d);
                         d3.event.stopPropagation();
                     });
     };
@@ -226,13 +216,21 @@ function map(data) {
         document.getElementById("isr-count").innerHTML =    cCount["Israel"];
     }
 
-    function displaySelected(){
-        var selected = document.querySelectorAll(".selected");
-        $("#myModal").modal();
+    function displaySelected(d){
 
-        [].forEach.call(selected, function(el) {
-
-        });
+        mod = $("#infoModal");
+        modTitle = $("#infoModal .modal-title");
+        modBody = $("#infoModal .modal-body");
+        modTitle.html("Test name: " + d.name);
+        modBody.html(
+                    "Date: " + d.date + '<br />' +
+                    "Testing party: "  + d.testingParty + '<br />' +
+                    "Coords: " + d.coords + '<br />' +
+                    "Site: " + d.site + '<br />' +
+                    "Yield: " + d.yieldKilotons +" Kt" + '<br />'
+        )
+        // Display modal
+        mod.modal();
     }
 
     //Zoom and panning method
