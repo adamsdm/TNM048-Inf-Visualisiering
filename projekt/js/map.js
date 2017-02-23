@@ -217,18 +217,92 @@ function map(data) {
     }
 
     function displaySelected(d){
+        var sites = {
+            "ANM": "Alamogordo, New Mexico, USA (US atmospheric test)",
+            "HRJ": "Hiroshima, Japan (US/warfare)",
+            "NGJ": "Nagasaki, Japan (US/warfare)",
+            "BKN": "Bikini (US atmospheric tests)",
+            "ENW": "Enwetak (US atmospheric tests)",
+            "CNV": "Centra Nevada (US underground test)",
+            "NTS": "Nevada Test Site, Nevada, USA (US atmospheric and underground and UK underground tests)",
+            "FMT": "Farmington, Colorado (US underground natural gas stimulation test)",
+            "MBI": "Monte Bello Islands, Australia (UK atmospheric test)",
+            "EMU": "Emu Field, 480 kilometers SW of Woomera, Australia (UK atmospheric tests)",
+            "PAC": "Various Pacific Ocean sites",
+            "MAR": "Maralinga, Australia (UK atmospheric tests)",
+            "CHR": "Christmas Island (UK and US atmospheric tests)",
+            "NZ" : "Novaya Zemlya, USSR (USSR atmospheric and underground tests)",
+            "KTS": "Eastern Kazakh or Semipalitinsk test site, USSR (USSR atmospheric and underground tests)",
+            "REG": "Reggane Proving Grounds, Algeria (French Atmospheric Tests)",
+            "ECK": "Ecker, Algeria (French Underground tests)",
+            "CLS": "Carlsbad, New Mexico, USA (US underground test)",
+            "JON": "Johnston Island (US atmospheric tests)",
+            "FAL": "Fallon, Nevada, USA (US underground test)",
+            "LNR": "Lop Nor, PRC (PRC atmospheric and underground tests)",
+            "AMC": "Amchitka Island, Aleutians, Alaska, USA (US underground tests)",
+            "MUR": "Muruora Is. (French atmospheric and underground tests)",
+            "FAN": "Fangataufa Is. (French atmospheric and underground tests)",
+            "HTB": "Hattiesburg, Mississippi, USA (US underground tests)",
+            "GRV": "Grand Valley, Colorado, USA (US natural gas stimulation)",
+            "RAJ": "Rajasthan Desert, India (Indian underground test)",
+            "?IN": "Indian Ocean (putative Israeli Test)",
+            "RFL": "Rifle, Colorado, USA (3x33kt simultaneous gas stimulation shots)",
+            "SAT": "South Atlantic Ocean (three US tests, rocket to 482 kilometers altitude)",
+            "MAL": "Malden Island (UK atmospheric tests)",
+            "KPY": "Kapustin Yar (USSR)",
+            "SYS": "Sary Shagan (USSR)"
+        };
 
-        mod = $("#infoModal");
-        modTitle = $("#infoModal .modal-title");
-        modBody = $("#infoModal .modal-body");
-        modTitle.html("Test name: " + d.name);
-        modBody.html(
-                    "Date: " + d.date + '<br />' +
-                    "Testing party: "  + d.testingParty + '<br />' +
-                    "Coords: " + d.coords + '<br />' +
-                    "Site: " + d.site + '<br />' +
-                    "Yield: " + d.yieldKilotons +" Kt" + '<br />'
+        var types = {
+            "AIRD": "Airdrop",
+            "ART" : "Artillery shell",
+            "ATMO": "In or above the atmosphere",
+            "BALN": "Balloon",
+            "BARG": "Barge",
+            "CRAT": "Crater",
+            "RC"  : "Roman candle=open vertical shaft",
+            "ROCK": "Rocket",
+            "SHFT": "Stemmed vertical shaft",
+            "SS1" : "Simultaneous shot in shaft 1",
+            "SS2" : "Simultaneous shot in shaft 2",
+            "SSn" : "Simultaneous shot in shaft n",
+            "SURF": "Surface (unknown but probably not airdropped, near surface)",
+            "TOWR": "Yower",
+            "TUNN": "Yunnel",
+            "UNDW": "Underwater"
+        }
+
+        var purposes = {
+            "WR": "Weapons related", 
+            "**": "War", 
+            "WE": "Weapons effects", 
+            "SF": "Safety",
+            "PS": "Plowshare (US PNE engineering shots)",
+            "VU": "US Vela Uniform-directed toward seismic detection of underground shots"
+        }
+
+        var mod = $("#infoModal");
+        var modTitle = $("#infoModal .modal-title");
+        var modBody = $("#infoModal .modal-body");
+
+        var name=d.name, date = format.parse(d.date), tp = d.testingParty,
+            site=sites[d.site], yiel=d.yieldKilotons, type = types[d.type],
+            purpose = purposes[d.purpose];
+
+        if(name.length==0) name = "No name";
+
+        console.log(d);
+        modTitle.html("Test name: " + name);
+        modBody.html("<p>" +
+                    "Date: " + date + '<br />' +
+                    "Testing party: "  + tp + '<br />' +
+                    "Site: " + site + '<br />' +
+                    "Yield: " + yiel +" Kt" + '<br />' +
+                    "Purpose: " + purpose + '<br />' +
+                    "Type: " + type + '<br />' +
+                    "</p>"
         )
+        
         // Display modal
         mod.modal();
     }

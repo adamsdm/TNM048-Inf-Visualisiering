@@ -43,24 +43,30 @@ function slider(data) {
         var endDate = timestamp('1995-12-31');
 
         var timer = setInterval(function(){
+            var slide1 = +dateSlider.noUiSlider.get()[0];
+            var slide2 = +slide1 + (4*365*24*60*60*1000);
             
-            if(!that.isPlaying || slide2 >= endDate) // = 1995-12-31
+            console.log(slide2 > endDate);
+            if(!(that.isPlaying) || slide2 >= endDate){ // = 1995-12-31
+                
+                that.isPlaying = false;
+                document.getElementById("play").innerHTML = "PLAY";
                 clearInterval(timer);
+            }
 
-            var slide1 = +dateSlider.noUiSlider.get()[0] + (30*24*60*60*1000);
-            var slide2 = +slide1+(4*365*24*60*60*1000);
-
+            slide1 += (30*24*60*60*1000);
             dateSlider.noUiSlider.set([slide1, slide2]);
         }, 50);
     }
     
     document.getElementById("play").onclick = function(){
+        that.isPlaying = !that.isPlaying;
+
         if(that.isPlaying){
-            this.innerHTML = "PLAY";
-            that.isPlaying = false;
-        } else {
             this.innerHTML = "PAUSE";
-            that.isPlaying = true
+            
+        } else {
+            this.innerHTML = "PLAY";
         };
 
         
