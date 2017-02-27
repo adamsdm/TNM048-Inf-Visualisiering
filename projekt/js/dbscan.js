@@ -1,23 +1,30 @@
-  function DBScan(d, eps, minPts){
+    /**
+    * DBSCAN algorithm
+    * @param d = starting points
+    * @param eps = Max distance inside cluster
+    * @param minPts = Min pts in a cluster 
+    */
 
-        for (var i = 0; i < d.length; i++){
-            if (!d[p].isVisited)
+function DBScan(d, eps, minPts){
+    for (var i = 0; i < d.length; i++){
+        if (!d[p].isVisited)
+        {
+            d[p].isVisited = true;
+
+            neighbourPts = regionQuery(d[i], eps);
+
+            if(neighbourPts.length < minPts)
+                d[p].noise = true;
+            else
             {
-                d[p].isVisited = true;
-
-                neighbourPts = regionQuery(d[i], eps);
-
-                if(neighbourPts.length < minPts)
-                    d[p].noise = true;
-                else
-                {
-                    c = []; //should be next cluster
-                    expandCluster(d[p], neighbourPts, c, eps, minPts);
-                }
+                c = []; //should be next cluster
+                expandCluster(d[p], neighbourPts, c, eps, minPts);
             }
         }
     }
 
+
+    // Help functions
     function regionQuery(p, eps){
         var clusterPoints = [];
         clusterPoints.push(p);
@@ -31,6 +38,7 @@
 
         return clusterPoints;
     }
+
 
     function expandCluster(p, neighbourPts, c, eps, minPts){
         c.push(p);
@@ -51,3 +59,6 @@
     function euclideanDistance(p1, p2){
         return Math.sqrt(Math.pow(p1,2) + Math.pow(p2,2));
     }
+
+}
+
