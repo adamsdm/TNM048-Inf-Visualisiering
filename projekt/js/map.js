@@ -174,17 +174,13 @@ function map(data) {
         }
     };
 
-    //Calls k-means function and changes the color of the points
-    d.cluster = function () {
-        k = document.getElementById("k").value;
-        if(k>10) k=10; // Only allow for 10
+    
 
-        kmeans(geoData.features, k);
-        g.selectAll("circle")
-            .attr("fill", (d) =>{
-                return colors[d.cluster];
-            })
-    };
+    //Calls DBSCAN and changes the color of the points
+    document.getElementById("cluster").onclick = function(){
+        console.log("Clustering...");
+    }
+
 
     // Updates the counters
     function updateCounters(){

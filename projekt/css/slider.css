@@ -5,6 +5,13 @@
   left: 20px;
 }
 
+#cluster{
+  position: fixed;
+  z-index: 4;
+  bottom: 20px;
+  right: 20px;
+}
+
 #slider{
   position:fixed;
   bottom: 10px;
@@ -12,6 +19,7 @@
   right:0;
   margin: 14px;
   margin-left: 40px;
+  margin-right: 65px;
 }
 
 #slider-date{
