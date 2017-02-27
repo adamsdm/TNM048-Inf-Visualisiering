@@ -26,14 +26,22 @@ function DBScan(d, eps, minPts){
             dData.clustering.isVisited = true;
 
             neighbourPts = regionQuery(d[i], eps);
+            console.log(neighbourPts);
+            debugger;
 
-
-            if(neighbourPts.length > minPts){ 
+            if(neighbourPts.length > minPts){
+                debugger;
                 c[cind] = [];
                 expandCluster(d[i], neighbourPts, c[cind], eps, minPts);
                 cind ++;
             }
         }
+    }
+
+    console.log(c);
+
+    function displayCluster(){
+
     }
 
 

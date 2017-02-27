@@ -179,8 +179,8 @@ function map(data) {
     //Calls DBSCAN and changes the color of the points
     document.getElementById("cluster").onclick = function(){
         var d = g.selectAll("circle")[0];
-        var eps = 100;
-        var minPts = 3;
+        var eps = 2;
+        var minPts = 8;
 
         DBScan(d, eps, minPts);
     }
