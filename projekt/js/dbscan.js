@@ -16,7 +16,8 @@ function DBScan(d, eps, minPts){
         dData.clustering.cluster = -1;
     })
 
-
+    var c = [];
+    var cind = 0;
     // Start the clustering
     for (var i = 0; i < d.length; i++){
         var dData = d[i].__data__;
@@ -27,9 +28,10 @@ function DBScan(d, eps, minPts){
             neighbourPts = regionQuery(d[i], eps);
 
 
-            if(neighbourPts.length > minPts){
-                c = []; //should be next cluster
-                expandCluster(d[p], neighbourPts, c, eps, minPts);
+            if(neighbourPts.length > minPts){ 
+                c[cind] = [];
+                expandCluster(d[i], neighbourPts, c[cind], eps, minPts);
+                cind ++;
             }
         }
     }
@@ -52,8 +54,9 @@ function DBScan(d, eps, minPts){
 
     function expandCluster(p, neighbourPts, c, eps, minPts){
         c.push(p);
+        var initLength = neighbourPts.length;
 
-        for (var i = 0; i < neighbourPts.length; i++){
+        for (var i = 0; i < initLength; i++){
             if(!neighbourPts[i].isVisited)
             {
                 neighbourPts[i].isVisited = true;
