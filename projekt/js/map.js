@@ -174,11 +174,13 @@ function map(data) {
         }
     };
 
-    
+
 
     //Calls DBSCAN and changes the color of the points
     document.getElementById("cluster").onclick = function(){
-        var d=[], eps=100, minPts=3;
+        var d = g.selectAll("circle")[0];
+        var eps = 100;
+        var minPts = 3;
 
         DBScan(d, eps, minPts);
     }
@@ -267,9 +269,9 @@ function map(data) {
         }
 
         var purposes = {
-            "WR": "Weapons related", 
-            "**": "War", 
-            "WE": "Weapons effects", 
+            "WR": "Weapons related",
+            "**": "War",
+            "WE": "Weapons effects",
             "SF": "Safety",
             "PS": "Plowshare (US PNE engineering shots)",
             "VU": "US Vela Uniform-directed toward seismic detection of underground shots"
@@ -299,7 +301,7 @@ function map(data) {
                     "<b>Type:</b> " + type + '<br />' +
                     "</p>"
         )
-        
+
         // Display modal
         mod.modal();
 
