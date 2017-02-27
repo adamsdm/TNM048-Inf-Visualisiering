@@ -588,7 +588,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 650414 131402.6 USNTS CRAT            4.3 37.26N  116.54W  PS       PALANQUIE
 650421 220003.4 USNTS TUNN  5.0       <20 36.97N  116.23W  WE       GUM DROPE
 650422          USNTS SHFT            <20                  WR       CHENILLEE
-650423 214400.0 USNTS SHFT  3.7       <20 37.017N 115.995  WR       MUSCOVY E
+650423 214400.0 USNTS SHFT  3.7       <20 37.017N 115.995W WR       MUSCOVY E
 650507 154711.3 USNTS SHFT            <20 37.14N  116.10W  WE       TEE     E
 650511 063957.3 CPKTSDUNDG  4.9       <20 49.770N 077.994E     GR           A
 650512 18150.04 USNTS SHFT            <20 37.2N   116.5W   WR       BUTEO   E

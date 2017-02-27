@@ -26,7 +26,7 @@ fs.readFile(input, 'utf8', function (err,contents) {
         obj.testingParty    = getCountry(line.substring(16, 18).replace(/ /g,''));
         obj.site            = line.substring(18, 21).replace(/ /g,'');
         obj.subsite         = line.substring(21, 22).replace(/ /g,'');
-        obj.type            = line.substring(23, 27).replace(/ /g,'');
+        obj.type            = line.substring(22, 27).replace(/ /g,'');
         obj.bodyMagnitude   = line.substring(28, 31).replace(/ /g,'');
         obj.surfMagnitude   = line.substring(32, 35).replace(/ /g,'');
         obj.yieldKilotons   = formatYield(line.substring(36, 41).replace(/ /g,''));
