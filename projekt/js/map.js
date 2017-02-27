@@ -178,7 +178,9 @@ function map(data) {
 
     //Calls DBSCAN and changes the color of the points
     document.getElementById("cluster").onclick = function(){
-        console.log("Clustering...");
+        var d=[], eps=100, minPts=3;
+
+        DBScan(d, eps, minPts);
     }
 
 

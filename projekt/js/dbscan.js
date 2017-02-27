@@ -1,11 +1,12 @@
-    /**
-    * DBSCAN algorithm
-    * @param d = starting points
-    * @param eps = Max distance inside cluster
-    * @param minPts = Min pts in a cluster 
-    */
+/**
+* DBSCAN algorithm
+* @param d = starting points
+* @param eps = Max distance inside cluster
+* @param minPts = Min pts in a cluster 
+*/
 
 function DBScan(d, eps, minPts){
+    
     for (var i = 0; i < d.length; i++){
         if (!d[p].isVisited)
         {
