@@ -178,7 +178,7 @@ function map(data) {
     document.getElementById("cluster").onclick = function(){
         var d = g.selectAll("circle")[0];
         var eps = 50;
-        var minPts = 8;
+        var minPts = 20;
         var noClusters = 1000;
 
         DBScan(d, eps, minPts, noClusters);

@@ -60,7 +60,7 @@ function DBScan(d, eps, minPts, noSamples){
 
     console.timeEnd("Clustering");
 
-
+    console.log(c);
     displayCluster(c);
 
 
@@ -68,7 +68,6 @@ function DBScan(d, eps, minPts, noSamples){
     // Help functions
     function displayCluster(c){
         d.forEach(function(p){
-            console.log(p.__data__.clustering.cluster);
             if(p.__data__.clustering.cluster == -1){
                 p.style.fill = "darkgray";
                 p.style.display = 0.2;
@@ -92,11 +91,12 @@ function DBScan(d, eps, minPts, noSamples){
 
     function expandCluster(p, neighbourPts, c, eps, minPts, cInd){
 
-        if(!p.isMember)
+        if(!p.__data__.clustering.isMember){
             c.push(p);
-        var initLength = neighbourPts.length;
+            p.__data__.clustering.isMember = true;
+        }
 
-        for (var i = 0; i < initLength; i++){
+        for (var i = 0; i < neighbourPts.length; i++){
             if(!neighbourPts[i].__data__.clustering.isVisited)
             {
                 neighbourPts[i].__data__.clustering.isVisited = true;
