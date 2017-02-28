@@ -32,7 +32,6 @@ console.time("cluster");
             if(neighbourPtsind.length > minPts){
 
                 c[cind] = [];
-                console.log("nytt cluster");
                 expandCluster(d[i], c[cind], eps, minPts, neighbourPtsind);
                 cind ++;
             }
