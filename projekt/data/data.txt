@@ -304,7 +304,7 @@ yymmdd hhmmss.    SITE      mb  Ms   kt.   deg     deg       DT    tNAME    SRC
 611027 083026.6 CPNZ  ATMO         20-150 70.700N 053.500E                  N
 611027          CPSYS ATMO             <5                                   N
 611029          USNTS SHFT            LOW                  WR       MINK    E
-611030 083300.0 CPNZ  ATMO          58000 73.000N 055.000E                  N
+611030 083300.0 CPNZ  ATMO          58000 73.000N 055.000E          TSARBOMBN
 611031 082900.0 CPNZ  ATMO          >1000 73.000N 055.000E                  N
 611031 083800.0 CPNZ  ATMO          <1000 73.000N 055.000E                  N
 611102 084100.0 CPNZ               20-150 73.000N 055.000E                  N

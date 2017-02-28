@@ -6,8 +6,8 @@ function map(data) {
     var height = mapDiv.height();
 
     var format = d3.time.format.utc("%Y%m%d");
-
-
+    var countryData;
+    var isClustered = false;
 
     //initialize tooltip
     var tooltip = d3.select("body")
@@ -60,8 +60,8 @@ function map(data) {
 
     //Loads geo data
     d3.json("data/world-topo.json", function (error, world) {
-        var countries = topojson.feature(world, world.objects.countries).features;
-        draw(countries);
+        countryData = topojson.feature(world, world.objects.countries).features;
+        draw(countryData);
     });
 
     // Scale for defining radius
@@ -176,12 +176,23 @@ function map(data) {
 
     //Calls DBSCAN and changes the color of the points
     document.getElementById("cluster").onclick = function(){
-        var d = g.selectAll("circle")[0];
-        var eps = 50;
-        var minPts = 20;
-        var noSamples = 1000;
+        isClustered = !isClustered;       
 
-        DBScan(d, eps, minPts, noSamples);
+        if(isClustered){
+            var d = g.selectAll("circle")[0];
+            var eps = 50;
+            var minPts = 20;
+            var noSamples = 1000;
+
+            this.innerHTML = "RESET";
+            DBScan(d, eps, minPts, noSamples);
+            
+
+        } else {
+            this.innerHTML = "CLUSTER";
+            g.selectAll("circle").remove();
+            draw(countryData);
+        }
     }
 
 

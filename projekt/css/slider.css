@@ -3,6 +3,7 @@
   z-index: 4;
   bottom: 20px;
   left: 20px;
+  width: 58px;
 }
 
 #cluster{
@@ -10,6 +11,7 @@
   z-index: 4;
   bottom: 20px;
   right: 20px;
+  width: 74px;
 }
 
 #slider{
