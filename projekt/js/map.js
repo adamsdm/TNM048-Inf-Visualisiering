@@ -185,8 +185,15 @@ function map(data) {
             var noSamples = 1000;
 
             this.innerHTML = "RESET";
-            DBScan(d, eps, minPts, noSamples);
-            
+
+            $( "#cluster-load" ).fadeIn( "slow", function() {
+                // When fade in is done
+                DBScan(d, eps, minPts, noSamples); 
+            });
+
+            // Fade out when DBSCAN is finished
+            $( "#cluster-load" ).fadeOut( "slow" );
+    
 
         } else {
             this.innerHTML = "CLUSTER";

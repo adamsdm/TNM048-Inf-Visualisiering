@@ -6,7 +6,6 @@
 */
 
 function DBScan(d, eps, minPts, noSamples){
-    console.time("Clustering");
 
     if(noSamples > d.length){
         console.error("To many sample points");
@@ -62,6 +61,7 @@ function DBScan(d, eps, minPts, noSamples){
 
     console.log(c);
     displayCluster();
+    
 
 
 
