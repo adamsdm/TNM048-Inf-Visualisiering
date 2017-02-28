@@ -21,8 +21,6 @@ function map(data) {
     //Sets the colormap
     var colors = colorbrewer.Set3[10];
 
-    console.log(window.innerWidth);
-
     var scale = window.innerWidth/6000;
     var zoomWidth = (width-scale*width)/2;
     var zoomHeight = (height-scale*height)/2;
@@ -179,10 +177,11 @@ function map(data) {
     //Calls DBSCAN and changes the color of the points
     document.getElementById("cluster").onclick = function(){
         var d = g.selectAll("circle")[0];
-        var eps = 2;
+        var eps = 50;
         var minPts = 8;
+        var noClusters = 1000;
 
-        DBScan(d, eps, minPts);
+        DBScan(d, eps, minPts, noClusters);
     }
 
 

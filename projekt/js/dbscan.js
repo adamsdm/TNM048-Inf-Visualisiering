@@ -5,7 +5,13 @@
 * @param minPts = Min pts in a cluster
 */
 
-function DBScan(d, eps, minPts){
+function DBScan(d, eps, minPts, noSamples){
+    console.time("Clustering");
+
+    if(noSamples > d.length){
+        console.error("To many sample points");
+        return;
+    }
 
     // Add clustering data to each circles data
     d.forEach(function(d){
@@ -16,64 +22,93 @@ function DBScan(d, eps, minPts){
         dData.clustering.cluster = -1;
     })
 
+
+
+    var samplePoints = [];
+    var indices = [];
+
+    while( indices.length < noSamples ){
+        var ind = Math.floor(Math.random() * (d.length-1) );
+
+        if(! _.contains(indices, ind)){ //if index is not already in
+            indices.push(ind);
+        }
+
+        samplePoints.push(d[ind]);
+
+    }
+
+
     var c = [];
     var cind = 0;
     // Start the clustering
-    for (var i = 0; i < d.length; i++){
-        var dData = d[i].__data__;
+    for (var i = 0; i < samplePoints.length; i++){
+        var dData = samplePoints[i].__data__;
 
         if (!dData.clustering.isVisited) {
             dData.clustering.isVisited = true;
 
-            neighbourPts = regionQuery(d[i], eps);
-            console.log(neighbourPts);
-            debugger;
+            neighbourPts = regionQuery(samplePoints[i], eps);
 
             if(neighbourPts.length > minPts){
-                debugger;
                 c[cind] = [];
-                expandCluster(d[i], neighbourPts, c[cind], eps, minPts);
+                expandCluster(samplePoints[i], neighbourPts, c[cind], eps, minPts, cind);
                 cind ++;
             }
         }
     }
 
-    console.log(c);
+    console.timeEnd("Clustering");
 
-    function displayCluster(){
 
-    }
+    displayCluster(c);
 
 
 
     // Help functions
+    function displayCluster(c){
+        d.forEach(function(p){
+            console.log(p.__data__.clustering.cluster);
+            if(p.__data__.clustering.cluster == -1){
+                p.style.fill = "darkgray";
+                p.style.display = 0.2;
+            }
+        })
+    }
+
+
     function regionQuery(p, eps){
         var clusterPoints = [];
         clusterPoints.push(p);
 
-        for (var i = 0; i < d.length; i++){
-            if (euclideanDistance(d[i], p) <= eps)
-                clusterPoints.push(d[i]);
+        for (var i = 0; i < samplePoints.length; i++){
+            if (euclideanDistance(samplePoints[i], p) <= eps)
+                clusterPoints.push(samplePoints[i]);
         }
 
         return clusterPoints;
     }
 
 
-    function expandCluster(p, neighbourPts, c, eps, minPts){
-        c.push(p);
+    function expandCluster(p, neighbourPts, c, eps, minPts, cInd){
+
+        if(!p.isMember)
+            c.push(p);
         var initLength = neighbourPts.length;
 
         for (var i = 0; i < initLength; i++){
-            if(!neighbourPts[i].isVisited)
+            if(!neighbourPts[i].__data__.clustering.isVisited)
             {
-                neighbourPts[i].isVisited = true;
+                neighbourPts[i].__data__.clustering.isVisited = true;
                 var neighbourPts2 = regionQuery(neighbourPts[i], eps);
                 if (neighbourPts2.length >= minPts)
                     neighbourPts = neighbourPts.concat(neighbourPts2); //join the 2 areas
             }
-            if(!neighbourPts[i].isMember)
+            if(!neighbourPts[i].__data__.clustering.isMember){
                 c.push(neighbourPts[i]);
+                neighbourPts[i].__data__.clustering.isMember = true;
+                neighbourPts[i].__data__.clustering.cluster = cInd;
+            }
         }
     }
 
