@@ -61,18 +61,18 @@ function DBScan(d, eps, minPts, noSamples){
     console.timeEnd("Clustering");
 
     console.log(c);
-    displayCluster(c);
+    displayCluster();
 
 
 
     // Help functions
-    function displayCluster(c){
+    function displayCluster(){
         d.forEach(function(p){
             if(p.__data__.clustering.cluster == -1){
                 p.style.fill = "darkgray";
-                p.style.display = 0.2;
+                p.style.opacity = 0.2;
             }
-        })
+        });
     }
 
 
@@ -94,6 +94,7 @@ function DBScan(d, eps, minPts, noSamples){
         if(!p.__data__.clustering.isMember){
             c.push(p);
             p.__data__.clustering.isMember = true;
+            p.__data__.clustering.cluster = cInd;
         }
 
         for (var i = 0; i < neighbourPts.length; i++){

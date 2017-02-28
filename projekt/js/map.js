@@ -179,9 +179,9 @@ function map(data) {
         var d = g.selectAll("circle")[0];
         var eps = 50;
         var minPts = 20;
-        var noClusters = 1000;
+        var noSamples = 1000;
 
-        DBScan(d, eps, minPts, noClusters);
+        DBScan(d, eps, minPts, noSamples);
     }
 
 
