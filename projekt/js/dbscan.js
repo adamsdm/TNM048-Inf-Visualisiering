@@ -5,14 +5,8 @@
 * @param minPts = Min pts in a cluster
 */
 
-function DBScan(d, eps, minPts, noSamples){
-    console.time("Clustering");
-
-    if(noSamples > d.length){
-        console.error("To many sample points");
-        return;
-    }
-
+function DBScan(d, eps, minPts){
+console.time("cluster");
     // Add clustering data to each circles data
     d.forEach(function(d){
         var dData = d.__data__;
@@ -22,93 +16,74 @@ function DBScan(d, eps, minPts, noSamples){
         dData.clustering.cluster = -1;
     })
 
-
-
-    var samplePoints = [];
-    var indices = [];
-
-    while( indices.length < noSamples ){
-        var ind = Math.floor(Math.random() * (d.length-1) );
-
-        if(! _.contains(indices, ind)){ //if index is not already in
-            indices.push(ind);
-        }
-
-        samplePoints.push(d[ind]);
-
-    }
-
-
     var c = [];
     var cind = 0;
     // Start the clustering
-    for (var i = 0; i < samplePoints.length; i++){
-        var dData = samplePoints[i].__data__;
+    for (var i = 0; i < d.length; i++){
+        var dData = d[i].__data__;
 
         if (!dData.clustering.isVisited) {
             dData.clustering.isVisited = true;
 
-            neighbourPts = regionQuery(samplePoints[i], eps);
+            var neighbourPts = [];
+            var neighbourPtsind = regionQuery(i, eps);
 
-            if(neighbourPts.length > minPts){
+
+            if(neighbourPtsind.length > minPts){
+
                 c[cind] = [];
-                expandCluster(samplePoints[i], neighbourPts, c[cind], eps, minPts, cind);
+                console.log("nytt cluster");
+                expandCluster(d[i], c[cind], eps, minPts, neighbourPtsind);
                 cind ++;
             }
         }
     }
 
-    console.timeEnd("Clustering");
+    console.log(c);
+console.timeEnd("cluster");
+    function displayCluster(){
 
-
-    displayCluster(c);
+    }
 
 
 
     // Help functions
-    function displayCluster(c){
-        d.forEach(function(p){
-            console.log(p.__data__.clustering.cluster);
-            if(p.__data__.clustering.cluster == -1){
-                p.style.fill = "darkgray";
-                p.style.display = 0.2;
-            }
-        })
-    }
-
-
     function regionQuery(p, eps){
         var clusterPoints = [];
-        clusterPoints.push(p);
 
-        for (var i = 0; i < samplePoints.length; i++){
-            if (euclideanDistance(samplePoints[i], p) <= eps)
-                clusterPoints.push(samplePoints[i]);
+        for (var i = 0; i < d.length; i++){
+            if (euclideanDistance(d[i], d[p]) <= eps)
+                clusterPoints.push(i);
         }
 
         return clusterPoints;
     }
 
 
-    function expandCluster(p, neighbourPts, c, eps, minPts, cInd){
-
-        if(!p.isMember)
+    function expandCluster(p, c, eps, minPts, neighbourPtsind){
+        if(!p.isMember){
             c.push(p);
-        var initLength = neighbourPts.length;
+        }
+
+        var initLength = neighbourPtsind.length;
+
 
         for (var i = 0; i < initLength; i++){
-            if(!neighbourPts[i].__data__.clustering.isVisited)
+            var tempData = d[neighbourPtsind[i]].__data__;
+            //console.log(d[neighbourPtsind[i]].__data__.clustering.isVisited);
+            if(!tempData.clustering.isVisited)
             {
-                neighbourPts[i].__data__.clustering.isVisited = true;
-                var neighbourPts2 = regionQuery(neighbourPts[i], eps);
+                tempData.clustering.isVisited = true;
+                var neighbourPts2 = regionQuery(neighbourPtsind[i], eps);
                 if (neighbourPts2.length >= minPts)
-                    neighbourPts = neighbourPts.concat(neighbourPts2); //join the 2 areas
+                    neighbourPtsind = neighbourPtsind.concat(neighbourPts2); //join the 2 areas
             }
-            if(!neighbourPts[i].__data__.clustering.isMember){
-                c.push(neighbourPts[i]);
-                neighbourPts[i].__data__.clustering.isMember = true;
-                neighbourPts[i].__data__.clustering.cluster = cInd;
+            if(!tempData.isMember){
+                c.push(d[neighbourPtsind[i]]);
+                tempData.clustering.isMember = true;
+
             }
+                
         }
     }
 
