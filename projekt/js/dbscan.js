@@ -6,7 +6,7 @@
 */
 
 function DBScan(d, eps, minPts, noSamples){
-
+    console.time("clustering");
     if(noSamples > d.length){
         console.error("To many sample points");
         return;
@@ -49,7 +49,7 @@ function DBScan(d, eps, minPts, noSamples){
 
             neighbourPts = regionQuery(samplePoints[i], eps);
 
-            if(neighbourPts.length > minPts){
+            if(neighbourPts.length >= minPts){
                 c[cind] = [];
                 expandCluster(samplePoints[i], neighbourPts, c[cind], eps, minPts, cind);
                 cind ++;
@@ -62,7 +62,7 @@ function DBScan(d, eps, minPts, noSamples){
     console.log(c);
     displayCluster();
     
-
+    console.timeEnd("clustering");
 
 
     // Help functions
