@@ -46,7 +46,6 @@ function slider(data) {
             var slide1 = +dateSlider.noUiSlider.get()[0];
             var slide2 = +slide1 + (4*365*24*60*60*1000);
             
-            console.log(slide2 > endDate);
             if(!(that.isPlaying) || slide2 >= endDate){ // = 1995-12-31
                 
                 that.isPlaying = false;

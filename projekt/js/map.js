@@ -18,9 +18,6 @@ function map(data) {
     var filterdData = data;
     updateCounters();
 
-    //Sets the colormap
-    var colors = colorbrewer.Set3[10];
-
     var scale = window.innerWidth/6000;
     var zoomWidth = (width-scale*width)/2;
     var zoomHeight = (height-scale*height)/2;
